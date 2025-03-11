@@ -456,17 +456,6 @@ background-color: rgb(0, 0, 0);
   font-weight: 700;
   font-family: "Poppins", serif;
   }
-
-
-  .about-back {
-    position: relative; /* Ensures pseudo-element positions relative to this div */
-    background-image: url("../../public/image/2151037180.jpg");
-    background-position: center;
-    background-size: cover;
-    height: 800px;
-    background-repeat: no-repeat;
-    overflow: hidden; /* Prevents pseudo-element from overflowing */
-  }
   
   .about-back::before {
     content: "";

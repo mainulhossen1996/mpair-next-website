@@ -69,8 +69,9 @@ const Principle = () => {
   }, [sectionHeight]);
 
   return (
-    <div className="bg-black">
-      <div className="relative pt-20"  ref={containerRef}
+    <div className="bg-[#101012]">
+    
+      <div className="relative py-20"  ref={containerRef}
         style={{ height: `${sectionHeight}px` }}>
         <div className="sticky top-16 border-gray-800">
         <div
@@ -80,9 +81,16 @@ const Principle = () => {
               <span className="text-[80px] text-white">Product Design</span>
             </p>
 
-            <p className="text-[340px] outline-text4 font-semibold text-[#000000] m-0 leading-3 absolute -z-10 right-0 top-[180px]">
+            <p className="text-[340px] outline-text4 font-semibold text-[#101012] m-0 leading-3 absolute -z-10 right-0 top-[180px]">
               UI/UX
             </p>
+
+            <Image
+       src="/image/spring_roll.png"
+       height={400}
+       width={400}
+       className="h-[300px] absolute -left-20 -bottom-[450px] -z-10 object-contain"
+       />
 
             
 
@@ -94,7 +102,7 @@ const Principle = () => {
             {principles.map((principle) => (
               <div
                 key={principle.id}
-                className="principle-item w-[500px] flex-shrink-0 bg-[#101010] px-6 pb-12"
+                className="principle-item w-[500px] flex-shrink-0 bg-[#000000] px-6 pb-12"
                 
               >
                 <p className=" text-gray-800 font-thin text-[100px]">
@@ -117,6 +125,7 @@ const Principle = () => {
             ))}
           </div>
         </div>
+        
       </div>
     </div>
   );

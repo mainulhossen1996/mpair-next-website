@@ -58,11 +58,11 @@ const Articles = () => {
        
         </div>
         
-        <div className="flex justify-between gap-16 mt-10">
+        <div className="flex justify-between gap-10 mt-10">
           {cardsData.map(({ key, image, title, shortbfief, time, label }, index) => (
             <div
               key={key}
-              className=" w-4/12 rounded-3xl border-t hover:border-blue-950 border-gray-800 p-4"
+              className=" w-4/12 rounded-3xl border-t hover:border-blue-950 border-gray-800 hover:bg-gray-900 p-4 pt-6"
             >
                 
               <div
@@ -76,7 +76,7 @@ const Articles = () => {
                   {shortbfief}
                 </p>
                 <span className="text-[12px] rounded-full px-2 py-1 text-gray-300 mt-4 bg-blue-900 border border-blue-600">
-                    {time}
+                    {label}
                 </span>
   
               </div>

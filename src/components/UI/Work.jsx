@@ -12,6 +12,7 @@ const projects = [
       images:
         "/image/UI-Principle/Information.png",
       bgColor: "#ffffff",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
     },
     {
       id: 2,
@@ -21,6 +22,8 @@ const projects = [
       images:
         "/image/UI-Principle/Information.png",
       bgColor: "#ffffff",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+   
     },
     {
       id: 3,
@@ -30,6 +33,8 @@ const projects = [
       images:
         "/image/UI-Principle/Information.png",
       bgColor: "#ffffff",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+   
     },
     {
       id: 4,
@@ -39,6 +44,8 @@ const projects = [
       images:
         "/image/UI-Principle/Information.png",
       bgColor: "#ffffff",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+   
     },
     {
       id: 5,
@@ -48,6 +55,8 @@ const projects = [
       images:
         "/image/UI-Principle/Information.png",
       bgColor: "#ffffff",
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+   
     },
   ];
 
@@ -78,22 +87,24 @@ const Work = () => {
           className="sticky top-32 h-[550px] px-6 rounded-3xl text-white flex w-10/12 mx-auto border"
           style={{ backgroundColor: project.bgColor }}
         >
-          <div className="flex gap-10 pt-6 w-full">
-            <p className="text-[14px] text-gray-600 font-Code w-2/12">Project 0{project.id}</p>
-            <div className="w-10/12">
-              <div className="flex items-center gap-10 mb-6">
-                <p className="text-2xl text-gray-800">{project.title}</p>
-                <div className="flex gap-4 items-center">
+          <div className="flex gap-10 pt-6 w-full justify-between">
+            <div className='w-5/12'>
+            <p className="text-[14px] text-gray-600 font-Code">Project 0{project.id}</p>
+
+            <p className="text-2xl text-gray-800 mt-10">{project.title}</p>
+            <div className="flex gap-4 items-center my-2">
                   {project.categories.map((category, index) => (
                     <span
                       key={index}
-                      className="h-[30px] rounded-full px-6 py-[5px] bg-[#262626] text-sm text-gray-300"
+                      className="h-[28px] text-[13px] rounded-full px-4 py-[5px] bg-[#e0e6eb] text-gray-600"
                     >
                       {category}
                     </span>
                   ))}
                 </div>
-              </div>
+                <p className='text-gray-800 mt-10 text-md'>{project.description}</p>
+            </div>
+            <div className="w-7/12">
 
               <div className="flex">
                 <div className="w-full">
@@ -102,7 +113,7 @@ const Work = () => {
                     width={800}
                     height={500}
                     alt=""
-                    className="h-[440px] w-full rounded-xl object-cover"
+                    className="h-[500px] w-full rounded-xl object-cover"
                   />
                 </div>
               </div>

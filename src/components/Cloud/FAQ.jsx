@@ -42,7 +42,7 @@ const FAQ = () => {
     <div className='rounded-3xl'>
         <div className='flex gap-10'>
             <div className='w-4/12'>
-                <p className='text-[70px] font-semibold text-blue-700'>All The A’s To Your Q’s</p>
+                <p className='text-[70px] font-semibold text-blue-600'>All The A’s To Your Q’s</p>
             </div>
 
             <div className='w-8/12'>

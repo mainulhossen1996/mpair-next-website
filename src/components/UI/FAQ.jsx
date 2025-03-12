@@ -11,40 +11,65 @@ const FAQ = () => {
   
     const faqs = [
       {
-        question: "How does UX studio differ from other UX and web design agencies?",
+        question: "Do you design for both websites and mobile apps?",
         answer:
-          "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs without leaving your HTML.",
+          "Yes! We specialize in creating user-friendly designs for websites, mobile apps (Android & iOS), and SaaS platforms, ensuring smooth experiences across all devices.",
       },
       {
-        question: "Do you work with startups or only with B2B/enterprise companies?",
+        question: "Can you handle both UI/UX design and development?",
         answer:
-          "The accordion toggles visibility of content panels by tracking the active index in state.",
+          "Yes, we provide end-to-end solutions, including UI/UX design and development.",
       },
       {
-        question: "Does your UX design agency help with product redesign?",
+        question: "What is your design process like?",
         answer:
-          "Yes, Tailwind CSS is highly customizable. You can extend or override its default configurations.",
+          "We follow a structured process: Discovery, Wireframing, Prototyping, Visual Design, and Feedback Iterations, ensuring transparency at every step.",
       },
       {
-        question: "How do you handle working in different time zones?",
+        question: "What deliverables can we expect from your UX design process?",
         answer:
-          "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs without leaving your HTML.",
+          "You’ll receive wireframes, interactive prototypes, high-fidelity designs, and a detailed design system, ensuring a seamless transition to development.",
       },
       {
-        question: "How quickly can you start my UX design project?",
+        question: "Do you provide clickable prototypes for user testing?",
         answer:
-          "The accordion toggles visibility of content panels by tracking the active index in state.",
+          "Absolutely! We create interactive prototypes that allow you to test user flows and gather feedback before development.",
+      },
+      {
+        question: "Can you redesign an existing app or website?",
+        answer:
+          "AAbsolutely! We can analyze your current design, identify areas for improvement, and create a fresh, modern look that enhances usability and engagement.",
+      },
+      {
+        question: "How soon can you start working on our project?",
+        answer:
+          "We can typically start within 1-2 weeks after discussing your requirements and aligning on a project plan.",
+      },
+      {
+        question: "Can you work with startups or small businesses?",
+        answer:
+          "Yes! We love working with startups and small businesses. We create designs that fit your budget while delivering professional, user-friendly experiences that help your brand grow.",
+      },
+      {
+        question: "Will you work with our in-house design or development team?",
+        answer:
+          "Yes, we can collaborate with your in-house teams, aligning our designs with your processes and ensuring a smooth handoff for development.",
+      },
+      {
+        question: "How do I get started with your UI/UX design services?",
+        answer:
+          "Getting started is simple! Just contact us through our website or email. We’ll discuss your project, understand your needs, and create a plan to deliver the best design for your business.",
       },
     ];
 
 
   return (
-    <div>
+    <div className="pt-32">
         <div className='max-w-screen-xl mx-auto mb-36'>
             <div className='rounded-3xl'>
                 <div className='flex gap-10'>
                     <div className='w-4/12'>
-                        <p className='text-[70px] font-semibold text-blue-700'>All The A’s To Your Q’s</p>
+                        <p className='text-[70px] font-semibold text-blue-600'>All The A’s To Your Q’s</p>
                     </div>
 
                     <div className='w-8/12'>
@@ -53,7 +78,7 @@ const FAQ = () => {
                         {faqs.map((faq, index) => (
         <div
           key={index}
-          className="border-b w-full border-gray-900"
+          className="border-b w-full border-gray-200"
         >
           <p
             className="p-4 flex justify-between items-center cursor-pointer"
@@ -78,8 +103,8 @@ const FAQ = () => {
             </svg>
           </p>
           {activeIndex === index && (
-            <div className="p-4 text-gray-300">
-              <p className="font-thin">{faq.answer}</p>
+            <div className="p-4 text-gray-600">
+              <p className="font-light">{faq.answer}</p>
             </div>
           )}
         </div>

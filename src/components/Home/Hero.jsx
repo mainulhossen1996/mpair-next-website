@@ -62,7 +62,7 @@ const Hero = () => {
               Automate Your <span className="font-medium relative inline-block">
         <span className=" text-blue-700 font-semibold">Business</span>
        
-    </span> <br /> through<span className="font-medium font-tinos-italic "> B2B</span> Collaboration
+    </span> <br /> through<span className="font-medium font-crimson-italic "> B2B</span> Collaboration
             </h1>
             <p className="text-2xl font-normal  text-gray-600 leading-snug mb-5">
               Experience rapid business growth with mPair Technologies through our<br /> integrated approach and expert solutions.

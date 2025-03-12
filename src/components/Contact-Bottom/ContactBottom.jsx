@@ -11,7 +11,7 @@ const ContactBottom = () => {
 <div className='flex flex-col items-center'>
 
     <div className=''>
-    <p className='font-thin text-[100px] text-gray-800 text-start mb-4 leading-[110px]'>
+    <p className='font-thin text-[90px] text-gray-800 text-start mb-4 leading-[110px]'>
     Have any service queries?
     </p>
     </div>

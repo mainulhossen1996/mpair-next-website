@@ -10,7 +10,7 @@ const Principle = () => {
        
      <div className="flex flex-col lg:flex-row items-center gap-16">
       <div className='w-4/12 '>
-      <p className="text-[60px] font-medium">Our Principles For Your <span className='font-tinos-italic'>
+      <p className="text-[60px] font-medium">Our Principles For Your <span className='font-crimson-italic'>
         Business</span></p>
         <p className="text-gray-800 text-lg mt-4">Our principles define who we are, guiding how we develop innovative technology that enhances people's lives and relationships.</p>
         

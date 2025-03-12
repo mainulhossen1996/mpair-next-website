@@ -33,15 +33,15 @@ const Article = () => {
   ];
 
   return (
-    <div className="bg-article pt-0 pb-24">
-      <div className="max-w-screen-xl mx-auto">
-        <p className="text-[55px] font-semibold text-center text-white">
+    <div className="bg-article pt-10 pb-24 ">
+      <div className="max-w-screen-xl mx-auto pt-10 rounded-t-[80px] border-t border-gray-700">
+        <p className="text-[50px] font-medium text-center text-white">
           Article For Your Business
         </p>
-        <p className="text-gray-500 text-xl font-light text-center mb-3 px-36">
+        <p className="text-gray-400 text-xl font-light text-center mb-3 px-36">
         Boost your business growth with insightful articles that engage your audience, enhance brand visibility, and drive meaningful connections.
         </p>
-        <div className="flex flex-col justify-center items-center lg:flex-row gap-4 mt-10">
+        <div className="flex flex-col justify-center items-center lg:flex-row gap-4 mt-10 px-10">
           {cardsData.map(({ key, image, title, time, label }, index) => (
             <Card
               key={key}
@@ -59,7 +59,7 @@ const Article = () => {
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-            >
+            > 
               <div
                 className={`relative text-gray-300 mt-36 ${
                   index === 0 && hoveredIndex === null ? "line-clamp-none" : ""
@@ -72,7 +72,7 @@ const Article = () => {
                     {time}
                 </p>
                 <p
-                  className={`font-bold text-2xl ${
+                  className={`font-medium text-xl ${
                     index === 0 && hoveredIndex === null
                       ? ""
                       : "line-clamp-3 hover:line-clamp-none"

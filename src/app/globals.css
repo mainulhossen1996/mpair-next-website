@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -43,16 +43,18 @@ body {
 .font-tinos{
   font-family: "Tinos", serif;
 }
-.font-tinos-italic {
-  font-family: "Tinos", serif;
+.font-crimson-italic {
+  font-family: "Crimson Pro", serif;
   font-style: italic;
 }
 
-#navBar{
-  background: rgba(255, 255, 255, 0.705);
-  backdrop-filter: blur(25px);
+.navBar{
+  background: rgb(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(25px);
   border-radius: 100px;
+  box-shadow: 0px 0px 10px 0px rgb(189, 209, 227);
+  
   }
 
   .bg-dark {
@@ -111,25 +113,22 @@ body {
   } */
 
   .home-hero-back{
-    background-image: url("../../public/image/noise-back.png");
-    background-size: contain;
-    background-position: bottom left;
+    background-image: url("../../public/image/hero-back-noise.svg");
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
   }
 
   .ui-hero-bg{
-    background-color:hsla(226,0%,0%,1);
+    background-color:hsla(0,0%,0%,1);
     background-image:
-    radial-gradient(at 30% 61%, hsla(205,33%,9%,1) 0px, transparent 50%),
-    radial-gradient(at 39% 100%, hsla(133,0%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 46% 1%, hsla(225,100%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(287,45%,4%,1) 0px, transparent 50%),
-    radial-gradient(at 51% 20%, hsla(227,100%,16%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 62%, hsla(11,0%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 66% 41%, hsla(80,100%,28%,1) 0px, transparent 50%),
-    radial-gradient(at 0% 99%, hsla(0,100%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 99% 99%, hsla(0,100%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, hsla(240,100%,4%,1) 0px, transparent 50%);
+    radial-gradient(at 52% 0%, hsla(222,100%,12%,1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(0,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 98% 69%, hsla(231,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 70% 100%, hsla(212,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 32% 100%, hsla(266,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(342,0%,0%,1) 0px, transparent 50%);
   }
   .seo-back{
     background-color:hsla(0,0%,0%,1);
@@ -261,14 +260,15 @@ radial-gradient(at 0% 0%, hsla(221,92%,6%,1) 0px, transparent 50%);
   }
 
   .bg-article{
-    background-color:hsla(234,38%,5%,1);
-    background-image:
-    radial-gradient(at 0% 0%, hsla(204,0%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 78% 0%, hsla(0,0%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 77% 28%, hsla(221,100%,21%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(220,0%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(0,0%,0%,1) 0px, transparent 50%),
-    radial-gradient(at 100% 52%, hsla(0,2%,1%,1) 0px, transparent 50%);
+ background-color:hsla(0,0%,0%,1);
+background-image:
+radial-gradient(at 40% 20%, hsla(20,0%,0%,1) 0px, transparent 50%),
+radial-gradient(at 80% 0%, hsla(185,0%,0%,1) 0px, transparent 50%),
+radial-gradient(at 0% 50%, hsla(355,0%,0%,1) 0px, transparent 50%),
+radial-gradient(at 98% 69%, hsla(231,0%,0%,1) 0px, transparent 50%),
+radial-gradient(at 70% 67%, hsla(214,100%,12%,1) 0px, transparent 50%),
+radial-gradient(at 32% 100%, hsla(270,100%,8%,1) 0px, transparent 50%),
+radial-gradient(at 0% 0%, hsla(342,0%,0%,1) 0px, transparent 50%);
   }
   .header-text{
     font-size: 6rem;
@@ -444,7 +444,7 @@ background-color: rgb(0, 0, 0);
 
   .outline-text4{
     -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #1f1f1f;
+  -webkit-text-stroke-color: #16161f;
   font-style: italic!important;
   font-weight: 700;
   }

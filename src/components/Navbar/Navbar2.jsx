@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar2 = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState({ service: "tab1", product: "tab1" });
   const [dropdownState, setDropdownState] = useState({ service: false, product: false });
@@ -76,12 +76,12 @@ const Navbar = () => {
     <>
     <div className="absolute top-3 left-0 right-0 z-50">
       <div
-        className="max-w-screen-xl mx-auto py-4 flex justify-between items-center relative rounded-full transition-all duration-300"
+        className="max-w-screen-xl mx-auto py-4 flex justify-between items-center relative  transition-all duration-300"
         
         id="navBar"
       >
         <Link href="/home" className="ps-6">
-          <img className="h-[30px] w-auto object-contain" src="/image/mPair.png" alt="mPair Technologies" height={300} width={300}/>
+          <img className="h-[30px] w-auto object-contain" src="/image/Logo-White.svg" alt="mPair Technologies" height={300} width={300}/>
         </Link>
   
         <div className="hidden md:flex gap-10 items-center">
@@ -105,11 +105,11 @@ const Navbar = () => {
     {/* Fixed center-item section */}
     <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 p-5 px-10 transition-all duration-300
     ${
-      shadow ? " navBar" : ""
+      shadow ? "navBar text-gray-800" : "text-white"
     }`}>
       <div className="hidden md:flex gap-12 center-item">
         <div className="relative" ref={dropdownRef}>
-          <div onClick={() => toggleDropdown('service')} className="font-medium cursor-pointer text-[14px] text-gray-800 hover:text-[#008CFF]" aria-expanded={dropdownState.service}>
+          <div onClick={() => toggleDropdown('service')} className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF]" aria-expanded={dropdownState.service}>
             Service
           </div>
   
@@ -152,7 +152,7 @@ const Navbar = () => {
         </div>
   
         <div className="relative" ref={dropdownRefPro}>
-          <div onClick={() => toggleDropdown('product')} className="font-medium cursor-pointer text-[14px] text-gray-800 hover:text-[#008CFF]" aria-expanded={dropdownState.product}>
+          <div onClick={() => toggleDropdown('product')} className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF]" aria-expanded={dropdownState.product}>
             Product
           </div>
   
@@ -193,9 +193,9 @@ const Navbar = () => {
           )}
         </div>
   
-        <Link href="/client" className={`font-medium hover:text-[#008CFF] text-[14px] ${pathname === "/client" ? "text-[#008CFF]" : "text-gray-800"}`}>Work</Link>
-        <Link href="/about" className={`font-medium hover:text-[#008CFF] text-[14px] ${pathname === "/about" ? "text-[#008CFF]" : "text-gray-800"}`}>We Are</Link>
-        <Link href="/" className={`font-medium hover:text-[#008CFF] text-[14px] ${pathname === "/" ? "text-[#008CFF]" : "text-gray-800"}`}>Career</Link>
+        <Link href="/client" className={`font-medium hover:text-[#008CFF] text-[14px] ${pathname === "/client" ? "text-[#008CFF]" : ""}`}>Work</Link>
+        <Link href="/about" className={`font-medium hover:text-[#008CFF] text-[14px] ${pathname === "/about" ? "text-[#008CFF]" : ""}`}>We Are</Link>
+        <Link href="/" className={`font-medium hover:text-[#008CFF] text-[14px] ${pathname === "/" ? "text-[#008CFF]" : ""}`}>Career</Link>
       </div>
     </div>
   
@@ -216,4 +216,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

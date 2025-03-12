@@ -126,7 +126,7 @@ const teamMembers = [
           className="fixed-head sticky top-0 left-0 z-10 w-full h-screen flex items-center justify-center pointer-events-none"
           style={{ opacity: isFixedHeadVisible ? 1 : 0.5, transition: 'opacity 0.2s' }}
         >
-          <p className="text-center font-extralight text-[120px]"><span className='font-tinos-italic'>We Are</span> mPair</p>
+          <p className="text-center font-extralight text-[120px]"><span className='font-crimson-italic'>We Are</span> mPair</p>
         </div>
   
         <div className="scroll-member relative overflow-y-scroll pt-[10vh] scrollbar-hidden" ref={scrollMemberRef}>

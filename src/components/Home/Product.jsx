@@ -219,7 +219,7 @@ const Product = () => {
     <div className="relative py-24 product-bg">
       <div className="mb-6 max-w-screen-xl mx-auto">
         <h1 className="text-[60px] font-medium">
-          Our <span className="font-tinos-italic">Products</span> For Your<br/>
+          Our <span className="font-crimson-italic">Products</span> For Your<br/>
           Business
         </h1>
         <p className="mb-3 font-regular text-xl  text-gray-500">
@@ -236,28 +236,26 @@ const Product = () => {
       <div className="max-w-screen-xl mx-auto mt-10 grid grid-cols-4 border-s gap-0">
   {tabs.map((tab, index) => (
     <div
-    key={tab.name}
-    ref={(el) => (refs.current[index] = el)}
-    data-tab-name={tab.name}
-    onMouseEnter={() => setActiveTab(tab.name)}
-    onMouseLeave={() => setActiveTab(null)}
-    className=" bg-white border-e  h-[32rem]"
-     
-  >
-      {activeTab === tab.name ? (
-        <div className="">
-          <div className="">
-            {tab.value}
-          </div>
-        </div>
-      ) : (
-        <div className="">
+      key={tab.name}
+      ref={(el) => (refs.current[index] = el)}
+      data-tab-name={tab.name}
+      onMouseEnter={() => setActiveTab(tab.name)}
+      onMouseLeave={() => setActiveTab(null)}
+      className="bg-white border-e h-[32rem] flex items-center justify-center relative"
+    >
+      {/* Initially visible content */}
+      <div className={`absolute transition-all duration-300 ${activeTab === tab.name ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}>
         {tab.component}
-        </div>
-      )}
+      </div>
+
+      {/* Content on hover */}
+      <div className={`absolute transition-all duration-300 ${activeTab === tab.name ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+        {tab.value}
+      </div>
     </div>
   ))}
 </div>
+
     </div>
   );
 };

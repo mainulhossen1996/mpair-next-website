@@ -69,14 +69,14 @@ const Principle = () => {
   }, [sectionHeight]);
 
   return (
-    <div className="">
-      <div className="relative"  ref={containerRef}
+    <div className="bg-black">
+      <div className="relative pt-20"  ref={containerRef}
         style={{ height: `${sectionHeight}px` }}>
         <div className="sticky top-16 border-gray-800">
         <div
   className="max-w-screen-xl mx-auto items-center flex justify-between py-10 relative">
             <p className="text-[60px] font-medium text-gray-400">
-              Our <span className="font-tinos-italic">Principle</span> of <br />
+              Our <span className="font-crimson-italic">Principle</span> of <br />
               <span className="text-[80px] text-white">Product Design</span>
             </p>
 

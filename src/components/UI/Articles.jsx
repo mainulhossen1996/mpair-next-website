@@ -33,7 +33,7 @@ const Articles = () => {
   ];
 
   return (
-    <div className="py-32">
+    <div className="py-32 bg-black">
       <div className="max-w-screen-xl mx-auto">
         <div className="flex justify-between">
             <div>

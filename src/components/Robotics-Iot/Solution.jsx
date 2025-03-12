@@ -4,12 +4,13 @@ import Image from "next/image";
 
 const Solution = () => {
   return (
+    <div className="bg-black">
     <div className='max-w-screen-xl mx-auto py-36'>
         <div className="">
         <div className="flex justify-between items-center">
-            <div><p className="text-[60px] font-semibold"><span className="text-[40px] text-gray-400">Explore</span>  <br/>Our Solutions</p></div>
+            <div><p className="text-[60px] font-medium text-white"><span className="text-[40px] text-gray-300">Explore</span>  <br/>Our Solutions</p></div>
             <div className="w-1/2">
-                <p className="text-lg text-gray-400">mPair Technologies assures better solutions for Embedded & Industrial revolution. The fourth industrial revolution is on the way that should make life easier, better and more productive. A simple idea can change the future but perfect execution of the idea is more important for the revolution.</p>
+                <p className="text-lg font-light text-gray-400">mPair Technologies assures better solutions for Embedded & Industrial revolution. The fourth industrial revolution is on the way that should make life easier, better and more productive. A simple idea can change the future but perfect execution of the idea is more important for the revolution.</p>
             </div>
         </div>
         <div className="flex flex-col lg:flex-row justify-center justify-between gap-10 pt-20">
@@ -66,6 +67,7 @@ const Solution = () => {
         </div> 
       </div>
         </div>
+    </div>
     </div>
   )
 }

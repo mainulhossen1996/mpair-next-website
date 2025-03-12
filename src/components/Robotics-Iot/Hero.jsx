@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className='robotic-hero-bg pt-36'>
         <div className="max-w-screen-xl mx-auto">
-        <p className='text-[90px] text-center font-regular'>
+        <p className='text-[70px] text-center font-light text-white'>
         Fourth Industrial Revolution <br/> by Robotic Automation
         </p>
 <div className="flex justify-center">

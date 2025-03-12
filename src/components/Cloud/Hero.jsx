@@ -45,9 +45,9 @@ const Hero = () => {
     <div className="bg-cloud-main">
       <div className="max-w-screen-xl mx-auto pt-36">
         <div className="rounded-3xl flex flex-col items-center pt-10 pb-24">
-          <p className="text-[100px] font-semibold">
+          <p className="text-[80px] font-semibold">
             {" "}
-            We <span className="text-blue-600"># </span>Develop
+            We <span className="text-blue-600">#Develop</span>
           </p>
           <div className="w-9/12 mx-auto">
             <div className="relative overflow-hidden w-full">
@@ -60,36 +60,35 @@ const Hero = () => {
                     key={index}
                     className="font-medium text-[80px] text-center whitespace-nowrap mx-2"
                   >
-                    <p className="text-black outline-text3">{tab.label}</p>
+                    <p className="text-[#ffffff00] outline-text3">{tab.label}</p>
                   </div>
                 ))}
               </motion.div>
 
-              <div className="scroll-fade scroll-fade-left text-[80px] text-blue-700 font-semibold ">
+              <div className="scroll-fade scroll-fade-left-white text-[80px] text-blue-700 font-semibold ">
                 {"{"}
               </div>
 
-              <div className="scroll-fade scroll-fade-right text-[80px] text-blue-700 font-semibold flex justify-end">
+              <div className="scroll-fade scroll-fade-right-white text-[80px] text-blue-700 font-semibold flex justify-end">
                 {"}"}
               </div>
             </div>
           </div>
 
-          <p className="text-center text-2xl text-gray-400 pt-10">
-            Utilizing the latest web technologies, Team mPair will provide you
-            the <br />
-            best and innovative Cloud & Software solution.
+          <p className="text-center text-lg font-medium text-gray-800 pt-10">
+          From the initial spark of an idea to achieving market dominance, we work alongside you,<br/>carefully navigating every stage of product development to ensure innovation, efficiency, and lasting success.
+            
           </p>
         </div>
 
         <div className="flex gap-6 justify-between mx-auto w-4/5 pb-20">
-          <div className="bg-gradient-to-b from-[#141414] to-black rounded-2xl h-[220px] w-full p-4 pt-6">
+          <div className="bg-gradient-to-b from-[#eff0f3] to-white rounded-2xl h-[220px] w-full p-4 pt-6">
             <p className="text-3xl font-semibold">
               10+
             </p>
             <p className="text-xl">Software Enginners & Developers</p>
             <p className="text-sm mt-4">
-              We have 6 in house software developers and 5+ remote developers.
+              We have 7 in house software engineers and 5+ remote developers.
             </p>
           </div>
 
@@ -101,7 +100,7 @@ const Hero = () => {
                 width={400}/>
           </div>
 
-          <div className="bg-gradient-to-b from-[#141414] to-black rounded-t-full h-[220px] w-full pt-6 p-4">
+          <div className="bg-gradient-to-b from-[#eff0f3] to-white rounded-t-full h-[220px] w-full pt-6 p-4">
           <p className="text-3xl text-center font-semibold">
               30+
             </p>
@@ -110,7 +109,7 @@ const Hero = () => {
               We have 6 in house software developers and 5+ remote developers.
             </p>
           </div>
-          <div className="bg-gradient-to-b from-[#141414] to-black rounded-t-full h-[220px] w-full pt-6 p-4">
+          <div className="bg-gradient-to-b from-[#eff0f3] to-white rounded-t-full h-[220px] w-full pt-6 p-4">
           <p className="text-3xl text-center font-semibold">
               4+
             </p>

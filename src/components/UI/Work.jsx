@@ -80,7 +80,7 @@ const Work = () => {
             src="/image/glass-star.png"
             height={300}
             width={300}
-            className='h-[200] object-contain absolute -top-20 left-72 rotate-12'
+            className='h-[200] object-contain absolute -top-20 left-[320px] rotate-12'
             />
             </div>
             </div>

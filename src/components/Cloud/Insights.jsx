@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 const achievements = [
   { id: 1, text: "2 ERP Developed" },
   { id: 2, text: "2 SaaS Developed" },
-  { id: 3, text: "6 Ecommerce Developed" },
-  { id: 4, text: "15+ Websites Designed" },
+  { id: 3, text: "6 E-commerce Developed" },
+  { id: 4, text: "15+ Web APP Developed" },
 ];
 
 const slides = [
@@ -36,11 +36,12 @@ const Insights = () => {
   const duplicatedSlidesrev = [...slidesrev, ...slidesrev];
 
   return (
+    <div className="bg-black">
     <div className="max-w-screen-xl mx-auto">
-      <div className="pt-10 pb-36 relative">
+      <div className="pt-10 pb-24 relative">
         <div>
-          <p className="font-semibold text-[50px] text-center mt-10">
-            We Build like the best
+          <p className="font-regular text-[50px] text-center mt-10 text-white">
+          We Build with <span className="text-[60px] font-crimson-italic">Excellence,</span><br/>Innovate for Success
           </p>
           <div className="flex gap-6 py-12">
             <div className="w-6/12 ">
@@ -50,7 +51,7 @@ const Insights = () => {
                     <p className="text-[30px] text-white">
                       Technology We Offer
                     </p>
-                    <p className="text-md font-thin text-gray-400">
+                    <p className="text-md font-light text-gray-400">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Dolor possimus doloribus accusamus error.
                 </p>
@@ -146,16 +147,16 @@ const Insights = () => {
                   Islami Bank Bangladesh PLC.
                 </p>
               </div>
-              <div className="card-back-bg hover:bg-gray-700 p-6 rounded-xl h-[155px]">
-                <p className="text-[20px] my-2">ERP Development</p>
-                <p className="text-sm font-thin text-gray-400">
+              <div className="card-back-bg p-6 rounded-xl h-[155px]">
+                <p className="text-[20px] mb-2 text-white">ERP Development</p>
+                <p className="text-sm font-light text-gray-400">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Dolor possimus doloribus accusamus error.
                 </p>
               </div>
             </div>
             <div className="flex flex-col gap-4 w-3/12">
-              <div className="border border-gray-800 rounded-xl card-back-bg hover:bg-gray-700 h-[450px] pt-10">
+              <div className="border border-gray-800 rounded-xl card-back-bg  h-[450px] pt-10">
                 <Image
                   src="/image/web-browser.png"
                   height={300}
@@ -163,7 +164,7 @@ const Insights = () => {
                   alt=""
                   className="w-[180px] object-contain px-6 justify-start"
                 />
-                <p className="text-[15px] font-thin text-gray-300 px-6 py-2">
+                <p className="text-[15px] font-light text-gray-300 px-6 py-2">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Dolor possimus doloribus accusamus error.
                 </p>
@@ -173,7 +174,7 @@ const Insights = () => {
                     {achievements.map((achievement) => (
                       <li
                         key={achievement.id}
-                        className="flex items-center text-md"
+                        className="flex items-center text-md text-white"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -198,6 +199,7 @@ const Insights = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

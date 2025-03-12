@@ -15,8 +15,9 @@ const page = () => {
      <Work/>
      <Principle/>
      <Articles/>
-     <ContactBottom/>
      <FAQ/>
+     <ContactBottom/>
+    
      
     </>
   );

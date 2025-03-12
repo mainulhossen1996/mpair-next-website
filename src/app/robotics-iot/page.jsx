@@ -14,8 +14,9 @@ const page = () => {
     <Hero/>
     <Solution/>
     <How/>
-    <ContactBottom/>
     <FAQ/>
+    <ContactBottom/>
+    
     </>
   );
 };

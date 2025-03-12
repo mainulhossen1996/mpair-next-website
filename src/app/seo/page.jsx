@@ -15,8 +15,9 @@ const page = () => {
     <Portfolio/>
     <Service/>
     <Insight/>
-    <ContactBottom/>
     <FAQ/>
+    <ContactBottom/>
+    
     </>
   );
 };

@@ -27,21 +27,17 @@ const teamMembers = [
       imageSrc: "/image/Yeasin.jpg",
     },
     {
+      name: "Muntasir Hasan",
+      role: "Product Visualizer Jr. Project Manager",
+      imageSrc: "/image/muntasir.png",
+    },
+    {
       name: "Apu Ullah",
       role: "Public Relationship Officer",
       imageSrc: "/image/Apu.jpeg",
     },
-    {
-        name: "Muntasir Hasan",
-        role: "Product Visualizer Jr. Project Manager",
-        imageSrc: "/image/muntasir.png",
-      },
-      
-      {
-        name: "Shahid Afridi",
-        role: "Software Engineer",
-        imageSrc: "/image/eshan2.png",
-      },
+
+
       {
         name: "Abdullah Kaisar Sabbir",
         role: "Software Engineer",
@@ -50,25 +46,26 @@ const teamMembers = [
       {
         name: "Mahmuda Sultana",
         role: "Software Engineer",
-        imageSrc: "/image/eshan2.png",
+        imageSrc: "/image/female2.png",
+      },
+      {
+        name: "Kazi Nafis Tasin",
+        role: "Digital Marketer",
+        imageSrc: "/image/tasin2.jpg",
       },
       {
         name: "Mariya Sultana",
         role: "Software Engineer",
-        imageSrc: "/image/eshan2.png",
+        imageSrc: "/image/female.png",
       },
 
       {
-        name: "Sahil",
+        name: "Asif Ahmed Sahil",
         role: "Software Engineer",
         imageSrc: "/image/eshan2.png",
       },
       
-      {
-        name: "Tasin",
-        role: "Digital Marketer",
-        imageSrc: "/image/tasin2.jpg",
-      },
+      
   ];
 
   const Executive = () => {
@@ -131,16 +128,16 @@ const teamMembers = [
   
         <div className="scroll-member relative overflow-y-scroll pt-[10vh] scrollbar-hidden" ref={scrollMemberRef}>
           <div className="max-w-screen-xl mx-auto">
-            <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-16 my-[50px]">
+            <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-20 my-[50px]">
               {teamMembers.map((member, index) => (
                 <div key={index} className="my-4">
                   <div>
                     <Image
-                      className="w-full h-[370px] object-cover filter grayscale-[100%] hover:grayscale-0"
+                      className="w-full h-[350px] object-cover filter grayscale-[100%] hover:grayscale-0"
                       src={member.imageSrc}
                       alt={member.name}
-                      width={300}
-                      height={300}
+                      width={500}
+                      height={500}
                     />
                     <p className="text-xl font-bold mt-[20px]">{member.name}</p>
                     <p className="text-gray-400 text-[14px]">{member.role}</p>

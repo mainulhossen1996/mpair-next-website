@@ -23,42 +23,42 @@ Work You Can Experience – <br/>Where Ideas Meet Impact
 <div className='flex gap-20 mt-12'>
   <div>
         <div className='my-20'>
-          <div className='rounded-3xl recent-item-back mb-8'>
+          <div className='rounded-3xl recent-item-back mb-2'>
             <Image 
             alt=""
             src="/image/release/test.jpg"
-                className='object-cover h-[400px] w-[100%] rounded-3xl'
+                className='object-cover h-[400px] w-[100%]'
                 height={500}
                 width={500}/>
                 </div>
        
 
           <div className=''>
-            <p className=' mt-4 font-semibold text-2xl text-white'>
-              Tracking Follow-Up Consultancy of DGFP
+            <p className=' mt-4 font-medium text-2xl text-white'>
+            Tracking follow up consultancy of DGFP
             </p>
-            <p className='pt-6 text-lg pb-6 text-slate-300 font-thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium nulla consequuntur? Nihil rerum obcaecati quisquam ex dolorem</p>
+            <p className='pt-4 text-sm text-gray-300 font-light'>Streamlined attendance tracking and follow-up processes via a mobile app, enabling centralized and efficient monitoring for the Directorate General of Family Planning (DGFP).</p>
           <Button className='text-[#008CFF] hover:text-white px-0 mt-4 flex'><p>Learn More</p> <ArrowUpRight className="ml-1"/></Button>
          
           </div>
           </div>
 
           <div className='my-20'>
-          <div className='rounded-3xl recent-item-back mb-8'>
+          <div className='rounded-3xl recent-item-back mb-2'>
             <Image 
             alt=""
             src="/image/release/test.jpg"
-                className='object-cover h-[400px] w-[100%] rounded-3xl'
+                className='object-cover h-[400px] w-[100%]'
                 height={500}
                 width={500}/>
                 </div>
        
 
           <div className=''>
-            <p className=' mt-4 font-semibold text-2xl text-white'>
-              Tracking Follow-Up Consultancy of DGFP
+            <p className=' mt-4 font-medium text-2xl text-white'>
+            Assisting Doctors in Clinical Decisions for Ultrasound Diagnostics
             </p>
-            <p className='pt-6 text-lg pb-6 text-slate-300 font-thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium nulla consequuntur? Nihil rerum obcaecati quisquam ex dolorem</p>
+            <p className='pt-4 text-sm text-gray-300 font-light'>The K-LUS app, an initiative by the Mahidol Oxford Tropical Medicine Research Unit (MORU), assists doctors in lung ultrasound diagnostics by providing clinical decision support to ensure accurate and informed diagnoses.</p>
           <Button className='text-[#008CFF] hover:text-white px-0 mt-4 flex'><p>Learn More</p> <ArrowUpRight className="ml-1"/></Button>
          
           </div>
@@ -68,10 +68,10 @@ Work You Can Experience – <br/>Where Ideas Meet Impact
         <div>
         <div className='my-20'>
         <div className='mb-8'>
-            <p className=' mt-4 font-semibold text-2xl text-white'>
-              Tracking Follow-Up Consultancy of FPDB
+            <p className=' mt-4 font-medium text-2xl text-white'>
+            Enhancing School Management Efficiency with Full Automation
             </p>
-            <p className='pt-6 text-lg pb-6 text-slate-300 font-thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium nulla consequuntur? Nihil rerum obcaecati quisquam ex dolorem</p>
+            <p className='pt-4 text-sm text-gray-300 font-light'>A fully automated solution for paperless school management. From attendance to fees, academics to communication—streamlining operations for efficiency, transparency, and smarter collaboration.</p>
           <Button className='text-[#008CFF] hover:text-white px-0 mt-4 flex'><p>Learn More</p> <ArrowUpRight className="ml-1"/></Button>
          
           </div>
@@ -80,7 +80,7 @@ Work You Can Experience – <br/>Where Ideas Meet Impact
             <Image 
             alt=""
             src="/image/release/test.jpg"
-                className='object-cover h-[400px] w-[100%] rounded-3xl'
+                className='object-cover h-[400px] w-[100%]'
                 height={500}
                 width={500}/>
                 </div>
@@ -91,10 +91,10 @@ Work You Can Experience – <br/>Where Ideas Meet Impact
 
           <div className='my-20'>
         <div className='mb-8'>
-            <p className=' mt-4 font-semibold text-2xl text-white'>
-              Tracking Follow-Up Consultancy of FPDB
+            <p className=' mt-4 font-medium text-2xl text-white'>
+            Optimized Ecommerce Experience for Home Decor Brands
             </p>
-            <p className='pt-6 text-lg pb-6 text-slate-300 font-thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium nulla consequuntur? Nihil rerum obcaecati quisquam ex dolorem</p>
+            <p className='pt-4 text-sm text-gray-300 font-light'>A dynamic ecommerce platform for Dubai Curtain, enabling a seamless product showcase with high-quality visuals, and a user-friendly interface to enhance customer engagement.</p>
           <Button className='text-[#008CFF] hover:text-white px-0 mt-4 flex'><p>Learn More</p> <ArrowUpRight className="ml-1"/></Button>
          
           </div>
@@ -103,7 +103,7 @@ Work You Can Experience – <br/>Where Ideas Meet Impact
             <Image 
             alt=""
             src="/image/release/test.jpg"
-                className='object-cover h-[400px] w-[100%] rounded-3xl'
+                className='object-cover h-[400px] w-[100%]'
                 height={500}
                 width={500}/>
                 </div>

@@ -18,7 +18,7 @@ Make Life Easier</p>
   <div className="flex flex-col justify-center h-[500px] overflow-hidden rounded-[30px]">
 <video
         className="h-[700px] mt-4 mb-2"
-        src="/image/robotics.mp4"
+        src="/image/robotic.mp4"
         autoPlay
         loop
         muted
@@ -28,7 +28,7 @@ Make Life Easier</p>
       <div className="robotics-card h-[100px] w-[300px] absolute bottom-24 right-24 flex items-center gap-4 px-4">
         <div className="h-[50px] w-[50px] rounded-full overflow-hidden">
         <Image
-                className="w-[100px] object-cover rounded-full"
+                className="h-[50px] object-cover rounded-full"
                 src="/image/bot.webp"
                 alt="vector"
                 width={200}

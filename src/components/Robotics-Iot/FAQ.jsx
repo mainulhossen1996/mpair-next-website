@@ -62,7 +62,7 @@ const FAQ = () => {
 
   return (
     <div>
-        <div className='max-w-screen-xl mx-auto mb-36'>
+        <div className='max-w-screen-xl mx-auto my-36'>
             <div className='rounded-3xl'>
                 <div className='flex gap-10'>
                     <div className='w-4/12'>

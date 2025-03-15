@@ -62,7 +62,7 @@ const teamMembers = [
       {
         name: "Asif Ahmed Sahil",
         role: "Software Engineer",
-        imageSrc: "/image/eshan2.png",
+        imageSrc: "/image/sahil.jpeg",
       },
       
       
@@ -133,7 +133,7 @@ const teamMembers = [
                 <div key={index} className="my-4">
                   <div>
                     <Image
-                      className="w-full h-[350px] object-cover filter grayscale-[100%] hover:grayscale-0"
+                      className="w-full h-[370px] object-cover filter grayscale-[100%] hover:grayscale-0"
                       src={member.imageSrc}
                       alt={member.name}
                       width={500}

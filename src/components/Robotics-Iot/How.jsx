@@ -4,10 +4,8 @@ import Image from "next/image";
 
 const Solution = () => {
   return (
-    <div className='max-w-screen-xl mx-auto py-20'>
-        <div  className="py-20">
-        <div className="">
-        <div className="flex items-center">
+    <div className='max-w-screen-xl mx-auto py-32'>
+        <div className="flex items-center gap-20">
             
             <div className="w-1/2 pe-6"><p className="text-[60px] font-regular mb-4">How Robotics & Automation
 
@@ -25,7 +23,7 @@ Make Life Easier</p>
         playsInline
       />
       </div>
-      <div className="robotics-card h-[100px] w-[300px] absolute bottom-24 right-24 flex items-center gap-4 px-4">
+      <div className="robotics-card h-[100px] w-[300px] absolute bottom-24 right-12 flex items-center gap-4 px-4">
         <div className="h-[50px] w-[50px] rounded-full overflow-hidden">
         <Image
                 className="h-[50px] object-cover rounded-full"
@@ -40,9 +38,7 @@ Make Life Easier</p>
         <p className="text-xl font-semibold">Ideate The Future</p>
       </div>
       </div>
-        </div>
 
-        </div>
         </div>
     </div>
   )

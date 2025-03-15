@@ -14,7 +14,7 @@ const items = [
     title: "Google Ads",
     description:
       "Put your business at the top of Google search results with smart, high-performing Google Ads. We design campaigns that don’t just get clicks but drive meaningful results.",
-    image: "/image/business.png",
+    image: "/image/google-ads.png",
   },
   {
     title: "SEO",
@@ -63,13 +63,13 @@ const Service = () => {
           </div>
           <div className="flex gap-4 items-center">
             <div
-              className="flex bg-white rounded-full items-center justify-center h-[50px] w-[50px] cursor-pointer left-button"
+              className="flex bg-gray-100 rounded-full items-center justify-center h-[50px] w-[50px] cursor-pointer left-button"
               onClick={scrollLeft}
             >
               <FaArrowLeft fill="black" size={26} />
             </div>
             <div
-              className="flex bg-white rounded-full items-center justify-center h-[50px] w-[50px] cursor-pointer right-button"
+              className="flex bg-gray-100 rounded-full items-center justify-center h-[50px] w-[50px] cursor-pointer right-button"
               onClick={scrollRight}
             >
               <FaArrowRight fill="black" size={26} />

@@ -11,9 +11,9 @@ const Article = () => {
   const cardsData = [
     {
       key: 1,
-      image: "/image/release/test.jpg",
-      title: "Unmatched Expertise in Medical Tourism",
-      time: "12 Dec, 2024",
+      image: "/image/uiux.jpg",
+      title: "Why skipping UI/UX design could cost you more than you think",
+      time: "14 Mar, 2025",
       label: "UI/UX"
          },
     {
@@ -55,7 +55,7 @@ const Article = () => {
                   : "w-10/12 md:w-7/12 lg:w-4/12"
               } h-[350px] rounded-2xl p-6 bg-cover bg-center  transition-none duration-0 lg:transition-all lg:duration-500 lg:group  `}
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('${image}')`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url('${image}')`,
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}

@@ -24,7 +24,7 @@ const How = () => {
   );
 
   return (
-    <div className="bg-black">
+    <div className="bg-black lg:block hidden">
     <div className="relative overflow-hidden">
       <video
         className="absolute right-24 top-0 m-auto h-[500px] object-cover"

@@ -58,33 +58,33 @@ const Hero = () => {
       
         <div className="w-full mx-auto flex justify-center">
           <div className="items-center text-center lg:py-12 py-0 relative">
-            <h1 className="text-[80px] font-regular mb-2 tracking-tight">
+            <h1 className="lg:text-[80px] text-[40px] font-regular mb-2 tracking-tight">
               Automate Your <span className="font-medium relative inline-block">
         <span className=" text-blue-700 font-semibold">Business</span>
        
-    </span> <br /> through<span className="font-medium font-crimson-italic "> B2B</span> Collaboration
+    </span> <br /> Through<span className="font-medium font-crimson-italic"> B2B</span> Collaboration
             </h1>
-            <p className="text-2xl font-normal  text-gray-600 leading-snug mb-5">
+            <p className="lg:text-2xl text-[16px] lg:px-0 px-4 font-normal  text-gray-600 leading-snug mb-5">
               Experience rapid business growth with mPair Technologies through our<br /> integrated approach and expert solutions.
             </p>
 
             <Button className="relative bg-[#0077ff] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 mt-5 group">
   <span className="absolute inset-0 bg-[#0055ff]  transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
-  <span className="relative flex items-center">
+  <span className="relative flex items-center lg:text-xl text-sm">
     Let's Talk <ArrowUpRight className="ml-3" />
   </span>
 </Button>
 
-<div className="flex justify-center mt-10 mx-auto gap-2 items-center">
+<div className="flex justify-center mt-10 mx-auto gap-2 items-center lg:mb-0 mb-10">
   <a href="https://clutch.co/profile/mpair-technologies" target="_blank">
   <Image
             src="/image/clutch.png"
             width={150}
             height={200}
             alt=""
-            className="h-[30px] object-contain filter"
+            className="lg:h-[30px] h-[20px] object-contain filter"
             />
-            <p className="mt-[9px] font-semibold">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
+            <p className="mt-[9px] font-semibold lg:text-sm text-xs">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
   </a>
 
   <a href="https://g.co/kgs/6aa2r7W" target="_blank">
@@ -93,9 +93,9 @@ const Hero = () => {
             width={150}
             height={200}
             alt=""
-            className="h-[30px] object-contain filter"
+            className="lg:h-[30px] h-[24px] object-contain filter"
             />
-             <p className="mt-[9px] font-semibold">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
+             <p className="mt-[9px] font-semibold lg:text-sm text-xs">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
   </a>
 
 </div>
@@ -133,7 +133,7 @@ const Hero = () => {
 
       </div>
 
-      <div className="w-full mx-auto justify-center">
+      <div className="w-full mx-auto justify-center lg:mt-0 mt-6 hidden lg:block">
         {/* <p className="text-center mb-6 font-medium text-lg">Industry Excellence</p> */}
         <div className="">
         <div className="relative overflow-hidden w-full ">
@@ -144,7 +144,7 @@ const Hero = () => {
         {tabs.concat(tabs).map((tab, index) => (
           <div
             key={index}
-            className=" text-transparent outline-text3 flex items-center font-medium text-[100px] text-center whitespace-nowrap mx-2"
+            className=" text-transparent outline-text3 flex items-center font-medium lg:text-[90px] text-[60px] text-center whitespace-nowrap mx-2"
           >
             <p className="">
             {tab.label}

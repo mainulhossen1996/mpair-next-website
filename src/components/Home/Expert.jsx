@@ -62,33 +62,15 @@ const handleTabClick = (name, index) => {
   return (
     <div className="">
     <div className="max-w-screen-xl  mx-auto lg:flex">
-      <div className="border-r border-gray-300 border-dashed lg:sticky lg:top-0 lg:w-1/3 font-semibold pb-36">
+      <div className="border-r border-gray-300 border-dashed lg:sticky lg:top-0 lg:w-1/3 font-semibold lg:pb-36 pb-0">
         
 
-        {/* Mobile and Tablet Tabs */}
-        <div className="lg:hidden scrollbar-hidden overflow-x-auto whitespace-nowrap scrollbar-hide ">
-          
-          <ul className="list-none flex">
-            {tabs.map((tab, index) => (
-              <li
-                key={tab.name}
-                className={`cursor-pointer py-2 mr-4 inline-block px-2 ${activeTab === tab.name
-                  ? "border-b-2 border-grayishOlive font-bold"
-                  : ""
-                  }`}
-                onClick={() => handleTabClick(tab.name, index)}
-              >
-                <span className="flex gap-[22px]">{tab.name}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
         <div className="sticky top-24 overflow-y-auto">
-        <div className="my-10 relative">
+        <div className="lg:my-10 my-2 relative">
 
 
-        <h2 className='text-start text-[70px] text-gray-800 font-normal leading-[80px] mt-24 mb-6'><span className="text-[50px] font-light">Collaborating Business Through Our </span>Expertise</h2>
-        <p className="text-lg font-normal">Utilizing expertise to create innovative solutions and drive business goals.</p>
+        <h2 className='text-start lg:text-[70px] text-[30px] text-gray-800 font-normal lg:leading-[80px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-6 mb-2'><span className="lg:text-[50px] text-[30px] font-light">Collaborating Business Through Our </span>Expertise</h2>
+        <p className="lg:text-lg text-sm text-start font-normal lg:px-0 px-4">Utilizing expertise to create innovative solutions and drive business goals.</p>
         
         {/* <Image
         src="/image/connect.png"
@@ -130,14 +112,19 @@ const handleTabClick = (name, index) => {
           </ul> */}
         </div>
       </div>
-      {/* content section */}
+
+<div className="lg:hidden block">
+{tabs.map((tab, index) => (
+            <div>
+              {tab.component}
+            </div>
+          ))}
+</div>
       <div
         ref={contentWrapperRef}
         className="lg:w-2/3 pb-24 lg:pt-24 scrollbar-hidden overflow-y-auto"
       >
-        {/* Mobile and Tablet Content */}
-        <div className="lg:hidden">{mobileComponent}</div>
-        {/* Desktop Content */}
+
         <div className="hidden lg:block">
           {tabs.map((tab, index) => (
             <div

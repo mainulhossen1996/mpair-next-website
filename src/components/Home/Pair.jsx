@@ -9,10 +9,10 @@ const Pair = () => {
 
 return(
     <>
-    <div className='bg-gray-100'>
-        <div className='text-center max-w-screen-xl py-12 mx-auto'>
+    <div className='bg-gray-100 lg:px-0 px-4'>
+        <div className='text-center max-w-screen-xl lg:py-12 py-6 mx-auto'>
             <div className='flex mx-auto py-10'>
-            <p className='text-[70px] leading-[90px] tracking-tight text-gray-400'>
+            <p className='lg:text-[70px] text-[30px] lg:leading-[90px] leading-[45xpx] tracking-tight text-gray-400'>
             We are delighted to have partnered <br/> <span className='bg-gradient-to-r from-blue-600 to-violet-900 bg-clip-text text-transparent transition-all duration-300 font-medium'>with over 35 notable companies,</span> delivering dynamic <span className="font-medium bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-900 hover:to-blue-600 hover:bg-clip-text hover:text-transparent">
   SaaS products</span> and <span className="font-medium bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-900 hover:to-blue-600 hover:bg-clip-text hover:text-transparent">ERP solutions.</span>
             </p>
@@ -20,8 +20,8 @@ return(
 
             
            
-
-        <div className='flex gap-16 justify-center mt-12'>
+<div className='hidden lg:block'>
+        <div className='flex gap-16 justify-center '>
             <div className='flex justify-center mb-8'>
                 <Image 
                 alt=""
@@ -102,9 +102,10 @@ return(
         <div className='flex justify-center gap-2 items-center'>
             
         <Link href="/client" className="text-sm text-gray-500 hover:text-blue-600 flex items-center">
-        <p className='text-xl font-regular'>See More</p>
+        <p className='text-lg font-regular'>See More</p>
         <MoveRight className="ml-2" size={24}/>
         </Link>
+            </div>
             </div>
         </div>
     </div>

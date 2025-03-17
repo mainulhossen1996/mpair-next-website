@@ -19,7 +19,7 @@ const page = () => {
 <Principle/>
 <Executive/>
 <Timeline/>
-<Find/>
+{/* <Find/> */}
 
     </>
   );

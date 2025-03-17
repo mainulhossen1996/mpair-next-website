@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail } from 'lucide-react';
+import { Mail, ChevronDown } from 'lucide-react';
+
 
 const Navbar2 = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -14,6 +15,12 @@ const Navbar2 = () => {
   const dropdownRef = useRef(null);
   const dropdownRefPro = useRef(null);
   const pathname = usePathname();
+
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleResDropdown = (menu) => {
+    setOpenDropdown(openDropdown === menu ? null : menu);
+  };
 
   const [shadow, setShadow] = useState(false);
 
@@ -31,10 +38,10 @@ const Navbar2 = () => {
   }, []);
 
   const Servicetabs = [
-    { id: "tab1", title: "UI/UX Design", description: "From wireframes to final designs, we ensure a seamless user experience.", image: "/image/ui-nav.png", url: "/ui" },
-    { id: "tab2", title: "Cloud Software", description: "Build responsive, modern, and high-performing websites.", image: "/image/ui-nav.png", url: "/cloud-software" },
-    { id: "tab4", title: "Robotics & IoT", description: "Strategies to boost your online presence and engagement.", image: "/image/ui-nav.png", url: "/robotics-iot" },
-    { id: "tab5", title: "SEO & Marketing", description: "Creative designs that make your brand stand out.", image: "/image/ui-nav.png", url: "/seo" },
+    { id: "tab1", title: "UI/UX Design", description: "From wireframes to final designs, we ensure a seamless user experience.", image: "/image/ui-nav.png", url: "/service/ui" },
+    { id: "tab2", title: "Cloud Software", description: "Build responsive, modern, and high-performing websites.", image: "/image/ui-nav.png", url: "/service/cloud-software" },
+    { id: "tab4", title: "Robotics & IoT", description: "Strategies to boost your online presence and engagement.", image: "/image/ui-nav.png", url: "/service/robotics-iot" },
+    { id: "tab5", title: "SEO & Marketing", description: "Creative designs that make your brand stand out.", image: "/image/ui-nav.png", url: "/service/seo" },
   ];
 
   const Producttabs = [
@@ -74,14 +81,14 @@ const Navbar2 = () => {
 
   return (
     <>
-    <div className="absolute top-3 left-0 right-0 z-50">
+    <div className="absolute lg:top-3 left-0 right-0 z-50">
       <div
         className="max-w-screen-xl mx-auto py-4 flex justify-between items-center relative  transition-all duration-300"
         
         id="navBar"
       >
         <Link href="/home" className="ps-6">
-          <img className="h-[30px] w-auto object-contain" src="/image/Logo-White.svg" alt="mPair Technologies" height={300} width={300}/>
+          <img className="lg:h-[30px] h-[24px] w-auto object-contain" src="/image/Logo-White.svg" alt="mPair Technologies" height={300} width={300}/>
         </Link>
   
         <div className="hidden md:flex gap-10 items-center">
@@ -103,11 +110,11 @@ const Navbar2 = () => {
     </div>
   
     {/* Fixed center-item section */}
-    <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 p-5 px-10 transition-all duration-300
+    <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 p-5 px-10 transition-all duration-300 lg:block hidden
     ${
       shadow ? "navBar text-gray-800" : "text-white"
     }`}>
-      <div className="hidden md:flex gap-12 center-item">
+      <div className="flex gap-12 center-item">
         <div className="relative" ref={dropdownRef}>
           <div onClick={() => toggleDropdown('service')} className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF]" aria-expanded={dropdownState.service}>
             Service
@@ -201,15 +208,114 @@ const Navbar2 = () => {
   
     {isMenuOpen && (
       <div className="fixed inset-0 bg-white bg-opacity-95 flex flex-col items-center p-5 z-50">
+        {/* Close Button */}
         <button onClick={() => setMenuOpen(false)} className="self-end p-2">
-          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              stroke="white"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
-        <Link href="/home"><p className="py-2 font-semibold text-center hover:text-[#008CFF]">Home</p></Link>
-        <Link href="/features"><p className="py-2 font-semibold text-center hover:text-[#008CFF]">Features</p></Link>
-        <Link href="/services"><p className="py-2 font-semibold text-center hover:text-[#008CFF]">Services</p></Link>
-        <Link href="/contact-us"><p className="py-2 font-semibold text-center hover:text-[#008CFF]">Contact Us</p></Link>
+
+        {/* Menu Links */}
+        <Link href="/home">
+          <p className="py-2 font-semibold text-center hover:text-[#008CFF]">
+            Home
+          </p>
+        </Link>
+
+        {/* Service Dropdown */}
+        <div className="w-full flex flex-col items-center">
+          <button
+            className="py-2 font-semibold text-center flex items-center gap-1 hover:text-[#008CFF]"
+            onClick={() => toggleResDropdown("service")}
+          >
+            Service
+          </button>
+          {openDropdown === "service" && (
+            <div className="flex flex-col items-center w-full">
+              <Link href="/service/ui">
+                <p className="py-1 text-sm hover:text-[#008CFF]">
+                  UI/UX Design
+                </p>
+              </Link>
+              <Link href="/service/cloud-software">
+                <p className="py-1 text-sm hover:text-[#008CFF]">
+                  Cloud Software
+                </p>
+              </Link>
+              <Link href="/service/robotics-iot">
+                <p className="py-1 text-sm hover:text-[#008CFF]">
+                  Robotics & IoT
+                </p>
+              </Link>
+              <Link href="/service/seo">
+                <p className="py-1 text-sm hover:text-[#008CFF]">
+                  SEO & Marketing
+                </p>
+              </Link>
+            </div>
+          )}
+        </div>
+
+        {/* Product Dropdown */}
+        <div className="w-full flex flex-col items-center">
+          <button
+            className="py-2 font-semibold text-center flex items-center gap-1 hover:text-[#008CFF]"
+            onClick={() => toggleResDropdown("product")}
+          >
+            Products
+          </button>
+          {openDropdown === "product" && (
+            <div className="flex flex-col items-center w-full">
+              <Link href="/product/emventory">
+                <p className="py-1 text-sm hover:text-[#008CFF]">Emventory</p>
+              </Link>
+              <Link href="/product/schoolsys">
+                <p className="py-1 text-sm hover:text-[#008CFF]">SchoolSys</p>
+              </Link>
+              <Link href="/product/someekoron">
+                <p className="py-1 text-sm hover:text-[#008CFF]">Someekoron</p>
+              </Link>
+              <Link href="/product/docappoint">
+                <p className="py-1 text-sm hover:text-[#008CFF]">docAppoint</p>
+              </Link>
+            </div>
+          )}
+        </div>
+
+        <Link href="/client">
+          <p className="py-2 font-semibold text-center hover:text-[#008CFF]">
+            Work
+          </p>
+        </Link>
+        <Link href="/about">
+          <p className="py-2 font-semibold text-center hover:text-[#008CFF]">
+            We Are
+          </p>
+        </Link>
+        <Link href="/career">
+          <p className="py-2 font-semibold text-center hover:text-[#008CFF]">
+            Career
+          </p>
+        </Link>
+
+        {/* Contact Us Button */}
+        <Link href="/contact-us">
+          <Button className="bg-[#0077ff] hover:bg-[#0055ff] px-6 py-2 gap-2 flex rounded-full text-white">
+            <Mail size={20} />
+            <p>Contact Us</p>
+          </Button>
+        </Link>
       </div>
     )}
   </>

@@ -33,15 +33,15 @@ const Article = () => {
   ];
 
   return (
-    <div className="bg-article pt-10 pb-24 ">
-      <div className="max-w-screen-xl mx-auto pt-10 rounded-t-[80px] border-t border-gray-700">
-        <p className="text-[50px] font-medium text-center text-white">
+    <div className="bg-article pt-10 lg:pb-24 pb-10">
+      <div className="max-w-screen-xl mx-auto lg:pt-10 rounded-t-[80px] lg:border-t lg:border-gray-700">
+        <p className="lg:text-[50px] text-[25px] lg:font-medium font-normal text-center text-white">
           Article For Your Business
         </p>
-        <p className="text-gray-400 text-xl font-light text-center mb-3 px-36">
+        <p className="text-gray-400 lg:text-xl text-sm font-light text-center mb-3 lg:px-36 px-4">
         Boost your business growth with insightful articles that engage your audience, enhance brand visibility, and drive meaningful connections.
         </p>
-        <div className="flex flex-col justify-center items-center lg:flex-row gap-4 mt-10 px-10">
+        <div className="flex flex-col justify-center items-center lg:flex-row gap-4 mt-10 lg:px-10 px-0">
           {cardsData.map(({ key, image, title, time, label }, index) => (
             <Card
               key={key}
@@ -53,7 +53,7 @@ const Article = () => {
                   : hoveredIndex === index
                   ? "w-10/12 md:w-7/12"
                   : "w-10/12 md:w-7/12 lg:w-4/12"
-              } h-[350px] rounded-2xl p-6 bg-cover bg-center  transition-none duration-0 lg:transition-all lg:duration-500 lg:group  `}
+              } lg:h-[350px] h-[220px] rounded-2xl lg:p-6 p-3 bg-cover bg-center  transition-none duration-0 lg:transition-all lg:duration-500 lg:group  `}
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url('${image}')`,
               }}
@@ -61,18 +61,18 @@ const Article = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             > 
               <div
-                className={`relative text-gray-300 mt-36 ${
+                className={`relative text-gray-300 lg:mt-36 mt-20 ${
                   index === 0 && hoveredIndex === null ? "line-clamp-none" : ""
                 }`}
               >
-                <span className="rounded-full bg-gray-700 text-white text-[12px] px-3 py-1">
+                <span className="rounded-full bg-gray-700 text-white lg:text-[12px] text-[10px] lg:px-3 px-2 py-1">
                     {label}
                 </span>
-                <p className="font-sm text-gray-400 mt-4">
+                <p className="text-sm text-gray-300 lg:mt-4 mt-2">
                     {time}
                 </p>
                 <p
-                  className={`font-medium text-xl ${
+                  className={`font-medium lg:text-xl ${
                     index === 0 && hoveredIndex === null
                       ? ""
                       : "line-clamp-3 hover:line-clamp-none"
@@ -98,10 +98,10 @@ const Article = () => {
         </div>
       </div>
 
-      <div className="flex justify-center pt-10">
+      <div className="flex justify-center lg:pt-10 pt-4">
         <Button className="relative border border-[#008CFF] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 mt-5 group">
           <span className="absolute inset-0 bg-[#008CFF] transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
-          <span className="relative flex items-center">
+          <span className="relative flex items-center lg:text-xl text-sm">
             See More Article <ArrowUpRight className="ml-3" />
           </span>
         </Button>

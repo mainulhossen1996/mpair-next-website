@@ -123,24 +123,24 @@ const teamMembers = [
           className="fixed-head sticky top-0 left-0 z-10 w-full h-screen flex items-center justify-center pointer-events-none"
           style={{ opacity: isFixedHeadVisible ? 1 : 0.5, transition: 'opacity 0.2s' }}
         >
-          <p className="text-center font-light text-[120px]"><span className='font-crimson-italic'>We Are</span> mPair</p>
+          <p className="text-center font-light lg:text-[120px] text-[60px]"><span className='font-crimson-italic'>we are</span> mPair</p>
         </div>
   
         <div className="scroll-member relative overflow-y-scroll pt-[10vh] scrollbar-hidden" ref={scrollMemberRef}>
-          <div className="max-w-screen-xl mx-auto">
-            <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-20 my-[50px]">
+          <div className="max-w-screen-xl mx-auto px-4 lg:px-0">
+            <div className="grid lg:grid-cols-3 grid-cols-2 lg:gap-20 gap-6 my-[50px]">
               {teamMembers.map((member, index) => (
                 <div key={index} className="my-4">
                   <div>
                     <Image
-                      className="w-full h-[370px] object-cover filter grayscale-[100%] hover:grayscale-0"
+                      className="w-full lg:h-[370px] h-[180px] object-cover filter grayscale-[100%] hover:grayscale-0"
                       src={member.imageSrc}
                       alt={member.name}
                       width={500}
                       height={500}
                     />
-                    <p className="text-xl font-bold mt-[20px]">{member.name}</p>
-                    <p className="text-gray-400 text-[14px]">{member.role}</p>
+                    <p className="lg:text-xl text-md font-bold mt-[20px]">{member.name}</p>
+                    <p className="text-gray-500 lg:text-[14px] text-[12px]">{member.role}</p>
                   </div>
                 </div>
               ))}

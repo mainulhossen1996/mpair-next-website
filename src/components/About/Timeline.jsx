@@ -235,7 +235,7 @@ const Timeline= () => {
 
 
   return (
-    <div className="">
+    <div className="lg:block hidden">
     <div className="max-w-screen-xl mx-auto py-24">
         <p className="text-center text-[60px] font-medium">
             Our Story Since 2020

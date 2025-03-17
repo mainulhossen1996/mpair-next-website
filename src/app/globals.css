@@ -70,7 +70,7 @@ body {
   }
 
 
-  /* HTML: <div class="inverted-radius"></div> */
+
 .inverted-radius {
   --r: 30px; /* the radius */
   --s: 30px; /* size of inner curve */
@@ -97,9 +97,21 @@ body {
   mask-repeat: no-repeat;
 }
 
+@media (max-width: 600px) {
+  .inverted-radius {
+    /* Adjusting same variables for responsiveness */
+    --r: 20px; /* Smaller radius */
+    --s: 20px; /* Smaller inner curve size */
+    --x: 170px; /* Adjusted horizontal offset */
+    --y: 25px; /* Adjusted vertical offset */
+  }
+}
+
+
+
+
 .about-hero {
   position: relative;
-  height: 100%;
   background-image: url("/image/ai-background.jpg");
   background-size: cover;
   background-position: center;
@@ -424,7 +436,7 @@ background-color: rgb(0, 0, 0);
     border-radius: 50%;
     margin: 0 auto;
     transition: all 0.3s;
-    background-color: #005eff;
+    background-color: #ff0051;
   }
   
   .blinking-dot::before {
@@ -435,12 +447,27 @@ background-color: rgb(0, 0, 0);
   
   @-webkit-keyframes blink {
     50%   {
-      transform: scale(2);
+      transform: scale(3);
       opacity: 0
     }
     100%   {
-      transform: scale(2);
+      transform: scale(3);
       opacity: 0
+    }
+  }
+
+
+  
+
+  @media (max-width: 600px) {
+    .blinking-dot{
+      position: absolute;
+      top: 105;
+      right: 102;
+    }
+    .blinking-dot, .blinking-dot::before {
+      width: 8px;
+      height: 8px;
     }
   }
 

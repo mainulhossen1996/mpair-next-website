@@ -71,7 +71,7 @@ const Principle = () => {
   return (
     <div className="bg-[#101012]">
     
-      <div className="relative py-20"  ref={containerRef}
+      <div className="relative py-20 lg:block hidden"  ref={containerRef}
         style={{ height: `${sectionHeight}px` }}>
         <div className="sticky top-16 border-gray-800">
         <div
@@ -121,6 +121,55 @@ const Principle = () => {
                   alt={principle.title}
                   className="h-[300px] w-[360px] object-cover mt-4"
                 /> */}
+              </div>
+            ))}
+          </div>
+        </div>
+        
+      </div>
+
+
+      <div className="px-4 py-10 block lg:hidden"
+       >
+        <div className="relative">
+        <div
+  className="sticky top-0 max-w-screen-xl mx-auto items-center flex justify-between py-10 bg-[#101012]">
+            <p className="lg:text-[60px] text-[40px] font-medium text-gray-400">
+              Our <span className="font-crimson-italic">Principle</span> of <br />
+              <span className="lg:text-[80px] text-[40px] text-white">Product Design</span>
+            </p>
+
+            
+
+            <Image
+       src="/image/spring_roll.png"
+       height={400}
+       width={400}
+       className="h-[120px] absolute -right-32 -top-[30px] -z-10 object-contain"
+       />
+
+            
+
+          </div>
+          <div 
+            className="flex flex-col pb-10 gap-10"
+          >
+            {principles.map((principle) => (
+              <div
+                key={principle.id}
+                className="principle-item flex-shrink-0 bg-[#000000] px-6 pb-12"
+                
+              >
+                <p className=" text-gray-800 font-thin lg:text-[100px] text-[70px]">
+                  {principle.id.toString().padStart(2, "0")}
+                </p>
+                <p className="lg:text-[24px] text-[18px] font-semibold text-gray-200 mb-4">
+                  {principle.title}
+                </p>
+                <p className="lg:text-lg text-sm font-light text-gray-400">
+                  {principle.description}
+                </p>
+
               </div>
             ))}
           </div>

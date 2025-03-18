@@ -64,53 +64,53 @@ const projects = [
 const Work = () => {
   return (
     <div className='bg-[#EDEEF7] relative'>
-        <div className='max-w-screen-xl mx-auto pb-36 pt-20 relative'>
-          <div className='flex gap-10'>
-            <div className='w-4/12 relative mt-10 pb-32'>
+        <div className='max-w-screen-xl mx-auto lg:pb-36 pb-10 pt-20 relative'>
+          <div className='lg:flex gap-10'>
+            <div className='lg:w-4/12 relative lg:mt-10 mt-0 lg:pb-32 pb-4 px-4 lg:px-0'>
               <div className='sticky top-48'>
 
             <span className='rounded-full px-4 text-blue-600 border border-blue-500  text-sm py-1 font-medium'>⭐ Industry Excelence</span>
 
-            <p className='text-[40px] font-light text-black leading-[55px] mt-4'>Building Success<br/><span className=' font-crimson-italic text-[60px] font-semibold '>Accross Every Industry</span></p>
+            <p className='lg:text-[40px] text-[30px] font-light text-black lg:leading-[55px] leading-[40px] mt-4'>Building Success<br/><span className=' font-crimson-italic lg:text-[60px] text-[40px] font-semibold '>Accross Every Industry</span></p>
             
-            <p className='text-xl mt-10'>
+            <p className='lg:text-xl text-sm lg:mt-10 mt-2'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem quasi necessitatibus.
             </p>
             <Image
             src="/image/glass-star.png"
             height={300}
             width={300}
-            className='h-[200] object-contain absolute -top-20 left-[320px] rotate-12'
+            className='lg:h-[200] h-[100px] object-contain absolute lg:-top-20 -top-16 lg:left-[320px] left-40 rotate-12'
             />
             </div>
             </div>
       
-            <div className="relative mt-10 w-8/12">
+            <div className="relative lg:mt-10 mt-4 lg:w-8/12 px-4 lg:px-0">
            
       {projects.map((project) => (
         <div
           key={project.id}
-          className="sticky top-48 h-[450px] px-6 rounded-3xl text-white flex mx-auto border"
+          className="lg:sticky lg:top-48 lg:h-[450px] h-[400px] lg:px-6 p-4 lg:rounded-3xl rounded-xl text-white flex mx-auto border lg:mb-0 mb-6"
           style={{ backgroundColor: project.bgColor }}
         >
-          <div className="flex gap-10 pt-6 w-full justify-between">
-            <div className='w-4/12'>
+          <div className="lg:flex gap-10 lg:pt-2 pt-0 w-full justify-between">
+            <div className='lg:w-4/12'>
             <p className="text-[14px] text-gray-600 font-Code">Project 0{project.id}</p>
 
-            <p className="text-2xl text-gray-800 mt-10">{project.title}</p>
+            <p className="lg:text-2xl text-lg text-gray-800 lg:mt-10 mt-2">{project.title}</p>
             <div className="flex gap-2 items-center my-2">
                   {project.categories.map((category, index) => (
                     <span
                       key={index}
-                      className="h-[28px] text-[12px] rounded-full px-3 py-[5px] bg-[#e0e6eb] text-gray-600"
+                      className="h-[28px] text-[12px] rounded-full px-3 py-[5px]  bg-[#e0e6eb] text-gray-600"
                     >
                       {category}
                     </span>
                   ))}
                 </div>
-                <p className='text-gray-800 mt-10 text-md'>{project.description}</p>
+                <p className='text-gray-800 lg:mt-10 mt-4 lg:text-md text-[12px]'>{project.description}</p>
             </div>
-            <div className="w-8/12">
+            <div className="lg:w-8/12 lg:mt-0 mt-4">
 
               <div className="flex">
                 <div className="w-full">
@@ -119,7 +119,7 @@ const Work = () => {
                     width={800}
                     height={500}
                     alt=""
-                    className="h-[400px] w-full rounded-xl object-cover"
+                    className="lg:h-[400px] h-[187px] w-full lg:rounded-xl rounded-lg object-cover"
                   />
                 </div>
               </div>

@@ -59,7 +59,7 @@ const Hero = () => {
       
         <div className="max-w-screen-xl mx-auto lg:flex justify-between items-center">
           <div className="items-center lg:text-start text-center lg:py-12 py-0 relative">
-            <h1 className="lg:text-[70px] text-[40px] font-regular mb-2 tracking-tight text-white">
+            <h1 className="lg:text-[70px] text-[45px] font-regular lg:mb-2 mb-4 tracking-tight text-white">
               Automate Your Business<span className="font-medium relative inline-block">
        
     </span> <br /> Through B2B Collaboration
@@ -75,7 +75,7 @@ const Hero = () => {
   </span>
 </Button>
 
-<div className="flex justify-start mt-10 mx-auto gap-2 items-center lg:mb-0 mb-10">
+<div className="flex lg:justify-start justify-center mt-10 mx-auto gap-2 items-center lg:mb-0 mb-10">
   <a href="https://clutch.co/profile/mpair-technologies" target="_blank" className="text-center">
   <Image
             src="/image/clutch.svg"
@@ -113,7 +113,7 @@ const Hero = () => {
              />
           </div>
 
-          <div className="p-4 performance h-[450px]">
+          <div className="p-4 performance h-[450px] lg:block hidden">
           <div className='pt-10'>
   <p className='text-2xl pb-2 pe-20 text-gray-300'>
   Growth
@@ -137,7 +137,7 @@ const Hero = () => {
 
       </div>
 
-      <div className="w-full mx-auto justify-center lg:mt-10 mt-6 hidden lg:block border-t border-slate-500 bg-[#19258191]">
+      <div className="w-full mx-auto justify-center lg:mt-10 mt-6  border-t border-slate-500 bg-[#19258191]">
         <div className="">
         <div className="relative overflow-hidden w-full ">
       <motion.div
@@ -147,7 +147,7 @@ const Hero = () => {
         {tabs.concat(tabs).map((tab, index) => (
           <div
             key={index}
-            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[40px] text-center whitespace-nowrap p-4 px-6 "
+            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[24px] text-center whitespace-nowrap lg:p-4 p-2 px-6 "
           >
             <p className="">
             {tab.label}

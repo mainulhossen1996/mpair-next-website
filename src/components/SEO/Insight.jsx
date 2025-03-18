@@ -32,7 +32,7 @@ const Insight = () => {
   return (
     <div className="relative">
          <div className="curved-edge absolute top-10 -z-10"></div>
-    <div className='max-w-screen-xl mx-auto pt-0 p-32'>
+    <div className='max-w-screen-xl mx-auto pt-0 px-32'>
 
 
     <div className="flex justify-center">

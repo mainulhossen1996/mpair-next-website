@@ -61,15 +61,16 @@ const FAQ = () => {
 
 
   return (
-    <div>
-        <div className='max-w-screen-xl mx-auto my-36'>
+
+ <div className="lg:pt-32 pt-20 px-4 lg:px-0">
+        <div className='max-w-screen-xl mx-auto mb-36'>
             <div className='rounded-3xl'>
-                <div className='flex gap-10'>
-                    <div className='w-4/12'>
-                        <p className='text-[70px] font-semibold text-blue-600'>All The A’s To Your Q’s</p>
+                <div className='lg:flex gap-10'>
+                    <div className='lg:w-4/12 mb-4 lg:mb-0'>
+                        <p className='lg:text-[70px] text-[50px] font-semibold text-blue-600'>All The A’s To Your Q’s</p>
                     </div>
 
-                    <div className='w-8/12'>
+                    <div className='lg:w-8/12'>
 
                         <div className='space-y-6'>
                         {faqs.map((faq, index) => (

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Solution = () => {
   return (
-    <div className='max-w-screen-xl mx-auto py-32'>
+    <div className='max-w-screen-xl mx-auto py-32 pb-20'>
         <div className="flex items-center gap-20">
             
             <div className="w-1/2 pe-6"><p className="text-[60px] font-regular mb-4">How Robotics & Automation

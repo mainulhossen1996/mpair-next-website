@@ -54,7 +54,7 @@ const Hero = () => {
 
 
   return (
-    <div className="pt-32 home-hero-back hero-bg">
+    <div className="pt-32 home-hero-back">
       
       <div className=" relative " id="Hero">
       

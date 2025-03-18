@@ -130,7 +130,7 @@ body {
   
   
   
-  /* .hero-bg{
+  .hero-bg{
     background-color:hsla(0,0%,100%,1);
     background-image:
     radial-gradient(at 32% 48%, hsla(0,0%,100%,1) 0px, transparent 50%),
@@ -140,14 +140,14 @@ body {
     radial-gradient(at 0% 100%, hsla(0,0%,100%,1) 0px, transparent 50%),
     radial-gradient(at 100% 100%, hsla(0,0%,100%,1) 0px, transparent 50%),
     radial-gradient(at 0% 0%, hsla(0,0%,100%,1) 0px, transparent 50%);
-  } */
+  }
 
-  .home-hero-back{
+  /* .home-hero-back{
     background-image: url("../../public/image/Gradient_Blue.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
+  } */
 
   .performance{
 background: rgba(83, 93, 242, 0.2);

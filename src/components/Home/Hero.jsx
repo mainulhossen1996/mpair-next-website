@@ -149,7 +149,7 @@ const Hero = () => {
         {tabs.concat(tabs).map((tab, index) => (
           <div
             key={index}
-            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[40px] text-center whitespace-nowrap p-4 px-6 border-e border-slate-500"
+            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[40px] text-center whitespace-nowrap p-4 px-6 "
           >
             <p className="">
             {tab.label}

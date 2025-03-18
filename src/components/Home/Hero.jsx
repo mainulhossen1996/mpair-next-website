@@ -15,11 +15,13 @@ const Hero = () => {
 
   const tabs = [
     { id: 1, label: "Education" },
-    { id: 2, label: "Health Care" },
-    { id: 3, label: "E-Commerce" },
-    { id: 4, label: "Infrastructure" },
-    { id: 5, label: "Sports & Fitness" },
-    { id: 6, label: "Govt. & Public" },
+    { id: 2, label: "Govt. & Public" },
+    { id: 3, label: "Health Care" },
+    { id: 4, label: "E-Commerce" },
+    { id: 5, label: "Infrastructure" },
+    { id: 6, label: "Sports & Fitness" },
+    { id: 7, label: "Retail Business" },
+    { id: 8, label: "RMG" },
   ];
 
   const scrollRef = useRef(null);
@@ -52,19 +54,19 @@ const Hero = () => {
 
 
   return (
-    <div className=" pt-32 home-hero-back">
+    <div className="pt-32 home-hero-back">
       
-      <div className=" relative" id="Hero">
+      <div className=" relative " id="Hero">
       
-        <div className="w-full mx-auto flex justify-center">
-          <div className="items-center text-center lg:py-12 py-0 relative">
-            <h1 className="lg:text-[80px] text-[40px] font-regular mb-2 tracking-tight">
-              Automate Your <span className="font-medium relative inline-block">
-        <span className=" text-blue-700 font-semibold">Business</span>
+        <div className="max-w-screen-xl mx-auto lg:flex justify-between items-center">
+          <div className="items-center lg:text-start text-center lg:py-12 py-0 relative">
+            <h1 className="lg:text-[70px] text-[40px] font-regular mb-2 tracking-tight text-white">
+              Automate Your Business<span className="font-medium relative inline-block">
+        {/* <span className=" text-yellow-400 font-semibold lg:text-[80px] font-crimson-italic">Business</span> */}
        
-    </span> <br /> Through<span className="font-medium font-crimson-italic"> B2B</span> Collaboration
+    </span> <br /> Through B2B Collaboration
             </h1>
-            <p className="lg:text-2xl text-[16px] lg:px-0 px-4 font-normal  text-gray-600 leading-snug mb-5">
+            <p className="lg:text-2xl text-[16px] lg:px-0 px-4 font-light  text-gray-300 leading-snug mb-5">
               Experience rapid business growth with mPair Technologies through our<br /> integrated approach and expert solutions.
             </p>
 
@@ -75,19 +77,19 @@ const Hero = () => {
   </span>
 </Button>
 
-<div className="flex justify-center mt-10 mx-auto gap-2 items-center lg:mb-0 mb-10">
-  <a href="https://clutch.co/profile/mpair-technologies" target="_blank">
+<div className="flex justify-start mt-10 mx-auto gap-2 items-center lg:mb-0 mb-10">
+  <a href="https://clutch.co/profile/mpair-technologies" target="_blank" className="text-center">
   <Image
-            src="/image/clutch.png"
+            src="/image/clutch.svg"
             width={150}
             height={200}
             alt=""
-            className="lg:h-[30px] h-[20px] object-contain filter"
+            className="lg:h-[25px] h-[20px] object-contain filter"
             />
-            <p className="mt-[9px] font-semibold lg:text-sm text-xs">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
+            <p className="mt-[9px] font-semibold lg:text-sm text-xs text-white">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
   </a>
 
-  <a href="https://g.co/kgs/6aa2r7W" target="_blank">
+  <a href="https://g.co/kgs/6aa2r7W" target="_blank" className="text-center">
   <Image
             src="/image/google.png"
             width={150}
@@ -95,7 +97,7 @@ const Hero = () => {
             alt=""
             className="lg:h-[30px] h-[24px] object-contain filter"
             />
-             <p className="mt-[9px] font-semibold lg:text-sm text-xs">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
+             <p className="mt-[9px] font-semibold lg:text-sm text-xs text-white">5.0 ⭐ ⭐ ⭐ ⭐ ⭐</p>
   </a>
 
 </div>
@@ -118,6 +120,34 @@ const Hero = () => {
 
           </div>
 
+          <div className="absolute -top-56 right-0 ">
+            
+            <Image 
+             src="/image/test3d.png"
+             width={600}
+             height={600}
+             alt=""
+             className="lg:h-[500px] h-[20px] object-contain filter"
+             />
+          </div>
+
+          <div className="p-4 performance h-[450px]">
+          <div className='pt-10'>
+  <p className='text-2xl pb-2 pe-20 text-gray-300'>
+  Growth
+  </p>
+  <p className='text-[50px] text-white'>40%</p>
+  <span className='font-light text-sm text-gray-300'>Average anual growth</span>
+</div>
+<div className='pt-20'>
+  <p className='text-2xl pb-2 pe-20 text-gray-300'>
+  Productivity
+  </p>
+  <p className='text-[50px] text-white'>25%</p>
+  <span className='font-light text-sm text-gray-300'>Employee productivity</span>
+</div>
+          </div>
+
 
 
         </div>
@@ -133,18 +163,18 @@ const Hero = () => {
 
       </div>
 
-      <div className="w-full mx-auto justify-center lg:mt-0 mt-6 hidden lg:block">
+      <div className="w-full mx-auto justify-center lg:mt-10 mt-6 hidden lg:block border-t border-slate-400 bg-[#19258191]">
         {/* <p className="text-center mb-6 font-medium text-lg">Industry Excellence</p> */}
         <div className="">
         <div className="relative overflow-hidden w-full ">
       <motion.div
         ref={scrollRef}
-        className="flex gap-20 whitespace-nowrap overflow-x-hidden"
+        className="flex whitespace-nowrap overflow-x-hidden"
       >
         {tabs.concat(tabs).map((tab, index) => (
           <div
             key={index}
-            className=" text-transparent outline-text3 flex items-center font-medium lg:text-[90px] text-[60px] text-center whitespace-nowrap mx-2"
+            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[40px] text-center whitespace-nowrap p-4 px-6 border-e border-slate-400"
           >
             <p className="">
             {tab.label}

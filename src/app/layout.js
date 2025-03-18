@@ -27,7 +27,7 @@ const metadata = {
 
 export default function RootLayout({ children }) {
   const pathname = usePathname(); 
-  const useNavbar2 = ["/about", "/service/ui", "/service/robotics-iot", "/service/seo"].includes(pathname);
+  const useNavbar2 = ["/home", "/about", "/service/ui", "/service/robotics-iot", "/service/seo"].includes(pathname);
   
   return (
     <html lang="en">

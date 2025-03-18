@@ -12,7 +12,7 @@ return(
     <div className='bg-gray-100 lg:px-0 px-4'>
         <div className='text-center max-w-screen-xl lg:py-12 py-6 mx-auto'>
             <div className='flex mx-auto py-10'>
-            <p className='lg:text-[70px] text-[30px] lg:leading-[90px] leading-[45xpx] tracking-tight text-gray-400'>
+            <p className='lg:text-[60px] text-[30px] lg:leading-[90px] leading-[45xpx] tracking-tight text-gray-400'>
             We are delighted to have partnered <br/> <span className='bg-gradient-to-r from-blue-600 to-violet-900 bg-clip-text text-transparent transition-all duration-300 font-medium'>with over 35 notable companies,</span> delivering dynamic <span className="font-medium bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-900 hover:to-blue-600 hover:bg-clip-text hover:text-transparent">
   SaaS products</span> and <span className="font-medium bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-900 hover:to-blue-600 hover:bg-clip-text hover:text-transparent">ERP solutions.</span>
             </p>
@@ -26,25 +26,26 @@ return(
                 <Image 
                 alt=""
                 src="/image/clients/Family-planning.png"
-                className='object-contain grayscale grayscale-100 hover:grayscale-0' title='Family Planning'
+                className='object-contain h-[100px] grayscale grayscale-100 hover:grayscale-0' title='Family Planning'
                 height={60}
                 width={60}/>
             </div>
-
             <div className='flex justify-center mb-8'>
                 <Image 
                 alt=""
-                src="/image/clients/Metro-Meals.png"
-                className='object-contain grayscale grayscale-100 hover:grayscale-0' title='Metro Meals'
-                height={70}
-                width={70}/>
+                src="/image/clients/moru-logo.png"
+                className='object-cover h-[100px] grayscale grayscale-100 hover:grayscale-0' title='Family Planning'
+                height={100}
+                width={100}/>
             </div>
+
+           
 
             <div className='flex justify-center mb-8'>
                 <Image 
                 alt=""
                 src="/image/clients/parkv.png"
-                className='object-contain grayscale grayscale-100 hover:grayscale-0' title='Parkview Hospital Ltd.'
+                className='object-contain h-[100px] grayscale grayscale-100 hover:grayscale-0' title='Parkview Hospital Ltd.'
                 height={70}
                 width={140}/>
             </div>

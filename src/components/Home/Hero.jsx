@@ -163,7 +163,7 @@ const Hero = () => {
 
       </div>
 
-      <div className="w-full mx-auto justify-center lg:mt-10 mt-6 hidden lg:block border-t border-slate-400 bg-[#19258191]">
+      <div className="w-full mx-auto justify-center lg:mt-10 mt-6 hidden lg:block border-t border-slate-500 bg-[#19258191]">
         {/* <p className="text-center mb-6 font-medium text-lg">Industry Excellence</p> */}
         <div className="">
         <div className="relative overflow-hidden w-full ">
@@ -174,7 +174,7 @@ const Hero = () => {
         {tabs.concat(tabs).map((tab, index) => (
           <div
             key={index}
-            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[40px] text-center whitespace-nowrap p-4 px-6 border-e border-slate-400"
+            className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[40px] text-center whitespace-nowrap p-4 px-6 border-e border-slate-500"
           >
             <p className="">
             {tab.label}

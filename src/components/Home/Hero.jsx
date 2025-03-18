@@ -62,7 +62,6 @@ const Hero = () => {
           <div className="items-center lg:text-start text-center lg:py-12 py-0 relative">
             <h1 className="lg:text-[70px] text-[40px] font-regular mb-2 tracking-tight text-white">
               Automate Your Business<span className="font-medium relative inline-block">
-        {/* <span className=" text-yellow-400 font-semibold lg:text-[80px] font-crimson-italic">Business</span> */}
        
     </span> <br /> Through B2B Collaboration
             </h1>
@@ -101,22 +100,6 @@ const Hero = () => {
   </a>
 
 </div>
-{/* <motion.img
-  src="/image/hero-abstract-2.avif"
-  width={400}
-  height={400}
-  alt=""
-  className="absolute -right-[200px] top-[105px] m-auto h-[100px] object-contain filter "
-  animate={{
-    rotate: [0, 360],
-  }}
-  transition={{
-    duration: 10, 
-    repeat: Infinity, 
-    repeatType: "loop",
-    ease: "linear",
-  }}
-/> */}
 
           </div>
 
@@ -151,15 +134,7 @@ const Hero = () => {
 
 
         </div>
-       
-        {/* <video
-        className="absolute right-10 top-0 m-auto h-[400px] object-cover -z-10"
-        src="/image/moving_cube.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      /> */}
+  
 
       </div>
 

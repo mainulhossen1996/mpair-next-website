@@ -55,7 +55,6 @@ const Hero = () => {
 
   return (
     <div className="pt-32 home-hero-back">
-      
       <div className=" relative " id="Hero">
       
         <div className="max-w-screen-xl mx-auto lg:flex justify-between items-center">
@@ -139,7 +138,6 @@ const Hero = () => {
       </div>
 
       <div className="w-full mx-auto justify-center lg:mt-10 mt-6 hidden lg:block border-t border-slate-500 bg-[#19258191]">
-        {/* <p className="text-center mb-6 font-medium text-lg">Industry Excellence</p> */}
         <div className="">
         <div className="relative overflow-hidden w-full ">
       <motion.div

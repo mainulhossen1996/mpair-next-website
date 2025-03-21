@@ -7,7 +7,7 @@ const Solution = () => {
     <div className='max-w-screen-xl mx-auto py-24'>
         <p className='text-[50px] text-center font-medium'>What Solution You Want to Build?</p>
         <p className='text-center px-60 text-lg text-gray-600'>Every great business starts with an idea. Whatever your vision is, we’re here to turn it into a reality with scalable technology and expert development.</p>
-         <div className="grid grid-cols-3 gap-6 mt-16">
+         <div className="lg:grid grid-cols-3 gap-6 mt-16">
       <div>
 
       <div className="relative it-back rounded-xl  bg-cover bg-center opacity-100  p-6 h-[250px] pt-10 overflow-hidden mb-6">

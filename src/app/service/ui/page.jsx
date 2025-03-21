@@ -6,6 +6,7 @@ import Principle from "@/components/UI/Principle";
 import Work from "@/components/UI/Work";
 import Articles from "@/components/UI/Articles";
 import FAQ from "@/components/UI/FAQ";
+import { Service } from "@/components/UI/Service";
 
 
 const page = () => {
@@ -14,6 +15,7 @@ const page = () => {
      <Hero/>
      <Work/>
      <Principle/>
+     <Service/>
      <Articles/>
      <FAQ/>
      <ContactBottom/>

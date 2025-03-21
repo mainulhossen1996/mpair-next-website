@@ -4,14 +4,14 @@ import Image  from "next/image";
 const Work = () => {
   return (
     <div className='max-w-screen-xl mx-auto py-32'>
-      <div className='flex gap-10 items-center'>
+      <div className='lg:flex gap-10 items-center'>
 <div className='w-1/2'>
 <p className='text-[40px] font-regular mb-4'>Empower Your Business Operation
         with Cloud Solution
         </p>
         <p className='text-xl'>Unlock the full potential of your business by transitioning to the cloud. Experience enhanced efficiency, scalability, and security while reducing operational costs. </p>
     
-    <div className='flex gap-20 mt-10'>
+    <div className='lg:flex gap-20 mt-10'>
 <div className='py-10'>
   <p className='text-2xl pb-4 mb-6 border-b border-gray-300 pe-20'>
   Growth

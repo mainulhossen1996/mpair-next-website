@@ -45,34 +45,35 @@ const Hero = () => {
     <div className="bg-cloud-main">
       <div className="max-w-screen-xl mx-auto lg:pt-32 pt-16 lg:px-20 px-4">
 
-      <div class="border border-b-0 rounded-b-none border-gray-300 bg-white rounded-xl max-w-screen-xl mx-auto w-full mt-10">
+      <div className="border border-b-0 rounded-b-none border-gray-300 bg-white rounded-xl max-w-screen-xl mx-auto w-full mt-10">
 
-    <div class="flex items-center bg-gray-200 p-2 rounded-t-xl px-4">
+    <div className="flex items-center bg-gray-200 gap-2 p-2 rounded-t-xl px-4">
 
-        <div class="w-1/6 flex items-center text-gray-700">
-            <i class="fa fa-google"></i>
-            <span class="ml-1">Browser</span>
+        <div className="w-1/5 flex lg:gap-2 gap-[3px] items-center text-gray-700">
+          <span className="text-[10px] lg:text-md opacity-70">🔴</span>
+          <span className="text-[10px] lg:text-md opacity-70">🟡</span>
+          <span className="text-[10px] lg:text-md opacity-70">🟢</span>
         </div>
         
 
-        <div class="w-4/6 relative">
-            <input type="text" class="w-full border border-gray-300 rounded px-3 py-1 text-gray-600" 
-                   value="https://mpairtech.com/cloud-software"/>
-            <i class="fa fa-search absolute right-3 top-2 text-gray-500"></i>
+        <div className="w-3/5 relative">
+            <input type="text" className="w-full border border-gray-300 rounded px-3 py-1 text-gray-600 lg:text-sm text-[12px]" 
+                   value="https://mpairtech.com/service/cloud-software"/>
+            
         </div>
         
 
-        <div class="w-1/6 flex justify-end">
-            <div class="space-y-1">
-                <span class="block w-4 h-0.5 bg-gray-500"></span>
-                <span class="block w-4 h-0.5 bg-gray-500"></span>
-                <span class="block w-4 h-0.5 bg-gray-500"></span>
+        <div className="w-1/5 flex justify-end">
+            <div className="space-y-1">
+                <span className="block w-4 h-0.5 bg-gray-500"></span>
+                <span className="block w-4 h-0.5 bg-gray-500"></span>
+                <span className="block w-4 h-0.5 bg-gray-500"></span>
             </div>
         </div>
     </div>
     
 
-    <div class="">
+    <div className="">
     <div className="rounded-3xl flex flex-col items-center pt-10 pb-12">
           <p className="lg:text-[80px] text-[40px] font-semibold">
             {" "}

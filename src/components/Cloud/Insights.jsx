@@ -38,7 +38,7 @@ const Insights = () => {
   return (
     <div className="bg-black">
     <div className="max-w-screen-xl mx-auto px-4 lg:px-0">
-      <div className="pt-10 pb-24 relative">
+      <div className="pt-10 lg:pb-24 pb-10 relative">
         <div>
           <p className="font-regular lg:text-[50px] text-[35px] text-center mt-10 text-white">
           We Build with <span className="lg:text-[60px] text-[40px] font-crimson-italic">Excellence,</span><br/>Innovate for Success
@@ -132,7 +132,7 @@ const Insights = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:flex flex-col gap-4 lg:w-3/12">
+            <div className="flex flex-col gap-4 lg:w-3/12 mb-4 lg:mb-0">
               <div className="bg-white border border-gray-800 rounded-xl pt-10 h-[280px]">
                 <Image
                   src="/image/cellfin.png"
@@ -154,8 +154,8 @@ const Insights = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 w-3/12">
-              <div className="border border-gray-800 rounded-xl card-back-bg  h-[450px] pt-10">
+            <div className="flex flex-col gap-4 lg:w-3/12">
+              <div className="border border-gray-800 rounded-xl card-back-bg  lg:h-[450px] h-[360px] lg:pt-10 pt-4">
                 {/* <Image
                   src="/image/web-browser.png"
                   height={300}
@@ -173,7 +173,7 @@ const Insights = () => {
                     {achievements.map((achievement) => (
                       <li
                         key={achievement.id}
-                        className="flex items-center text-md text-white"
+                        className="flex items-center text-md text-white text-sm"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

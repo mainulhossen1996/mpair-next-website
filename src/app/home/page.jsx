@@ -8,6 +8,7 @@ import Recent from "@/components/Home/Recent";
 import Article from "@/components/Home/Article";
 import React from "react";
 import ContactBottom from "@/components/Contact-Bottom/ContactBottom";
+import Test from "@/components/Contact-Bottom/Test";
 
 const page = () => {
   return (
@@ -20,6 +21,7 @@ const page = () => {
      <How/>
      <Article/>
      <ContactBottom/>
+     <Test/>
     </>
   );
 };

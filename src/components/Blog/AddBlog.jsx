@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import Test from "../Contact-Bottom/Test";
+import BlogDetails from "./BlogDetails";
 
 const AddBlog = () => {
   const [image, setImage] = useState("");
@@ -39,7 +39,7 @@ const AddBlog = () => {
       label,
       description,
     }).then(() => {
-      alert("Data saved successfully");
+      alert("Data Added successfully");
       setImage("");
       setBlogName("");
       setCreateDate("");
@@ -142,7 +142,7 @@ const AddBlog = () => {
           </button>
         </div>
         <div className="w-1/3 h-[60vh] overflow-y-auto ml-4">
-          <Test />
+          <BlogDetails />
           <div className="my-4">
             <button
               onClick={handleLogOut}

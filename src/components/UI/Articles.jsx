@@ -58,35 +58,35 @@ const Articles = () => {
        
         </div>
         
-        <div className="lg:flex justify-between gap-10 mt-10">
+        <div className="lg:grid grid-cols-3 justify-between gap-10 mt-10">
           {cardsData.map(({ key, image, title, shortbfief, time, label }, index) => (
             <div
               key={key}
-              className=" lg:w-4/12 rounded-3xl border-t hover:border-blue-950 border-gray-800 hover:bg-gray-900 p-4 pt-6 lg:mb-0 mb-4"
+              className="lg:mb-0 mb-4 border border-[#212121] p-4"
             >
                 
               <div
               >
-
+<Image src="/image/UI-Principle/Information.png"
+                        width={500}
+                        height={500}
+                        alt=""
+                        className="lg:h-[350px] h-[280px] w-full object-cover mb-6"
+                        />
                
                 <p className="lg:text-xl text-[16px] font-medium text-gray-200 pb-2" >
                   {title}
                 </p>
-                <p className="lg:text-sm text-[12px] font-regular text-gray-400 pb-2">
+                {/* <p className="lg:text-sm text-[12px] font-regular text-gray-400 pb-2">
                   {shortbfief}
-                </p>
+                </p> */}
                 <span className="lg:text-[12px] text-[10px] rounded-full px-2 py-1 text-gray-300 mt-4 bg-blue-900 border border-blue-600">
                     {label}
                 </span>
   
               </div>
 
-              <Image src="/image/UI-Principle/Information.png"
-                        width={500}
-                        height={500}
-                        alt=""
-                        className="lg:h-[350px] h-[280px] w-full rounded-xl object-cover mt-6"
-                        />
+              
 
             </div>
           ))}
@@ -102,9 +102,7 @@ const Articles = () => {
             </div>
       </div>
 
-      <div className="flex justify-center pt-10">
-        
-      </div>
+
     </div>
   );
 };

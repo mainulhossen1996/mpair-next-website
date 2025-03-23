@@ -37,27 +37,27 @@ const Insights = () => {
 
   return (
     <div className="bg-black">
-    <div className="max-w-screen-xl mx-auto">
-      <div className="pt-10 pb-24 relative">
+    <div className="max-w-screen-xl mx-auto px-4 lg:px-0">
+      <div className="pt-10 lg:pb-24 pb-10 relative">
         <div>
-          <p className="font-regular text-[50px] text-center mt-10 text-white">
-          We Build with <span className="text-[60px] font-crimson-italic">Excellence,</span><br/>Innovate for Success
+          <p className="font-regular lg:text-[50px] text-[35px] text-center mt-10 text-white">
+          We Build with <span className="lg:text-[60px] text-[40px] font-crimson-italic">Excellence,</span><br/>Innovate for Success
           </p>
-          <div className="flex gap-6 py-12">
-            <div className="w-6/12 ">
-              <div className="h-[450px] flex items-center card-back-bg border border-gray-800 rounded-xl">
+          <div className="lg:flex gap-6 py-12">
+            <div className="lg:w-6/12 mb-4 lg:mb-0">
+              <div className="lg:h-[450px] h-[320] flex items-center card-back-bg border border-gray-800 rounded-xl">
                 <div className="items-center">
-                  <div className=" py-10 px-6">
-                    <p className="text-[30px] text-white pb-2">
+                  <div className="lg:py-10 py-4 lg:px-6 px-4">
+                    <p className="lg:text-[30px] text-[20px] text-white pb-2">
                       Technology We Offer
                     </p>
-                    <p className="text-sm font-light text-gray-200">
+                    <p className="lg:text-sm text-[12px] font-light text-gray-200">
                     Whether it's cloud computing or new frameworks, we pick the best technologies to build dependable and powerful solutions that fit your demands.
                 </p>
                   </div>
 
                   <div>
-                    <div className="relative overflow-hidden py-6">
+                    <div className="relative overflow-hidden lg:py-6 py-2">
                       {/* Wrapping div for seamless looping */}
                       <motion.div
                         className="flex"
@@ -132,7 +132,7 @@ const Insights = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-4 w-3/12">
+            <div className="flex flex-col gap-4 lg:w-3/12 mb-4 lg:mb-0">
               <div className="bg-white border border-gray-800 rounded-xl pt-10 h-[280px]">
                 <Image
                   src="/image/cellfin.png"
@@ -153,8 +153,9 @@ const Insights = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-4 w-3/12">
-              <div className="border border-gray-800 rounded-xl card-back-bg  h-[450px] pt-10">
+
+            <div className="flex flex-col gap-4 lg:w-3/12">
+              <div className="border border-gray-800 rounded-xl card-back-bg  lg:h-[450px] h-[360px] lg:pt-10 pt-4">
                 {/* <Image
                   src="/image/web-browser.png"
                   height={300}
@@ -172,7 +173,7 @@ const Insights = () => {
                     {achievements.map((achievement) => (
                       <li
                         key={achievement.id}
-                        className="flex items-center text-md text-white"
+                        className="flex items-center text-md text-white text-sm"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

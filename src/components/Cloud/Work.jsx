@@ -3,28 +3,28 @@ import Image  from "next/image";
 
 const Work = () => {
   return (
-    <div className='max-w-screen-xl mx-auto py-32'>
-      <div className='flex gap-10 items-center'>
-<div className='w-1/2'>
-<p className='text-[40px] font-regular mb-4'>Empower Your Business Operation
+    <div className='max-w-screen-xl mx-auto lg:py-32 py-16'>
+      <div className='lg:flex gap-10 items-center px-4 lg:px-0'>
+<div className='lg:w-1/2'>
+<p className='lg:text-[40px] text-[30px] font-regular mb-4'>Empower Your Business Operation
         with Cloud Solution
         </p>
-        <p className='text-xl'>Unlock the full potential of your business by transitioning to the cloud. Experience enhanced efficiency, scalability, and security while reducing operational costs. </p>
+        <p className='lg:text-xl text-sm'>Unlock the full potential of your business by transitioning to the cloud. Experience enhanced efficiency, scalability, and security while reducing operational costs. </p>
     
-    <div className='flex gap-20 mt-10'>
-<div className='py-10'>
-  <p className='text-2xl pb-4 mb-6 border-b border-gray-300 pe-20'>
+    <div className='flex lg:gap-20 gap-10 mt-10 lg:pe-20'>
+<div className='lg:py-10 py-4 w-1/2'>
+  <p className='lg:text-2xl text-lg lg:pb-4 pb-2 lg:mb-6 mb-2 border-b border-gray-300'>
   Growth
   </p>
-  <p className='text-[50px]'>40%</p>
-  <span className='font-light text-sm text-gray-500'>Average anual growth</span>
+  <p className='lg:text-[50px] text-[30px]'>40%</p>
+  <span className='font-light lg:text-sm text-[12px] text-gray-500'>Average anual growth</span>
 </div>
-<div className='py-10'>
-  <p className='text-2xl pb-4 mb-6 border-b border-gray-300 pe-20'>
+<div className='lg:py-10 py-4 w-1/2'>
+<p className='lg:text-2xl text-lg lg:pb-4 pb-2 lg:mb-6 mb-2 border-b border-gray-300'>
   Productivity
   </p>
-  <p className='text-[50px]'>25%</p>
-  <span className='font-light text-sm text-gray-500'>Employee productivity</span>
+  <p className='lg:text-[50px] text-[30px]'>25%</p>
+  <span className='font-light lg:text-sm text-[12px] text-gray-500'>Employee productivity</span>
 </div>
     </div>
 </div>
@@ -34,7 +34,7 @@ const Work = () => {
   src="/image/business-community.webp"
   height={1000}
   width={1000}
-  className="h-[450px] w-auto object-contain"
+  className="lg:h-[450px] h-[350px] w-auto object-contain"
   />
 </div>
       </div>

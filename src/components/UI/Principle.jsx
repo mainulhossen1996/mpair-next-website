@@ -81,12 +81,12 @@ const Principle = () => {
               <span className="text-[80px] text-white">Product Design</span>
             </p>
 
-            <p className="text-[340px] outline-text4 font-semibold text-[#101012] m-0 leading-3 absolute -z-10 right-0 top-[180px]">
+            {/* <p className="text-[340px] outline-text4 font-semibold text-[#101012] m-0 leading-3 absolute -z-10 right-0 top-[180px]">
               UI/UX
-            </p>
+            </p> */}
 
             <Image
-       src="/image/spring_roll.png"
+       src="/image/spring-tube.png"
        height={400}
        width={400}
        className="h-[300px] absolute -left-20 -bottom-[450px] -z-10 object-contain"
@@ -142,10 +142,10 @@ const Principle = () => {
             
 
             <Image
-       src="/image/spring_roll.png"
+       src="/image/tube.png"
        height={400}
        width={400}
-       className="h-[120px] absolute -right-32 -top-[30px] -z-10 object-contain"
+       className="h-[100px] absolute -right-32 -top-[30px] -z-10 object-contain"
        />
 
             

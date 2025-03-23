@@ -38,10 +38,10 @@ const Navbar = () => {
   }, []);
 
   const Servicetabs = [
-    { id: "tab1", title: "UI/UX Design", description: "From wireframes to final designs, we ensure a seamless user experience.", image: "/image/ui-nav.png", url: "service/ui" },
-    { id: "tab2", title: "Cloud Software", description: "Build responsive, modern, and high-performing websites.", image: "/image/ui-nav.png", url: "service/cloud-software" },
-    { id: "tab4", title: "Robotics & IoT", description: "Strategies to boost your online presence and engagement.", image: "/image/ui-nav.png", url: "service/robotics-iot" },
-    { id: "tab5", title: "SEO & Marketing", description: "Creative designs that make your brand stand out.", image: "/image/ui-nav.png", url: "service/seo" },
+    { id: "tab1", title: "UI/UX Design", description: "From wireframes to final designs, we ensure a seamless user experience.", image: "/image/ui-nav.png", url: "/service/ui" },
+    { id: "tab2", title: "Cloud Software", description: "Build responsive, modern, and high-performing websites.", image: "/image/ui-nav.png", url: "/service/cloud-software" },
+    { id: "tab3", title: "Robotics & IoT", description: "Strategies to boost your online presence and engagement.", image: "/image/ui-nav.png", url: "/service/robotics-iot" },
+    { id: "tab4", title: "SEO & Marketing", description: "Creative designs that make your brand stand out.", image: "/image/ui-nav.png", url: "/service/seo" },
   ];
 
   const Producttabs = [
@@ -207,23 +207,28 @@ const Navbar = () => {
     </div>
   
     {isMenuOpen && (
-      <div className="fixed inset-0 bg-white bg-opacity-95 flex flex-col items-center p-4 z-50">
-        {/* Close Button */}
-        <button onClick={() => setMenuOpen(false)} className="self-end">
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+       <div className="fixed inset-0 bg-white z-50">
+       <div className="flex justify-between border-b p-4">
+       <Link href="/home" className="">
+               <img className="lg:h-[30px] h-[24px] w-auto object-contain" src="/image/mPair.png" alt="mPair Technologies" height={300} width={300}/>
+             </Link>
+             <button onClick={() => setMenuOpen(false)} className="self-end">
+               <svg
+                 className="h-6 w-6"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor"
+               >
+                 <path
+                   strokeLinecap="round"
+                   strokeLinejoin="round"
+                   strokeWidth={2}
+                   d="M6 18L18 6M6 6l12 12"
+                 />
+               </svg>
+             </button>
+             </div>
+             <div className="flex flex-col items-center p-4">
 
         {/* Menu Links */}
         <Link href="/home">
@@ -315,6 +320,7 @@ const Navbar = () => {
             <p>Contact Us</p>
           </Button>
         </Link>
+      </div>
       </div>
     )}
   </>

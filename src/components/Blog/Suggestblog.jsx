@@ -33,24 +33,7 @@ const Cardsgallery = [
       date: "13 March, 2025; 04:30pm",
       labels: ["Web", "All"],
     },
-    {
-      id: "4",
-      imageSrc: "/image/blog/bloglist1.png",
-      imageSrc2: "/image/blog/arrow-up.png",
-      heading: "Inventory Management",
-      subheading: "Web design is evolving rapidly, integrating immersive user experiences ... ...",
-      date: "13 March, 2025; 04:30pm",
-      labels: ["Software", "All"],
-    },
-    {
-      id: "5",
-      imageSrc: "/image/blog/bloglist2.png",
-      imageSrc2: "/image/blog/arrow-up.png",
-      heading: "Robotics in Enhancing Everyday Life",
-      subheading: "Web design is evolving rapidly, integrating immersive user experiences ... ...",
-      date: "13 March, 2025; 04:30pm",
-      labels: ["Robotics", "All"],
-    },
+   
 ];
 
 
@@ -65,30 +48,15 @@ const filteredCards = {
 
 
 
-const Blog = () => {
+const Suggestblog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   return (
-    <div className="max-w-screen-xl mx-auto p-6">
-      <div className="flex gap-4 justify-center mb-8">
-        {/*selected caterogies here */}
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded-full font-medium transition ${
-              activeCategory === category
-                ? "w-50 h-15 bg-blue-100 text-blue-800 rounded-2lg"
-                : "text-gray-400 bg-gray-100"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+    <div className="max-w-screen-xl mx-auto mt-[120px]  p-6">
+      
 
       {/* cards output */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-6">
         {filteredCards[activeCategory].map((card, index) => (
           <div key={index} className="border rounded-xl p-4 shadow hover:shadow-md transition">
             <div className="relative">
@@ -126,4 +94,4 @@ const Blog = () => {
 };
 
 
-export default Blog;
+export default Suggestblog;

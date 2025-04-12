@@ -1,12 +1,13 @@
 import React from 'react';
 import SingleBlog from '@/components/Blog/SingleBlog';
-import Blogdetails from '@/components/Blog/Blogdetails';
-
+import Suggestblog from '@/components/Blog/Suggestblog';
 
 const page = () => {
-  return (
+   
+   return (
     <div>
-       <Blogdetails/>
+      <SingleBlog/>
+      <Suggestblog/>
     </div>
   )
 }

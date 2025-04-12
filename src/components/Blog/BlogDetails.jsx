@@ -82,7 +82,10 @@ const BlogDetails = () => {
       <div className="grid grid-cols-1 gap-4">
         {blogs.map((blog) =>
           editId === blog.id ? (
-            <div key={blog.id} className="p-4 flex flex-col gap-5 border rounded-lg shadow">
+            <div
+              key={blog.id}
+              className="p-4 flex flex-col gap-5 border rounded-lg shadow"
+            >
               <div className="w-full">
                 <label className="label">
                   <span className="label-text">Image</span>

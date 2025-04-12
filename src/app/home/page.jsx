@@ -20,7 +20,7 @@ const page = () => {
       <How />
       <Article />
       <ContactBottom />
-      <Test />
+      {/* <Test /> */}
     </>
   );
 };

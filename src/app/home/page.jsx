@@ -7,7 +7,7 @@ import Recent from "@/components/Home/Recent";
 import Article from "@/components/Home/Article";
 import React from "react";
 import ContactBottom from "@/components/Contact-Bottom/ContactBottom";
-import Test from "@/components/Blog/BlogDetails";
+// import Test from "@/components/Blog/BlogDetails";
 
 const page = () => {
   return (

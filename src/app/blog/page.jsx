@@ -1,13 +1,16 @@
-import React from 'react';
-import Hero from '@/components/Blog/Hero';
-import Blog from '@/components/Blog/Blog';
+import AddBlog from "@/components/Blog/AddBlog";
+import PrivateRoute from "@/components/privateRoute";
 
 const page = () => {
   return (
     <div>
-        <Hero/>
-        <Blog/>
+      <PrivateRoute>
+        <AddBlog />
+      </PrivateRoute>
     </div>
-  )
-}
+  );
+};
+
 export default page;
+
+

@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { GoArrowUpRight } from "react-icons/go";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
+import Link from "next/link";
 
 const Article = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -121,12 +122,13 @@ const Article = () => {
       </div>
 
       <div className="flex justify-center lg:pt-10 pt-4">
+        <Link href="/articles">
         <Button className="relative border border-[#008CFF] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 mt-5 group">
           <span className="absolute inset-0 bg-[#008CFF] transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
           <span className="relative flex items-center lg:text-xl text-sm">
             See More Article <ArrowUpRight className="ml-3" />
           </span>
-        </Button>
+        </Button></Link>
       </div>
     </div>
   );

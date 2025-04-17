@@ -111,13 +111,22 @@ const AddBlog = () => {
               <label className="label">
                 <span className="label-text">Label</span>
               </label>
-              <input
-                type="text"
-                value={label}
+
+              <select
                 onChange={(e) => setLabel(e.target.value)}
-                className="border rounded-lg p-1 outline-none border-slate-300 w-full"
-                required
-              />
+                value={label}
+                name=""
+                id=""
+                className="border rounded-lg p-[6px] outline-none border-slate-300 w-full bg-white"
+              >
+                <option defaultValue>Select label</option>
+                <option value="Software">Software</option>
+                <option value="Robotics">Robotics</option>
+                <option value="Web">Web</option>
+                <option value="All">All</option>
+              </select>
+
+             
             </div>
           </div>
 

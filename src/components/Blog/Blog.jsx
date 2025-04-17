@@ -16,9 +16,9 @@ const Blog = () => {
 
   const filteredCards = {
     All: blogs,
-    Software: blogs?.filter((card) => card.label.includes("Software")),
-    Robotics: blogs?.filter((card) => card.label.includes("Robotics")),
-    Web: blogs?.filter((card) => card.label.includes("Web")),
+    Software: blogs?.filter((card) => card?.label.includes("Software")),
+    Robotics: blogs?.filter((card) => card?.label.includes("Robotics")),
+    Web: blogs?.filter((card) => card?.label.includes("Web")),
   };
 
   // console.log("hello", filteredCards);

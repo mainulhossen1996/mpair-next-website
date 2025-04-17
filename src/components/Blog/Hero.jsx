@@ -1,20 +1,53 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TextBox from "./Textbox";
+import { getDatabase, onValue, ref } from "firebase/database";
+import app from "@/firebase/firebase.config";
 
 const Hero = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const db = getDatabase(app);
+    const blogRef = ref(db, "blog");
+
+    onValue(blogRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const blogArray = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }));
+
+        console.log(blogArray);
+
+        const archived = blogArray?.toReversed();
+        console.log("archived",archived);
+
+
+        setBlogs(archived);
+      } else {
+        setBlogs([]);
+      }
+    });
+  }, []);
+
   return (
     <div className="pt-32 pb-20">
       <div>
         <div className="max-w-screen-xl mx-auto flex justify-between lg:px-32 px-10">
           <Image
             src="/image/blog/image 19.svg"
+            alt="image background"
             width={120}
             height={120}
             className="lg:ml-400px lg:h-[60px] h-[40px] object-contain filter"
           />
           <Image
             src="/image/blog/image17.svg"
+            alt="image background"
             width={60}
             height={60}
             className="lg:ml-900px lg:h-[50px] h-[25px] object-contain filter"
@@ -35,6 +68,7 @@ const Hero = () => {
         </div>
         <Image
           src="/image/blog/image15.svg"
+          alt="image background"
           width={120}
           height={120}
           className="lg:ml-40 lg:h-[60px] h-[40px] object-contain filter"
@@ -42,6 +76,7 @@ const Hero = () => {
         <div className="flex justify-end w-full lg:mr-80 px-4">
           <Image
             src="/image/blog/curveicon9.svg"
+            alt="image background"
             width={100}
             height={100}
             className="lg:ml lg:h-[60px] h-[25px] object-contain filter mr-20 mt-[-70px]"
@@ -53,12 +88,14 @@ const Hero = () => {
         <div className="max-w-screen-xl ">
           <Image
             src="/image/blog/featured blog.png"
+            alt="image background"
             width={510}
             height={100}
             className="lg:ml-400px object-contain filter h-[300px]"
           />
           <Image
             src="/image/blog/See more.png"
+            alt="image background"
             width={120}
             height={120}
             className="lg:ml-400px lg:h-[80px] h-[40px] object-contain filter ml-[380px] mt-[-82px]"
@@ -88,8 +125,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      </div>
-
+    </div>
   );
 };
 export default Hero;

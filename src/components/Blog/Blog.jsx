@@ -5,7 +5,6 @@ import TextBox from "./Textbox";
 import Link from "next/link";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
-// import p1 from "/image/blog/arrow-up.png"
 import p1 from "../../../public/image/blog/arrow-up.png";
 
 const categories = ["All", "Software", "Robotics", "Web"];

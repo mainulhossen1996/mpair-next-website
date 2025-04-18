@@ -5,6 +5,7 @@ import Image from "next/image";
 import TextBox from "./Textbox";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
+import Link from "next/link";
 
 const Hero = () => {
   const [blogs, setBlogs] = useState([]);
@@ -24,10 +25,10 @@ const Hero = () => {
         console.log(blogArray);
 
         const archived = blogArray?.toReversed();
-        console.log("archived",archived);
+        // console.log("archived",archived[0]);
 
 
-        setBlogs(archived);
+        setBlogs(archived[0]);
       } else {
         setBlogs([]);
       }
@@ -87,41 +88,40 @@ const Hero = () => {
       <div className="flex justify-center flex-row mx-40 pt-10">
         <div className="max-w-screen-xl ">
           <Image
-            src="/image/blog/featured blog.png"
+            src={blogs?.image}
             alt="image background"
             width={510}
             height={100}
             className="lg:ml-400px object-contain filter h-[300px]"
           />
+          <Link href={`/blog/${blogs?.id}`}>
           <Image
             src="/image/blog/See more.png"
             alt="image background"
             width={120}
             height={120}
             className="lg:ml-400px lg:h-[80px] h-[40px] object-contain filter ml-[380px] mt-[-82px]"
-          />
+          /></Link>
+          
         </div>
 
         <div className="flex flex-col ">
           <div className=" flex flex-row space-x-2 items-center py-3">
             <TextBox text="This Week" />
-            <TextBox text="Software" />
+            <TextBox text={blogs?.label} />
           </div>
           <p className="text-[18px] font-regular ">
-            The Evolution of Software:{" "}
+            {blogs?.blog_name}
           </p>
-          <p className="font-regular text-[18px]">
+          {/* <p className="font-regular text-[18px]">
             {" "}
             From Traditional Development to AI-Powered Innovation
-          </p>
+          </p> */}
           <p className="pt-1 text-[14px] text-black font-light">
-            Software development has come a long way, evolving from manual
-            coding <br />
-            to AI-assisted automation. Early programming required <br />{" "}
-            extensive knowledge{" "}
+          {blogs?.description}
           </p>
           <p className="pt-2 text-[14px] font-extralight ">
-            13 March, 2025; 04:30pm
+          {blogs?.createDate}
           </p>
         </div>
       </div>

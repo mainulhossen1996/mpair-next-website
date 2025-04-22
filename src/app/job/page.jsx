@@ -1,9 +1,12 @@
 import JobPostingForm from "@/components/Career/JobPostingForm";
+import PrivateRoute from "@/components/privateRoute";
 
 const page = () => {
   return (
     <div>
-      <JobPostingForm />
+      <PrivateRoute>
+        <JobPostingForm />
+      </PrivateRoute>
     </div>
   );
 };

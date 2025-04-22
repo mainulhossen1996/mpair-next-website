@@ -57,6 +57,7 @@ const AddBlog = () => {
     <div className="p-16">
       <h2 className="text-4xl text-black text-center p-10">Add Blog</h2>
       <div className="flex flex-row">
+
         <div className="bg-violet-200 w-2/3 max-h-[70vh] rounded-xl p-8">
           <div className="mb-8 flex">
             <div className="w-1/2">
@@ -149,6 +150,7 @@ const AddBlog = () => {
             Submit
           </button>
         </div>
+        
         <div className="w-1/3 h-[60vh] overflow-y-auto ml-4">
           <BlogDetails />
           <div className="my-4">

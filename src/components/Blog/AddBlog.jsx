@@ -14,6 +14,7 @@ const AddBlog = () => {
   const [description, setDescription] = useState("");
 
   const { logout } = useContext(AuthContext);
+  
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -125,8 +126,6 @@ const AddBlog = () => {
                 <option value="Web">Web</option>
                 <option value="All">All</option>
               </select>
-
-             
             </div>
           </div>
 

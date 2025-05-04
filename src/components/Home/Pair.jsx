@@ -9,7 +9,7 @@ const Pair = () => {
 
 return(
     <>
-    <div className='bg-gray-100 lg:px-0 px-4'>
+    <div className='bg-white lg:px-0 px-4 '>
         <div className='text-center max-w-screen-xl lg:py-12 py-6 mx-auto'>
             <div className='flex mx-auto py-10'>
             <p className='lg:text-[60px] text-[30px] lg:leading-[90px] leading-[45xpx] tracking-tight text-gray-400'>

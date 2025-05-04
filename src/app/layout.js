@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
   const useNavbar2 = [
     "/home",
     "/about",
-    "/service/ui",
     "/service/robotics-iot",
     "/service/seo",
   ].includes(pathname);

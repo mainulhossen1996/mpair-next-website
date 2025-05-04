@@ -60,10 +60,10 @@ const handleTabClick = (name, index) => {
   }
 };
   return (
-    <div className="">
+    <div className="my-noise-background">
     <div className="max-w-screen-xl  mx-auto lg:flex">
-      <div className="border-r border-gray-300 border-dashed lg:sticky lg:top-0 lg:w-1/3 font-semibold lg:pb-36 pb-0">
-        
+      <div className=" lg:sticky lg:top-0 lg:w-1/3 font-semibold lg:pb-36 pb-0">
+
 
         <div className="sticky top-24 overflow-y-auto">
         <div className="lg:my-10 my-2 relative">
@@ -131,7 +131,7 @@ const handleTabClick = (name, index) => {
             key={tab.name}
             ref={(el) => (refs.current[index] = el)}
             data-tab-name={tab.name}
-            className={`lg:px-[72px] py-24  ${index === tabs.length - 1 ? '' : 'border-b border-gray-300 border-dashed'}`}
+            className="lg:px-[72px] py-12"
           >
               {tab.component}
             </div>

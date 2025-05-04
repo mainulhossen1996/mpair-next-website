@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, ChevronDown } from "lucide-react";
+import { IoChevronDown } from "react-icons/io5";
 
 const Navbar2 = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -49,7 +50,7 @@ const Navbar2 = () => {
       description:
         "From wireframes to final designs, we ensure a seamless user experience.",
       image: "/image/ui-nav.png",
-      url: "/service/ui",
+      url: "/service/product-design",
     },
     {
       id: "tab2",
@@ -200,10 +201,10 @@ const Navbar2 = () => {
           <div className="relative" ref={dropdownRef}>
             <div
               onClick={() => toggleDropdown("service")}
-              className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF]"
+              className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF] flex gap-2 items-center"
               aria-expanded={dropdownState.service}
             >
-              Service
+              Service <IoChevronDown />
             </div>
 
             {dropdownState.service && (
@@ -264,10 +265,10 @@ const Navbar2 = () => {
           <div className="relative" ref={dropdownRefPro}>
             <div
               onClick={() => toggleDropdown("product")}
-              className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF]"
+              className="font-medium cursor-pointer text-[14px]  hover:text-[#008CFF] flex gap-2 items-center"
               aria-expanded={dropdownState.product}
             >
-              Product
+              Product <IoChevronDown />
             </div>
 
             {dropdownState.product && (
@@ -338,14 +339,14 @@ const Navbar2 = () => {
           >
             We Are
           </Link>
-          <Link
+          {/* <Link
             href="/career"
             className={`font-medium hover:text-[#008CFF] text-[14px] ${
               pathname === "/career" ? "text-[#008CFF]" : ""
             }`}
           >
             Career
-          </Link>
+          </Link> */}
         </div>
       </div>
 
@@ -395,7 +396,7 @@ const Navbar2 = () => {
               </button>
               {openDropdown === "service" && (
                 <div className="flex flex-col items-center w-full">
-                  <Link href="/service/ui">
+                  <Link href="/service/product-design">
                     <p className="py-1 text-sm hover:text-[#008CFF]">
                       UI/UX Design
                     </p>

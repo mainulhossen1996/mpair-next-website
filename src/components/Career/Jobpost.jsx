@@ -103,7 +103,7 @@ const Jobpost = () => {
             </div>
 
               <Link href={`/career/${jobs.id}`}>          
-            <button className="justify-end mt-8 px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600">Apply Now   
+            <button className="justify-end mt-8 px-6 py-2 text-sm font-medium text-white bg-blue-500 rounded-full hover:bg-blue-400">Apply Now   
                 <FontAwesomeIcon icon={faArrowUp} className="ml-2 rotate-45" style={{color: "#ffffff"}} />
                 </button>
                 </Link>

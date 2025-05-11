@@ -1,5 +1,6 @@
 import React from "react";
 import JobDetails from "@/components/Career/JobDetails";
+import ApplyForm from "@/components/Career/ApplyForm";
 
 const page = () => {
  
@@ -8,6 +9,7 @@ const page = () => {
     <div>
      
         <JobDetails  />
+        <ApplyForm />
      
     </div>
   );

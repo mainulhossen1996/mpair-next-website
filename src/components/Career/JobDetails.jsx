@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import jobInfo  from "./JobInfo"; 
 
 const JobData = [
     {
@@ -100,34 +100,53 @@ const JobDetails = () => {
   
     return (
       <div className="w-full min-h-screen ">
-       
-          <div className="flex flex-col gap-10 justify-center items-center mx-auto pl-16 mt-[120px]">
-            {/* Job Content */}
-            <div className=" ">
-              <h1 className="lg:text-4xl md:text-2xl font-semibold my-5 text-gray-800"> {job.heading}</h1>
-              <p className="text-sm text-gray-400 mb-6">{job.subheading}</p>
-              <p className="text-sm text-gray-400 mb-6">Deadline: {job.deadline}</p>
-              <p className="text-base text-gray-600 mb-4 w-1/2">{job.description}</p>
 
-              <ul className="mt-4 space-y-1 text-sm text-gray-600 list-disc pl-5">
-                <li> <span className="font-medium text-lg">Experience:</span> {job.experience}</li>
-                <li> <span className="font-medium text-lg">Salary:</span> {job.salary}</li>
-                <li> <span className="font-medium text-lg">Location:</span> {job.location}</li>
-                <li> <span className="font-medium text-lg">Skills:</span> {job.skills && job.skills.join(", ")}</li>
-                <li> <span className="font-medium text-lg">Status:</span> {job.status}</li>
-              </ul>
-            </div>
-         <div>
-
-        
-          <Link href={`/career/apply`}>          
-            <button className="justify-end mt-8 px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600">Apply Now   
-                <FontAwesomeIcon icon={faArrowUp} className="ml-2 rotate-45" style={{color: "#ffffff"}} />
-                </button>
-                </Link>
-                 </div>
-            </div>
+    <div className="max-w-screen-xl mx-auto mt-[100px] h-[280px] text-white p-8 md:p-10" style={{  background: "linear-gradient(to right, #0055ff, #4D88ff)", }} >
+     
+     <div className="max-w-screen-xl mx-auto flex flex-col">
+          <p className="text-sm font-medium ">Engineering</p>
+          <h1 className="text-xl md:text-4xl font-semibold mt-10">{job.heading}</h1>
+              <p className="text-sm text-gray-100 mt-4">Deadline: {job.deadline}</p>
+            <p className="text-sm font-normal my-2 space-x-2">On site <span className="text-white/60">|</span> Full time <span className="text-white/60">|</span> Mid level</p>
+          <p className="text-base  font-medium">18,000–26,000 BDT/month</p>
         </div>
+        </div>
+
+         <div className="py-6 pl-2 max-w-screen-xl mx-auto space-y-4 items-start">
+      <section>
+        <h2 className=" text-2xl font-semibold my-2">About</h2>
+        <p className="text-gray-600 font-normal w-[90%]">{jobInfo.about}</p>
+      </section>
+
+      <section className="pt-4">
+        <h2 className="text-2xl font-semibold mb-2">Position Overview</h2>
+        <p className="text-gray-600 font-normal w-[90%]">{jobInfo.overview}</p>
+      </section>
+
+      <section className="pt-4">
+        <h2 className="text-2xl font-semibold mb-2">Job Responsibilities</h2>
+        <ul className="list-disc list-inside font-normal text-gray-600 space-y-1">
+          {jobInfo.responsibilities.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="pt-4">
+        <h2 className="text-2xl font-semibold mb-2">Qualifications</h2>
+        <ul className="list-disc list-inside text-gray-600 font-normal space-y-1">
+          {jobInfo.qualifications.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+           {/*} <button className="justify-end mt-8 px-6 py-3 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600">Apply Now   
+                <FontAwesomeIcon icon={faArrowUp} className="ml-2 rotate-45" style={{color: "#ffffff"}} />
+                </button> */}
+
+      </div>
     );
   };
   

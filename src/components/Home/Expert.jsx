@@ -69,7 +69,7 @@ const handleTabClick = (name, index) => {
         <div className="lg:my-10 my-2 relative">
 
 
-        <h2 className='text-start lg:text-[70px] text-[30px] text-gray-800 font-normal lg:leading-[80px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-6 mb-2'><span className="lg:text-[50px] text-[30px] font-light">Collaborating Business Through Our </span>Expertise</h2>
+        <h2 className='text-start lg:text-[50px] text-[30px] text-gray-800 font-[400] lg:leading-[80px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-6 mb-2'><span className="font-[200]">Your Business Success Through Our </span>Expertise</h2>
         <p className="lg:text-lg text-sm text-start font-normal lg:px-0 px-4">Utilizing expertise to create innovative solutions and drive business goals.</p>
         
         {/* <Image

@@ -16,10 +16,10 @@ const SEO = () => {
           Shine in the digital world with our expert SEO and marketing strategies. We help bring the right audience to your site, increase your online visibility, and turn visitors into loyal customers. From fine-tuning your website to creating paid campaigns that deliver real results, we’re here to help your brand grow, thrive, and stay ahead of the competition.
           </p>
           <div className="flex flex-wrap px-[20px] mt-6 gap-4">
-             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Business Automation</span>
-             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Flexible Workflow</span>
-             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Data Security</span> 
-             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Interactive Design</span> 
+             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">SEO Optimigation</span>
+             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Social Media Marketing</span>
+             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Performance Analytics</span> 
+             <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Convertion Strategy</span> 
             
           </div>
     </div>

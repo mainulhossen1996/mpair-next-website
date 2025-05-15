@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from "next/link";
 import Image  from "next/image";
-import { MoveRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const Pair = () => {
 
@@ -12,9 +12,9 @@ return(
     <div className='bg-white lg:px-0 px-4 '>
         <div className='text-center max-w-screen-xl lg:py-12 py-6 mx-auto'>
             <div className='flex mx-auto py-10'>
-            <p className='lg:text-[60px] text-[30px] lg:leading-[90px] leading-[45xpx] tracking-tight text-gray-400'>
-            We are delighted to have partnered <br/> <span className='bg-gradient-to-r from-blue-600 to-violet-900 bg-clip-text text-transparent transition-all duration-300 font-medium'>with over 35 notable companies,</span> delivering dynamic <span className="font-medium bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-900 hover:to-blue-600 hover:bg-clip-text hover:text-transparent">
-  SaaS products</span> and <span className="font-medium bg-gradient-to-r from-slate-500 to-slate-800 bg-clip-text text-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-900 hover:to-blue-600 hover:bg-clip-text hover:text-transparent">ERP solutions.</span>
+            <p className='lg:text-[50px] text-[30px] lg:leading-[80px] leading-[45xpx] font-[200] text-black'>
+            We are delighted to have partnered <br/> <span className="font-[500]">with over 35 notable companies,</span> delivering dynamic <span className="font-[500] ">
+  SaaS products</span> and <span className="font-[500]">ERP solutions.</span>
             </p>
             </div>
 
@@ -104,7 +104,7 @@ return(
             
         <Link href="/client" className="text-sm text-gray-500 hover:text-blue-600 flex items-center">
         <p className='text-lg font-regular'>See More</p>
-        <MoveRight className="ml-2" size={24}/>
+        <ChevronRight className="ml-2" size={24}/>
         </Link>
             </div>
             </div>

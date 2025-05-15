@@ -139,10 +139,20 @@ const Hero = () => {
               </span>
             </div>
           </div>
+
         </div>
+
+
+      </div>
+      <div>
       </div>
 
-      <div className="w-full mx-auto justify-center  border-t border-b lg:border-b-0 border-slate-500 bg-[#19258191] lg:mt-10">
+      
+
+      <div className="relative">
+
+  
+      <div className=" justify-center  border-b lg:border-b-0 border-slate-500 pb-4 lg:mt-10">
         <div className="relative overflow-hidden w-full ">
           <motion.div
             ref={scrollRef}
@@ -159,6 +169,17 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+      </div>
+      <div className="w-full">
+        <div class="folder">
+  <div class="folder-tab w-3/12 flex items-center px-10"><div>
+    <p className="text-sm font-normal">2020-2024</p>
+    <p className="font-medium text-2xl text-gray-700">Our Industry Excelence</p>
+    </div>
+    </div>
+  <div class="folder-body"></div>
+</div>
+        </div>
     </div>
   );
 };

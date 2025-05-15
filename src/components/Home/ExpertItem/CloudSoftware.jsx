@@ -1,6 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import serviceImg from "../../../../public/image/expert-icon/Cloud.svg"
+import { MdOutlineCloudSync } from "react-icons/md";
+import { LuWorkflow } from "react-icons/lu";
+import { LuShieldCheck } from "react-icons/lu";
+import { AiOutlineAntDesign } from "react-icons/ai";
 
 
 const CloudSoftware = () => {
@@ -18,10 +22,10 @@ const CloudSoftware = () => {
           </p>
 
           <div className="flex flex-wrap px-[20px] mt-6 gap-4">
-           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Business Automation</span>
-           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Flexible Workflow</span>
-           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Data Security</span> 
-           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center">Interactive Design</span> 
+           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center"> <MdOutlineCloudSync/>Business Automation</span>
+           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center"><LuWorkflow/>Flexible Workflow</span>
+           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center"><LuShieldCheck/>Data Security</span> 
+           <span className="rounded-lg lg:px-4 px-4 lg:py-1 py-1 font-semibold text-[14px] lg:text-md text-gray-700 bg-gray-50 border border-gray-200 flex gap-3 items-center"><AiOutlineAntDesign/>Interactive Design</span> 
             
           </div>
           

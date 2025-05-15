@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import BlogDetails from "./BlogDetails";
+// import BlogDetails from "./BlogDetails";
 
 const AddBlog = () => {
   const [image, setImage] = useState("");

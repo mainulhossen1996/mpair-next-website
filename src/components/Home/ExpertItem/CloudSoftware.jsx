@@ -15,10 +15,10 @@ const CloudSoftware = () => {
       src= {serviceImg}
                 height={350}
                 width={130}
-                className="lg:h-[80px] h-[50px] px-[20px] object-contain justify-start"/>
-        <p className="px-[20px] lg:text-[30px] text-[18px] text-gray-800 font-semibold lg:mt-0 mt-4 mb-3">Cloud Software Development</p>
-          <p className="px-[20px] font-light lg:text-md text-sm text-slate-600 text-grayishOlive">
-          Revolutionize the way your business operates with our cutting-edge cloud software solutions. Access your data and tools from anywhere, collaborate effortlessly with your team, grow your business with no worries. It’s all about making your workflows faster, easier, and more efficient.
+                className="lg:h-[50px] w-auto h-[50px] px-[20px] object-contain justify-start mb-4"/>
+        <p className="px-[20px] lg:text-[24px] text-[18px] text-gray-800 font-semibold lg:mt-0 mt-4 mb-3">Cloud Software Development</p>
+          <p className="px-[20px] font-light leading-[24px] lg:text-md text-sm text-slate-600 text-grayishOlive">
+          Revolutionize the way your business operates with our cutting-edge cloud software solutions. Access your data and tools from anywhere, collaborate effortlessly with your team, grow your business with no worries.
           </p>
 
           <div className="flex flex-wrap px-[20px] mt-6 gap-4">

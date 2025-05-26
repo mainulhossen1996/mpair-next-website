@@ -60,8 +60,8 @@ const handleTabClick = (name, index) => {
   }
 };
   return (
-    <div className="my-noise-background">
-    <div className="max-w-screen-xl  mx-auto lg:flex">
+    <div className="bg-slate-100 py-10">
+    <div className="max-w-screen-xl mx-auto lg:flex gap-20">
       <div className=" lg:sticky lg:top-0 lg:w-1/3 font-semibold lg:pb-36 pb-0">
 
 
@@ -69,7 +69,7 @@ const handleTabClick = (name, index) => {
         <div className="lg:my-10 my-2 relative">
 
 
-        <h2 className='text-start lg:text-[50px] text-[30px] text-gray-800 font-[400] lg:leading-[80px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-6 mb-2'><span className="font-[200]">Your Business Success Through Our </span>Expertise</h2>
+        <h2 className='text-start lg:text-[50px] text-[30px] text-gray-800 font-[400] lg:leading-[80px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-6 mb-2'><span className="font-[200]">Your All-in-one </span>Business Growth Solution</h2>
         <p className="lg:text-lg text-sm text-start font-normal lg:px-0 px-4">Utilizing expertise to create innovative solutions and drive business goals.</p>
         
         {/* <Image
@@ -122,7 +122,7 @@ const handleTabClick = (name, index) => {
 </div>
       <div
         ref={contentWrapperRef}
-        className="lg:w-2/3 pb-24 lg:pt-24 scrollbar-hidden overflow-y-auto"
+        className="lg:w-7/12 pb-24 px-16 lg:pt-20 scrollbar-hidden overflow-y-auto"
       >
 
         <div className="hidden lg:block">
@@ -131,7 +131,7 @@ const handleTabClick = (name, index) => {
             key={tab.name}
             ref={(el) => (refs.current[index] = el)}
             data-tab-name={tab.name}
-            className="lg:px-[72px] py-12"
+            className=" py-12"
           >
               {tab.component}
             </div>

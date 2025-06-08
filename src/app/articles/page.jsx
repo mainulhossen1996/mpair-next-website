@@ -1,12 +1,15 @@
 
-import Hero from '@/components/Blog/Hero';
-import Blog from '@/components/Blog/Blog';
+import Hero from '@/components/Articles/Hero';
+import FeaturedBlog from '@/components/Articles/FeaturedArticles';
+import BlogList from '@/components/Articles/ArticlesList';
 
 const page = () => {
   return (
     <div>
-        <Hero/>
-        <Blog/>
+        <Hero />
+        <FeaturedBlog />
+        <BlogList />
+
     </div>
   )
 }

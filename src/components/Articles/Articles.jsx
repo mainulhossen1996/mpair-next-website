@@ -9,7 +9,7 @@ import p1 from "../../../public/image/blog/arrow-up.png";
 
 const categories = ["All", "Software", "Robotics", "Web"];
 
-const Blog = () => {
+const Articles = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [blogs, setBlogs] = useState([]);
 
@@ -129,4 +129,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Articles;

@@ -1,10 +1,16 @@
 import React from "react";
 import JobDetails from "@/components/Career/JobDetails";
+import ApplyForm from "@/components/Career/ApplyForm";
 
 const page = () => {
+ 
+
   return (
     <div>
-      <JobDetails />
+     
+        <JobDetails />
+        <ApplyForm />
+     
     </div>
   );
 };

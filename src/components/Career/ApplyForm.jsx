@@ -1,23 +1,21 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
+"use client"; 
+import React, { useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 
-const ApplyForm = () => {
+
+const ApplyForm =() => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
-    contact: "",
-    experience: "",
-    skills: "",
-    currentSalary: "",
-    expectedSalary: "",
+    phone: "",
+    portfolio: "",
+    linkedin: "",
     resume: null,
   });
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === "resume") {
+    if (name === 'resume') {
       setFormData({ ...formData, resume: files[0] });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -27,151 +25,42 @@ const ApplyForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    alert("Form submitted! Check console for data.");
+    alert('Form submitted! Check console for data.');
   };
 
-  return (
-    <div className="max-w-2xl mx-auto mb-20 p-6 mt-[180px]">
-      <h1 className="text-4xl font-semibold mb-6 text-center">
-        Job Application Form
-      </h1>
-      <p className="text-lg font-base mb-4">
-        Enter your details into the Form below:
-      </p>
+
+ return (
+    <div className="max-w-3xl items-center mx-auto bg-gray-100 p-10 rounded-sm my-10 ">
+      <h2 className="text-4xl font-semibold mb-3 text-center">Job Application Form</h2>
+      <p className="text-base text-gray-500 font-base mb-4">Enter your details into the Form below:</p>
       <form onSubmit={handleSubmit} className="space-y-5">
-        {/* First Name */}
-        <div>
-          <label htmlFor="firstName" className="block font-medium mb-1">
-            First Name
-            <span className="text-red-500"> *</span>{" "}
-          </label>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="Enter your first name"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
+        {[
+          { label: "Full Name", name: "name", placeholder: "Enter your name" },
+          { label: "Email", name: "email", placeholder: "Enter your email" },
+          { label: "Phone", name: "phone", placeholder: "ex. +8801** ** ****" },
+          { label: "Portfolio", name: "portfolio", placeholder: "Enter link here" },
+          { label: "Linkedin", name: "linkedin", placeholder: "Enter link here" },
+        ].map(({ label, name, placeholder }) => (
+          <div key={name}>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {label} <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name={name}
+              value={formData[name]}
+              onChange={handleChange}
+              placeholder={placeholder}
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-200"
+            />
+          </div>
+        ))}
 
-        {/* Last Name */}
-        <div>
-          <label htmlFor="lastName" className="block font-medium mb-1">
-            Last Name <span className="text-red-500"> *</span>{" "}
-          </label>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Enter your last name"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block font-medium mb-1">
-            Email Address
-            <span className="text-red-500"> *</span>{" "}
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email address"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Contact Number */}
-        <div>
-          <label htmlFor="contact" className="block font-medium mb-1">
-            Contact Number
-            <span className="text-red-500"> *</span>{" "}
-          </label>
-          <input
-            type="tel"
-            name="contact"
-            placeholder="Enter your contact number"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Experience */}
-        <div>
-          <label htmlFor="experience" className="block font-medium mb-1">
-            Years of Experience
-            <span className="text-red-500"> *</span>{" "}
-          </label>
-          <input
-            type="number"
-            name="experience"
-            placeholder="e.g., 3"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Skills */}
-        <div>
-          <label htmlFor="skills" className="block font-medium mb-1">
-            Skills
-            <span className="text-red-500"> *</span>
-          </label>
-          <input
-            type="text"
-            name="skills"
-            placeholder="e.g., JavaScript, React, Node.js"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Current Salary */}
-        <div>
-          <label htmlFor="currentSalary" className="block font-medium mb-1">
-            Current Salary (in Taka)
-            <span className="text-red-500"> *</span>
-          </label>
-          <input
-            type="text"
-            name="currentSalary"
-            placeholder="e.g., 50000"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Expected Salary */}
-        <div>
-          <label htmlFor="expectedSalary" className="block font-medium mb-1">
-            Expected Salary (in Taka)
-            <span className="text-red-500"> *</span>
-          </label>
-          <input
-            type="text"
-            name="expectedSalary"
-            placeholder="e.g., 60000"
-            onChange={handleChange}
-            className="w-full p-2 border rounded outline-none"
-            required
-          />
-        </div>
-
-        {/* Resume Upload */}
-        <div>
-          <label htmlFor="resume" className="block font-medium mb-1">
-            Upload Resume
-            <span className="text-red-500"> *</span>{" "}
-          </label>
+         {/* Resume Upload */}
+         <div>
+          <label htmlFor="resume" className="block text-sm text-gray-700 font-medium mb-2">Upload Resume 
+            <span className="text-red-500"> *</span> </label>
           <input
             type="file"
             name="resume"
@@ -180,21 +69,22 @@ const ApplyForm = () => {
             className="w-full"
             required
           />
-          <p className="text-sm text-red-600 mt-1 mb-4">
+          <p className="text-xs font-normal text-red-500 mt-2 mb-10">
             ⚠️ Please upload your resume in PDF or DOC format. Max size: 5MB.
           </p>
         </div>
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-[150px] rounded-full bg-blue-500 text-white py-2 hover:bg-blue-600 transition duration-200"
-        >
-          Submit Now
+        <div className="items-center justify-center flex">
+          <button type="submit" className=" flex items-center justify-center w-[170px] rounded-full bg-blue-500 text-white py-2 px-3 hover:bg-blue-600 transition duration-200"> Submit Now
+            <ArrowUp className="ml-2 rotate-45" style={{color: "#ffffff"}}/>
+            
         </button>
+        </div>
       </form>
     </div>
   );
-};
+}
+
 
 export default ApplyForm;

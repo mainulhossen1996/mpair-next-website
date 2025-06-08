@@ -1,10 +1,11 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, remove, update } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
 
-const BlogDetails = () => {
+const ArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);
   const [editId, setEditId] = useState(null);
   const [blogName, setBlogName] = useState("");
@@ -149,7 +150,7 @@ const BlogDetails = () => {
 
               <div className="mb-8">
                 <label className="label">
-                  <span className="label-text">Short Description</span>
+                  <span className="label-text">Description</span>
                 </label>
                 <textarea
                   value={description}
@@ -199,4 +200,4 @@ const BlogDetails = () => {
   );
 };
 
-export default BlogDetails;
+export default ArticlesDetails;

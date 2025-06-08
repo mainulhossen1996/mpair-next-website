@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import Blogdetails from "../Blog/Blogdetails";
+import Blogdetails from "../Articles/ArticlesDetails";
 
 
 

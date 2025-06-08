@@ -6,7 +6,7 @@ import app from "@/firebase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 // import BlogDetails from "./BlogDetails";
 
-const AddBlog = () => {
+const AddArticle = () => {
   const [image, setImage] = useState("");
   const [blogName, setBlogName] = useState("");
   const [createDate, setCreateDate] = useState("");
@@ -132,7 +132,7 @@ const AddBlog = () => {
 
           <div className="mb-8">
             <label className="label">
-              <span className="label-text">Short Description</span>
+              <span className="label-text">Description</span>
             </label>
             <textarea
               value={description}
@@ -168,4 +168,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default AddArticle;

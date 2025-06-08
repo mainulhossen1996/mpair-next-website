@@ -1,4 +1,4 @@
-import AddBlog from "@/components/Blog/AddBlog";
+import AddBlog from "@/components/Articles/AddArticle";
 import PrivateRoute from "@/components/privateRoute";
 
 const page = () => {

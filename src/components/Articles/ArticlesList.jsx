@@ -5,12 +5,11 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import Image from "next/image";
 import TextBox from "./Textbox";
-import { getAllBlogs } from "./AllBlogs";
-
+import { AllBlogs } from "./AllArticles";
 
 const categories = ["All", "Software", "Robotics", "AI"];
 
-export default function BlogList() {
+export default function ArticlesList() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [blogs, setBlogs] = useState([]);
 
@@ -39,12 +38,13 @@ export default function BlogList() {
     AI: blogs?.filter((card) => card?.label.includes("AI")),
   };
 
+
   return (
-    <section className="bg-black text-white py-12 relative">
-      <div className="container mx-auto px-4">
+    <section className="bg-black text-white py-12 relative ">
+      <div className="container max-w-screen-xl mx-auto py-20">
         <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
-          <h2 className="pl-4 text-4xl font-semibold">DIscover More Blogs</h2>
-          <div className="flex space-x-3 flex-wrap">
+          <h2 className="pl-4 text-4xl font-semibold">Discover More Articles</h2>
+          <div className="flex space-x-3 flex-wrap ">
             {categories.map((category) => (
               <button
                 key={category}
@@ -62,32 +62,36 @@ export default function BlogList() {
         </div>
 
         {/* Scrollable Blog Cards */}
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-6 w-max px-2 h-fit">
+        <div className="overflow-x-auto scrollbar-hide mt-10 ">
+          <div className="flex gap-6 w-max px-2 h-full">
             {filteredCards[activeCategory]?.map((blog) => (
               <div
                 key={blog.id}
-                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[300px] p-4 relative hover:shadow-lg transition-shadow"
+                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[300px] h-fit p-4 relative hover:shadow-lg transition-shadow"
               >
-                {blog.image && (
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-40 object-cover rounded-lg mb-4"
-                  />
-                )}
+                <div className="relative w-full h-40">
+                <Image
+                  src={blog.image}
+                  alt={blog.title}
+                  width={200}
+                  height={100}
+                  className="w-full h-40 object-cover rounded-lg mb-8"
+                />
+                </div>
 
-                <h3 className="text-lg font-bold mb-2">{blog.title}</h3>
-                <p className="text-sm text-gray-300 mb-2">
+               <div className="flex flex-col gap-4 mt-4">
+                 <h3 className="text-lg font-semibold ">{blog.blog_name}</h3>
+                <p className="text-sm text-gray-300 ">
                   {blog.description?.split(" ").slice(0, 10).join(" ")}...
                 </p>
                 <div className="flex justify-between text-xs text-gray-400">
                   <TextBox text={blog.label}> </TextBox>
                   <span className="text-white">{blog.date}</span>
                 </div>
+                </div>
                 <a
-                  href={`/blog/${blog.id}`}
-                  className="absolute top-3 right-3 text-white bg-blue-700 rounded-full p-1 hover:bg-blue-500 transition"
+                  href={`/articles/${blog.id}`}
+                  className="absolute top-3 right-3 text-white bg-gray-500 rounded-full px-3 py-2 hover:bg-blue-500 transition"
                   title="Read More"
                 >
                   →

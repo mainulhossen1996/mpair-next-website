@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export async function AllBlogs() {
+export async function AllArticles() {
   return [
     {
       id: "1",

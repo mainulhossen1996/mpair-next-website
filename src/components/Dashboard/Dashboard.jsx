@@ -4,12 +4,13 @@ import { useState } from "react";
 import Blog from "./Blog";
 import Career from "./Career";
 import Queries from "./Queries";
+import Applicants from "./Applicants";
 
 const Dashboard = () => {
   const [activePage, setActivePage] = useState("blogs");
 
   return (
-    <div className="flex h-screen pt-32 ">
+    <div className=" flex h-screen pt-32 ">
       {/* Sidebar */}
       <nav className="w-48 bg-gray-100 p-4 flex flex-col space-y-4 ">
         <button
@@ -30,6 +31,14 @@ const Dashboard = () => {
         </button>
         <button
           className={`text-left px-4 py-2 rounded ${
+            activePage === "applicants" ? "bg-blue-500 text-white" : "hover:bg-gray-300"
+          }`}
+          onClick={() => setActivePage("applicants")}
+        >
+          Applicants
+        </button>
+        <button
+          className={`text-left px-4 py-2 rounded ${
             activePage === "queries" ? "bg-blue-500 text-white" : "hover:bg-gray-300"
           }`}
           onClick={() => setActivePage("queries")}
@@ -42,6 +51,7 @@ const Dashboard = () => {
       <main className="flex-1 p-8 bg-white overflow-auto  ">
         {activePage === "blogs" && <Blog />}
         {activePage === "career" && <Career />}
+        {activePage === "applicants" && <Applicants />}
         {activePage === "queries" && <Queries />}
       </main>
     </div>

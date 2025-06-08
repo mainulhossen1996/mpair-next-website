@@ -1,5 +1,5 @@
 import React from "react";
-import PrivateRoute from "@/app/PrivateRoute";
+import PrivateRoute from "@/components/privateRoute";
 import Dashboard from "@/components/Dashboard/Dashboard";
 
 

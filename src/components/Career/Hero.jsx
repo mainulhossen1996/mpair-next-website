@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import p1 from '../../../public/image/career/stroke.png'
+import p2 from '../../../public/image/career/Careerbanner.png'
 
 const Hero = () => {
   return (
@@ -12,7 +14,7 @@ const Hero = () => {
         </h1>
 
         <Image
-          src="/image/career/stroke.png"
+          src={p1}
           width={150}
           height={80}
           alt="stroke"
@@ -20,13 +22,13 @@ const Hero = () => {
         />
 
         <p className="text-sm font-light py-4">
-          We are looking for passionate people to join us in our mission. <br />{" "}
+          We are looking for passionate people to join us in our mission. <br />
           See our latest openings and pick what’s best for you.
         </p>
       </div>
 
       <Image
-        src="/image/career/image 28.png"
+        src={p2}
         width={550}
         height={750}
         alt="hero banner"

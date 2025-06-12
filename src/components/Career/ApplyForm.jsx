@@ -4,7 +4,7 @@ import { ArrowUp } from "lucide-react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 
-const ApplyForm = () => {
+const ApplyForm = ({ title }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,8 +15,8 @@ const ApplyForm = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    console.log(files);
+    const { name, value, files } = e?.target;
+    // console.log(files);
     if (name === "resume") {
       setFormData({ ...formData, resume: files[0] });
     } else {
@@ -31,6 +31,7 @@ const ApplyForm = () => {
 
     const newDocRef = ref(db, `applicant/${applicantId}`);
     set(newDocRef, {
+      title: title,
       name: formData?.name,
       email: formData?.email,
       phone: formData?.phone,
@@ -114,13 +115,13 @@ const ApplyForm = () => {
           </p>
         </div>
 
-        {/* Submit Button */}
+        
         <div className="items-center justify-center flex">
           <button
             type="submit"
             className=" flex items-center justify-center w-[170px] rounded-full bg-blue-500 text-white py-2 px-3 hover:bg-blue-600 transition duration-200"
           >
-            {" "}
+            
             Submit Now
             <ArrowUp className="ml-2 rotate-45" style={{ color: "#ffffff" }} />
           </button>

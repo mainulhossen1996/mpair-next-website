@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { useParams } from "next/navigation";
+import AddArticle from "./AddArticle";
 
 const SingleArticle = () => {
   const { id } = useParams();
@@ -57,11 +58,17 @@ const SingleArticle = () => {
       </div>
 
    
-      <div className="relative z-10 -mt-[200px] px-4 md:px-10">
-        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-12 max-w-5xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-            {blog?.title}
-          </h1>
+      <div className="relative z-10 -mt-[200px] mb-[80px] px-4 md:px-10">
+        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-12 max-w-5xl mx-auto flex flex-col gap-2">
+ <h1 className="text-3xl md:text-4xl font-bold text-gray-900 my-3">
+            {blog?.blog_name}</h1>
+            <div className="flex flex-row gap-3 items-center">
+          <p className="text-sm text-gray-600 font-normal"> {blog?.createDate}   </p>  
+          <span>|</span>                 
+          <p className="text-sm text-gray-600 font-normal"> {blog?.label} </p>
+</div>
+          <hr className="border-t border-gray-300"/>
+
           <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
             {blog?.description}
           </p>

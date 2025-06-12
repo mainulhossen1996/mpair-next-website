@@ -26,7 +26,7 @@ const Login = () => {
       );
       console.log("User logged in:", userCredential.user);
       alert("User logged in");
-      window.location.href = "/blog";
+      window.location.href = "/admin/dashboard"; 
     } catch (error) {
       console.error("Login failed:", error.message);
     }

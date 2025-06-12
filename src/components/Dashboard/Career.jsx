@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import { getDatabase, ref, onValue, remove, update } from "firebase/database";
+import app from "@/firebase/firebase.config";
+
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
 
 // Sample  data
@@ -102,6 +105,7 @@ const Career = () => {
         {jobs.map((job) => (
           <div key={job.id} className="relative border p-4 rounded shadow-sm">
             <div className="flex justify-end">
+
               <button onClick={() => handleDelete(job.id)} className="rounded">
                 <RiDeleteBin6Line className="text-2xl text-red-400" />
               </button>

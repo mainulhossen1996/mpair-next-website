@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const jobInfo = {
     about: "We are a fast-growing tech company committed to delivering exceptional digital experiences. Our team thrives on creativity, collaboration, and cutting-edge technology to build products that impact users worldwide. We're looking for passionate individuals who are eager to grow with us and shape the future of web experiences.",

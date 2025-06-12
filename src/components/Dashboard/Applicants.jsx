@@ -1,17 +1,16 @@
-
 "use client";
 import app from "@/firebase/firebase.config";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 const Applicants = () => {
-  const [applicants, setApplicants] = useState([]); 
-  const [expandedJobs, setExpandedJobs] = useState({}); 
-  const [openApplicants, setOpenApplicants] = useState({}); 
+  const [applicants, setApplicants] = useState([]);
+  const [expandedJobs, setExpandedJobs] = useState({});
+  const [openApplicants, setOpenApplicants] = useState({});
 
   useEffect(() => {
     const db = getDatabase(app);
-    const applicantRef = ref(db,"applicant");
+    const applicantRef = ref(db, "applicant");
 
     onValue(applicantRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -41,15 +40,16 @@ const Applicants = () => {
     }));
   };
 
- 
-  const jobTitles = [...new Set(applicants.map((app) => app.title))];
+  const jobTitles = [...new Set(applicants.map((app) => app?.title))];
 
   return (
     <section>
       <h2 className="text-4xl font-bold mb-6 text-center">Applicants</h2>
 
       {jobTitles.map((title) => {
-        const filteredApplicants = applicants.filter((app) => app.title === title);
+        const filteredApplicants = applicants.filter(
+          (app) => app.title === title
+        );
         const displayedApplicants = expandedJobs[title]
           ? filteredApplicants
           : filteredApplicants.slice(0, 5);
@@ -71,18 +71,40 @@ const Applicants = () => {
                     <div>
                       <p className="font-semibold capitalize">{app?.name}</p>
                       <p className="text-sm text-blue-600">
-                        <a href={app?.portfolio} target="_blank" rel="noopener noreferrer">Portfolio</a> |{" "}
-                        <a href={app?.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a
+                          href={app?.portfolio}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Portfolio
+                        </a>{" "}
+                        |{" "}
+                        <a
+                          href={app?.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          LinkedIn
+                        </a>
                       </p>
                     </div>
 
                     {open && (
                       <div className="mt-4 text-sm space-y-1">
-                        <p><strong>Email:</strong> {app?.email}</p>
-                        <p><strong>Phone:</strong> {app?.phone}</p>
+                        <p>
+                          <strong>Email:</strong> {app?.email}
+                        </p>
+                        <p>
+                          <strong>Phone:</strong> {app?.phone}
+                        </p>
                         <p>
                           <strong>Resume:</strong>{" "}
-                          <a href={app?.linkedin} target="_blank" rel="noopener noreferrer" className="text-green-600">
+                          <a
+                            href={app?.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-600"
+                          >
                             View Resume
                           </a>
                         </p>

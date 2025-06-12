@@ -1,14 +1,47 @@
 "use client";
 
+import app from "@/firebase/firebase.config";
 import { Button } from "@nextui-org/react";
+import { getDatabase, ref, set } from "firebase/database";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    organization: "",
+    email: "",
+    industry: "",
+    message: "",
+  });
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const db = getDatabase(app);
+    const applicantId = `applicant-${Date.now()}`;
 
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+    const newDocRef = ref(db, `applicant/${applicantId}`);
+    set(newDocRef, {
+      name: formData?.name,
+      organization: formData?.organization,
+      email: formData?.email,
+      industry: formData?.industry,
+      message: formData?.message,
+    }).then(() => {
+      alert("added successfully");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        portfolio: "",
+        linkedin: "",
+        resume: null,
+      });
+    });
+
+    // console.log(formData);
+  };
 
   return (
     <>
@@ -47,7 +80,6 @@ const Contact = () => {
 
           <div className="w-5/12">
             <div className=" bg-slate-100 p-6">
-
               <div>
                 <div className="flex gap-4 mt-4 items-center">
                   <Image
@@ -64,82 +96,75 @@ const Contact = () => {
                 </div>
 
                 <p className="text-lg mt-10 my-[10px]">
-                Speak with sales through email. Your bussiness team will respond you within short period.
+                  Speak with sales through email. Your bussiness team will
+                  respond you within short period.
                 </p>
 
-                <div >
-                <form>
+                <div>
+                  <form>
+                    <div className="mb-4">
+                      <input
+                        id="organization-name"
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
+                        variant="bordered"
+                      />
+                    </div>
+                    {/* Organization Name */}
+                    <div className="mb-4">
+                      <input
+                        id="organization-name"
+                        type="text"
+                        placeholder="Organization Name"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
+                        variant="bordered"
+                      />
+                    </div>
 
-                <div className="mb-4">
-      
-      <input
-        id="organization-name"
-        type="text"
-        placeholder="Your Name"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-    </div>
-    {/* Organization Name */}
-    <div className="mb-4">
-  
-      <input
-        id="organization-name"
-        type="text"
-        placeholder="Organization Name"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-    </div>
+                    {/* Business Email */}
+                    <div className="mb-4">
+                      <input
+                        id="business-email"
+                        type="email"
+                        placeholder="Work Email"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
+                        variant="bordered"
+                      />
+                    </div>
 
-    {/* Business Email */}
-    <div className="mb-4">
- 
-      <input
-        id="business-email"
-        type="email"
-        placeholder="Work Email"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-    </div>
+                    {/* Select Fields */}
+                    <div className="mb-4">
+                      <select
+                        id="industry"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
+                      >
+                        <option value="">Select your industry</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
 
-    {/* Select Fields */}
-    <div className="mb-4">
+                    {/* Requirements */}
+                    <div className="mb-4">
+                      <textarea
+                        id="requirements"
+                        placeholder="Your Message"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
+                        variant="bordered"
+                      />
+                    </div>
 
-      <select
-        id="industry"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-      >
-        <option value="">Select your industry</option>
-        <option value="technology">Technology</option>
-        <option value="healthcare">Healthcare</option>
-        <option value="education">Education</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-
-
-    {/* Requirements */}
-    <div className="mb-4">
-      
-      <textarea
-        id="requirements"
-        placeholder="Your Message"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-
-    </div>
-
-    {/* Submit Button */}
-    <Button className="relative bg-[#0077ff] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 group w-full">
-  <span className="absolute inset-0 bg-[#0055ff]  transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
-  <span className="relative flex items-center">
-    Send Message <ArrowUpRight className="ml-3" />
-  </span>
-</Button>
-  </form>
+                    {/* Submit Button */}
+                    <Button className="relative bg-[#0077ff] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 group w-full">
+                      <span className="absolute inset-0 bg-[#0055ff]  transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
+                      <span className="relative flex items-center">
+                        Send Message <ArrowUpRight className="ml-3" />
+                      </span>
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>

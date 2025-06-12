@@ -4,7 +4,6 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { MdRemoveRedEye } from "react-icons/md";
 import app from "@/firebase/firebase.config";
-import { redirect } from "next/navigation";
 const auth = getAuth(app);
 const Login = () => {
   const [userName, setUserName] = useState("");

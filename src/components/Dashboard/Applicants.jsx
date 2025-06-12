@@ -43,7 +43,7 @@ const Applicants = () => {
   const jobTitles = [...new Set(applicants.map((app) => app?.title))];
 
   return (
-    <section>
+    <section >
       <h2 className="text-4xl font-bold mb-6 text-center">Applicants</h2>
 
       {jobTitles.map((title) => {

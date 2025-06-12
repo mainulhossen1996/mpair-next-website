@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import ArticlesDetails from "./ArticlesDetails";
 // import BlogDetails from "./BlogDetails";
 
 const AddArticle = () => {
@@ -152,7 +153,7 @@ const AddArticle = () => {
         </div>
         
         <div className="w-1/3 h-[60vh] overflow-y-auto ml-4">
-          <BlogDetails />
+          <ArticlesDetails />
           <div className="my-4">
             <button
               onClick={handleLogOut}

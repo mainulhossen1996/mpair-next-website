@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
 
-
 // Sample  data
 const initialJobs = [
   {
@@ -12,7 +11,8 @@ const initialJobs = [
     jobSubheading: "React & Tailwind Expert",
     deadline: "2025-06-30",
     status: "Ongoing",
-    experience: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempora minus delectus ullam rem? Sed molestias eligendi id minus, dignissimos eos voluptatum similique ratione laudantium incidunt velit ullam consequuntur? Eligendi.",
+    experience:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempora minus delectus ullam rem? Sed molestias eligendi id minus, dignissimos eos voluptatum similique ratione laudantium incidunt velit ullam consequuntur? Eligendi.",
   },
   {
     id: 2,
@@ -20,11 +20,10 @@ const initialJobs = [
     jobSubheading: "Node.js & MongoDB",
     deadline: "2025-07-10",
     status: "Closed",
-     experience: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempora minus delectus ullam rem? Sed molestias eligendi id minus, dignissimos eos voluptatum similique ratione laudantium incidunt velit ullam consequuntur? Eligendi.",
-
+    experience:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempora minus delectus ullam rem? Sed molestias eligendi id minus, dignissimos eos voluptatum similique ratione laudantium incidunt velit ullam consequuntur? Eligendi.",
   },
 ];
-
 
 const Career = () => {
   const [jobs, setJobs] = useState(initialJobs);
@@ -101,25 +100,15 @@ const Career = () => {
       {/* Job List */}
       <div className="space-y-10">
         {jobs.map((job) => (
-          <div
-            key={job.id}
-            className="relative border p-4 rounded shadow-sm"
-          >
-           <div className="flex justify-end"> 
-            <button
-                             onClick={() => handleDelete(job.id)}
-                             className="rounded"
-                           >
-                             <RiDeleteBin6Line className="text-2xl text-red-400" />
-                           </button>
-                           <button
-                             onClick={() => handleEdit(job)}
-                             className="rounded ml-2"
-                           >
-                             <RiEditBoxLine className="text-2xl " />
-                           </button>
-                           
-                           </div>
+          <div key={job.id} className="relative border p-4 rounded shadow-sm">
+            <div className="flex justify-end">
+              <button onClick={() => handleDelete(job.id)} className="rounded">
+                <RiDeleteBin6Line className="text-2xl text-red-400" />
+              </button>
+              <button onClick={() => handleEdit(job)} className="rounded ml-2">
+                <RiEditBoxLine className="text-2xl " />
+              </button>
+            </div>
 
             <h2 className="text-xl font-semibold my-2">{job.jobHeading}</h2>
             <p className="text-gray-600">{job.jobSubheading}</p>
@@ -127,7 +116,8 @@ const Career = () => {
               Deadline: {job.deadline}
             </p>
             <p className="text-sm">
-              Experience: <span className="text-gray-500">{job.experience}</span>
+              Experience:{" "}
+              <span className="text-gray-500">{job.experience}</span>
             </p>
             <span
               className={`inline-block mt-2 px-3 py-1 text-sm rounded-full ${
@@ -201,7 +191,9 @@ const Career = () => {
               </div>
 
               <div>
-                <label className="block font-medium mb-1">Job Description</label>
+                <label className="block font-medium mb-1">
+                  Job Description
+                </label>
                 <textarea
                   name="jobDescription"
                   onChange={(e) => {
@@ -220,10 +212,8 @@ const Career = () => {
                 ></textarea>
                 <p className="text-sm text-gray-500 mt-1">
                   {
-                    formData.jobDescription
-                      .trim()
-                      .split(/\s+/)
-                      .filter(Boolean).length
+                    formData.jobDescription.trim().split(/\s+/).filter(Boolean)
+                      .length
                   }{" "}
                   / 250 words
                 </p>
@@ -268,7 +258,9 @@ const Career = () => {
               </div>
 
               <div>
-                <label className="block font-medium mb-1">Required Skills</label>
+                <label className="block font-medium mb-1">
+                  Required Skills
+                </label>
                 <input
                   type="text"
                   name="skills"

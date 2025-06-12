@@ -12,7 +12,7 @@ const Blog = () => {
   const [createDate, setCreateDate] = useState("");
   const [label, setLabel] = useState("");
   const [description, setDescription] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false); // modal toggle
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { logout } = useContext(AuthContext);
 

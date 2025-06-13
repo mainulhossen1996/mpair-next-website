@@ -33,6 +33,7 @@ const Articles = () => {
           id: key,
           ...data[key],
         }));
+        console.log(blogArray);
         setBlogs(blogArray);
       } else {
         setBlogs([]);

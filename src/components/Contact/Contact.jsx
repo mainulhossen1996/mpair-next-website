@@ -1,14 +1,46 @@
 "use client";
 
+import app from "@/firebase/firebase.config";
 import { Button } from "@nextui-org/react";
+import { getDatabase, ref, set } from "firebase/database";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    organization: "",
+    email: "",
+    industry: "",
+    message: "",
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const db = getDatabase(app);
+    const applicantId = `queries-${Date.now()}`;
+    const newDocRef = ref(db, `queries/${applicantId}`);
+
+    set(newDocRef, formData).then(() => {
+      alert("Added successfully");
+      setFormData({
+        name: "",
+        organization: "",
+        email: "",
+        industry: "",
+        message: "",
+      });
+    });
+  };
 
   return (
     <>
@@ -47,7 +79,6 @@ const Contact = () => {
 
           <div className="w-5/12">
             <div className=" bg-slate-100 p-6">
-
               <div>
                 <div className="flex gap-4 mt-4 items-center">
                   <Image
@@ -64,82 +95,82 @@ const Contact = () => {
                 </div>
 
                 <p className="text-lg mt-10 my-[10px]">
-                Speak with sales through email. Your bussiness team will respond you within short period.
+                  Speak with sales through email. Your bussiness team will
+                  respond you within short period.
                 </p>
 
-                <div >
-                <form>
+                <div>
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your Name"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none"
+                      />
+                    </div>
 
-                <div className="mb-4">
-      
-      <input
-        id="organization-name"
-        type="text"
-        placeholder="Your Name"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-    </div>
-    {/* Organization Name */}
-    <div className="mb-4">
-  
-      <input
-        id="organization-name"
-        type="text"
-        placeholder="Organization Name"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-    </div>
+                    <div className="mb-4">
+                      <input
+                        type="text"
+                        name="organization"
+                        value={formData.organization}
+                        onChange={handleChange}
+                        placeholder="Organization Name"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none"
+                      />
+                    </div>
 
-    {/* Business Email */}
-    <div className="mb-4">
- 
-      <input
-        id="business-email"
-        type="email"
-        placeholder="Work Email"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-    </div>
+                    <div className="mb-4">
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Work Email"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none"
+                      />
+                    </div>
 
-    {/* Select Fields */}
-    <div className="mb-4">
+                    <div className="mb-4">
+                      <select
+                        name="industry"
+                        value={formData.industry}
+                        onChange={handleChange}
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none"
+                      >
+                        <option value="">Select your industry</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
 
-      <select
-        id="industry"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-      >
-        <option value="">Select your industry</option>
-        <option value="technology">Technology</option>
-        <option value="healthcare">Healthcare</option>
-        <option value="education">Education</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
+                    <div className="mb-4">
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Your Message"
+                        className="w-full mt-1 p-2 rounded-md py-3 outline-none"
+                        rows={4}
+                      />
+                    </div>
 
-
-    {/* Requirements */}
-    <div className="mb-4">
-      
-      <textarea
-        id="requirements"
-        placeholder="Your Message"
-        className="w-full mt-1 p-2 rounded-md py-3 outline-none "
-        variant="bordered"
-      />
-
-    </div>
-
-    {/* Submit Button */}
-    <Button className="relative bg-[#0077ff] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 group w-full">
-  <span className="absolute inset-0 bg-[#0055ff]  transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
-  <span className="relative flex items-center">
-    Send Message <ArrowUpRight className="ml-3" />
-  </span>
-</Button>
-  </form>
+                    {/* Submit Button */}
+                    <Button
+                      type="submit"
+                      className="relative bg-[#0077ff] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 group w-full"
+                    >
+                      <span className="absolute inset-0 bg-[#0055ff]  transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
+                      <span className="relative flex items-center">
+                        Send Message <ArrowUpRight className="ml-3" />
+                      </span>
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>

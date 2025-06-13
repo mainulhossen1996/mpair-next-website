@@ -5,7 +5,6 @@ import Image from "next/image";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { useParams } from "next/navigation";
-import AddArticle from "./AddArticle";
 
 const SingleArticle = () => {
   const { id } = useParams();

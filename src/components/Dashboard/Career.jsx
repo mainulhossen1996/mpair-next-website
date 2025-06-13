@@ -1,38 +1,13 @@
 "use client";
-
 import React, { useState } from "react";
-import { getDatabase, ref, onValue, remove, update } from "firebase/database";
+import JobList from "../Career/JobList";
 import app from "@/firebase/firebase.config";
+import { getDatabase, ref, set } from "firebase/database";
 
-import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
-
-// Sample  data
-const initialJobs = [
-  {
-    id: 1,
-    jobHeading: "Frontend Developer",
-    jobSubheading: "React & Tailwind Expert",
-    deadline: "2025-06-30",
-    status: "Ongoing",
-    experience:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempora minus delectus ullam rem? Sed molestias eligendi id minus, dignissimos eos voluptatum similique ratione laudantium incidunt velit ullam consequuntur? Eligendi.",
-  },
-  {
-    id: 2,
-    jobHeading: "Backend Developer",
-    jobSubheading: "Node.js & MongoDB",
-    deadline: "2025-07-10",
-    status: "Closed",
-    experience:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero tempora minus delectus ullam rem? Sed molestias eligendi id minus, dignissimos eos voluptatum similique ratione laudantium incidunt velit ullam consequuntur? Eligendi.",
-  },
-];
 
 const Career = () => {
-  const [jobs, setJobs] = useState(initialJobs);
   const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [editingJobId, setEditingJobId] = useState(null);
 
   const initialForm = {
     jobHeading: "",
@@ -55,32 +30,25 @@ const Career = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isEditing) {
-      setJobs((prev) =>
-        prev.map((job) =>
-          job.id === editingJobId ? { ...job, ...formData, id: job.id } : job
-        )
-      );
-    } else {
-      const newJob = { ...formData, id: Date.now() };
-      setJobs([newJob, ...jobs]);
-    }
+    const db = getDatabase(app);
+    const jobId = `job-${Date.now()}`;
+    const newDocRef = ref(db, `job/${jobId}`);
 
-    setFormData(initialForm);
-    setShowModal(false);
-    setIsEditing(false);
-    setEditingJobId(null);
-  };
-
-  const handleDelete = (id) => {
-    setJobs(jobs.filter((job) => job.id !== id));
-  };
-
-  const handleEdit = (job) => {
-    setFormData(job);
-    setShowModal(true);
-    setIsEditing(true);
-    setEditingJobId(job.id);
+    set(newDocRef, {
+      heading: formData.jobHeading,
+      subheading: formData.jobSubheading,
+      deadline: formData.deadline,
+      description: formData.jobDescription,
+      experience: formData.experience,
+      salary: formData.salary,
+      location: formData.Location,
+      skills: formData.skills,
+      status: formData.status,
+    }).then(() => {
+      alert("Data Added successfully");
+      setFormData(initialForm);
+      setShowModal(false);
+    });
   };
 
   return (
@@ -102,45 +70,23 @@ const Career = () => {
 
       {/* Job List */}
       <div className="space-y-10">
-        {jobs.map((job) => (
-          <div key={job.id} className="relative border p-4 rounded shadow-sm">
-            <div className="flex justify-end">
-
-              <button onClick={() => handleDelete(job.id)} className="rounded">
-                <RiDeleteBin6Line className="text-2xl text-red-400" />
-              </button>
-              <button onClick={() => handleEdit(job)} className="rounded ml-2">
-                <RiEditBoxLine className="text-2xl " />
-              </button>
-            </div>
-
-            <h2 className="text-xl font-semibold my-2">{job.jobHeading}</h2>
-            <p className="text-gray-600">{job.jobSubheading}</p>
-            <p className="text-sm text-gray-500 my-2">
-              Deadline: {job.deadline}
-            </p>
-            <p className="text-sm">
-              Experience:{" "}
-              <span className="text-gray-500">{job.experience}</span>
-            </p>
-            <span
-              className={`inline-block mt-2 px-3 py-1 text-sm rounded-full ${
-                job.status === "Ongoing"
-                  ? "bg-green-100 text-green-700"
-                  : "bg-red-100 text-red-700"
-              }`}
+        <div className="max-w-screen-xl overflow-y-auto ml-4 max-h-lvh ">
+          <JobList />
+          <div className="flex justify-center">
+            <button
+              // onClick={handleLogOut}
+              className="text-base w-52 mt-10 bg-violet-300 font-medium py-[2px] h-[44px]"
             >
-              {job.status}
-            </span>
+              LogOut
+            </button>
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center p-4">
           <div className="bg-white rounded-lg p-6 w-full max-w-xl relative max-h-[90vh] overflow-y-auto">
-            {/* Close button */}
             <button
               onClick={() => {
                 setShowModal(false);
@@ -163,23 +109,28 @@ const Career = () => {
                 <input
                   type="text"
                   name="jobHeading"
-                  onChange={handleChange}
                   value={formData.jobHeading}
-                  className="w-full p-2 border rounded"
+                  placeholder="Enter job heading"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 />
               </div>
 
               <div>
                 <label className="block font-medium mb-1">Job Title</label>
-                <input
-                  type="text"
+                <select
                   name="jobSubheading"
-                  onChange={handleChange}
                   value={formData.jobSubheading}
-                  className="w-full p-2 border rounded"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
-                />
+                >
+                  <option value="">Select title</option>
+                  <option value="Software Engineer">Software Engineer</option>
+                  <option value="UI-UX Designer">UI-UX Designer</option>
+                  <option value="Database Engineer">Database Engineer</option>
+                </select>
               </div>
 
               <div>
@@ -187,19 +138,18 @@ const Career = () => {
                 <input
                   type="date"
                   name="deadline"
-                  onChange={handleChange}
                   value={formData.deadline}
-                  className="w-full p-2 border rounded"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 />
               </div>
 
               <div>
-                <label className="block font-medium mb-1">
-                  Job Description
-                </label>
+                <label className="block font-medium mb-1">Job Description</label>
                 <textarea
                   name="jobDescription"
+                  placeholder="Describe the job (max 250 words)"
                   onChange={(e) => {
                     const words = e.target.value.trim().split(/\s+/);
                     if (words.length <= 250) {
@@ -210,8 +160,8 @@ const Career = () => {
                     }
                   }}
                   value={formData.jobDescription}
-                  className="w-full p-2 border rounded"
-                  rows={3}
+                  className="w-full p-2 border rounded outline-none"
+                  rows={4}
                   required
                 ></textarea>
                 <p className="text-sm text-gray-500 mt-1">
@@ -230,9 +180,10 @@ const Career = () => {
                 <input
                   type="text"
                   name="experience"
-                  onChange={handleChange}
                   value={formData.experience}
-                  className="w-full p-2 border rounded"
+                  placeholder="e.g., 2 years"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 />
               </div>
@@ -242,9 +193,10 @@ const Career = () => {
                 <input
                   type="text"
                   name="salary"
-                  onChange={handleChange}
                   value={formData.salary}
-                  className="w-full p-2 border rounded"
+                  placeholder="e.g., 60000"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 />
               </div>
@@ -254,23 +206,23 @@ const Career = () => {
                 <input
                   type="text"
                   name="Location"
-                  onChange={handleChange}
                   value={formData.Location}
-                  className="w-full p-2 border rounded"
+                  placeholder="e.g., Dhaka"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 />
               </div>
 
               <div>
-                <label className="block font-medium mb-1">
-                  Required Skills
-                </label>
+                <label className="block font-medium mb-1">Required Skills</label>
                 <input
                   type="text"
                   name="skills"
-                  onChange={handleChange}
                   value={formData.skills}
-                  className="w-full p-2 border rounded"
+                  placeholder="e.g., React, Tailwind, Firebase"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 />
               </div>
@@ -279,9 +231,9 @@ const Career = () => {
                 <label className="block font-medium mb-1">Job Status</label>
                 <select
                   name="status"
-                  onChange={handleChange}
                   value={formData.status}
-                  className="w-full p-2 border rounded"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
                   required
                 >
                   <option value="">Select status</option>

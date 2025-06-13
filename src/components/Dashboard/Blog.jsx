@@ -39,13 +39,13 @@ const Blog = () => {
       label,
       description,
     }).then(() => {
-      alert("Data Added successfully"); // Reset form
+      alert("Data Added successfully"); 
       setImage("");
       setBlogName("");
       setCreateDate("");
       setLabel("");
       setDescription("");
-      setIsModalOpen(false); // close modal after submission
+      setIsModalOpen(false); 
     });
   };
 

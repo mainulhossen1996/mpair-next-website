@@ -1,84 +1,35 @@
 "use client";
 import React from "react";
-import  { useEffect, useState } from "react";
-import { getFirestore, collection, getDocs, query, orderBy } from "firebase/firestore";
-import app from "@/firebase/firebase.config";
+import { useEffect, useState } from "react";
+
 import { Button } from "@nextui-org/react";
 import { GrView } from "react-icons/gr";
 import { LuMessageSquareReply } from "react-icons/lu";
-
-
-const db = getFirestore(app);
+import { getDatabase, onValue, ref } from "firebase/database";
+import app from "@/firebase/firebase.config";
 
 export default function Queries() {
   const [queries, setQueries] = useState([]);
-  const [loading, setLoading] = useState(true);
 
- //  const useSample = true;   //this will show sample data
-   const useSample = false;    //this for real data 
+  useEffect(() => {
+    const db = getDatabase(app);
+    const blogRef = ref(db, "queries");
 
-   const sampleData = [
-      {
-        id: "1",
-        name: "John Doe",
-        organization: "Bright Future Foundation",
-        email: "nafija@bff.org",
-        industry: "Non-Profit",
-        requirements:
-          "We’re looking for a custom-built donation tracking dashboard and volunteer management portal.",
-        createdAt: new Date("2025-06-10T14:30:00Z"),
-      },
-      {
-        id: "2",
-        name: "Alice Brown",
-        organization: "DCraft Solutions",
-        email: "alice@dcraft.com",
-        industry: "IT Services",
-        requirements:
-          "We need to integrate a secure payment gateway into our existing client platform.",
-        createdAt: new Date("2025-06-11T09:45:00Z"),
-      },
-      {
-        id: "3",
-        name: "Elizabeth Bennet",
-        organization: "EduBridge",
-        email: "eli.bennet@edubridge.com",
-        industry: "Education",
-        requirements:
-          "Interested in building a mobile app for student progress tracking and parent notifications.",
-        createdAt: new Date("2025-06-12T08:15:00Z"),
-      },
-    ];
-
-
-
- useEffect(() => {
-    const fetchQueries = async () => {
-      if (useSample) {
-        setQueries(sampleData);
-        setLoading(false);
-        return;
-      }
-      
-      try {
-        const q = query(collection(db, "queries"), orderBy("createdAt", "desc"));
-        const snapshot = await getDocs(q);
-        const data = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
+    onValue(blogRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const query = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
         }));
-        setQueries(data);
-      } catch (error) {
-        console.error("Error fetching queries:", error);
-        setLoading(false);
+        setQueries(query);
+      } else {
+        setQueries([]);
       }
-    };
-
-    fetchQueries();
+    });
   }, []);
 
   //if (loading) return <p className="p-6">Loading queries...</p>;
-
 
   return (
     <div className="max-w-7xl mx-auto px-4">
@@ -117,15 +68,12 @@ export default function Queries() {
             <tbody className="divide-y divide-gray-400 bg-white">
               {queries.map((q) => (
                 <tr key={q.id}>
-                  <td className="px-4 py-3">{q.name}</td>
-                  <td className="px-2 py-3">{q.organization || "—"}</td>
-                  <td className="px-2 py-3">{q.email}</td>
-                  <td className="px-2 py-3">{q.industry || "—"}</td>
-                  <td
-                    className="px-2 py-3 max-w-xs truncate"
-                    title={q.requirements}
-                  >
-                    {q.requirements || "—"}
+                  <td className="px-4 py-3">{q?.name}</td>
+                  <td className="px-2 py-3">{q?.organization || "—"}</td>
+                  <td className="px-2 py-3">{q?.email}</td>
+                  <td className="px-2 py-3">{q?.industry || "—"}</td>
+                  <td className="px-2 py-3 max-w-xs truncate" title={q.message}>
+                    {q.message || "—"}
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-500">
                     {q.createdAt instanceof Date
@@ -134,9 +82,13 @@ export default function Queries() {
                   </td>
                   <td className="pr-4 py-3">
                     <div className="flex gap-1 justify-start">
-                      <Button className="text-xl" color="primary">  <GrView />
+                      <Button className="text-xl" color="primary">
+                        {" "}
+                        <GrView />
                       </Button>
-                      <Button className="text-xl" color="success">   <LuMessageSquareReply />
+                      <Button className="text-xl" color="success">
+                        {" "}
+                        <LuMessageSquareReply />
                       </Button>
                     </div>
                   </td>
@@ -144,7 +96,6 @@ export default function Queries() {
               ))}
             </tbody>
           </table>
-
         </div>
       )}
     </div>

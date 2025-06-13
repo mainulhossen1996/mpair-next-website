@@ -1,13 +1,11 @@
-import React from 'react';
-import SingleBlog from '@/components/Articles/SingleArticle';
-import Articles from '@/components/Articles/Articles';
+
+import SingleArticle from '@/components/Articles/SingleArticle';
  
   
 const page = () => {
   return (
     <div>
-       <SingleBlog/>
-       
+       <SingleArticle/>       
     </div>
   )
 }

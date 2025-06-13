@@ -192,6 +192,7 @@ const ArticlesDetails = () => {
               <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
               <p className="text-gray-600">{blog.description}</p>
               <span className="text-sm text-gray-400">{blog.createDate}</span>
+              <p className="text-md text-blue-500 ">  {blog.label}  </p>
             </div>
           )
         )}

@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import Image from "next/image";
 import TextBox from "./Textbox";
 import { AllBlogs } from "./AllArticles";
+
 
 const categories = ["All", "Software", "Robotics", "AI"];
 
@@ -13,6 +14,7 @@ export default function ArticlesList() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [blogs, setBlogs] = useState([]);
 
+  
   useEffect(() => {
     const db = getDatabase(app);
     const blogRef = ref(db, "blog");
@@ -62,12 +64,13 @@ export default function ArticlesList() {
         </div>
 
         {/* Scrollable Blog Cards */}
-        <div className="overflow-x-auto scrollbar-hide mt-10 ">
-          <div className="flex gap-6 w-max px-2 h-full">
+
+       <div className="overflow-x-auto scrollbar-hide mt-10 scroll-smooth w-full" >
+  <div className="grid grid-cols-4 gap-6 w-max px-2">
             {filteredCards[activeCategory]?.map((blog) => (
               <div
                 key={blog.id}
-                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[300px] h-fit p-4 relative hover:shadow-lg transition-shadow"
+                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[300px] h-auto p-4 relative hover:shadow-lg transition-shadow"
               >
                 <div className="relative w-full h-40">
                 <Image

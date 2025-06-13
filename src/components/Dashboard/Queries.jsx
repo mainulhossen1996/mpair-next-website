@@ -8,16 +8,15 @@ import { GrView } from "react-icons/gr";
 import { LuMessageSquareReply } from "react-icons/lu";
 
 
-
 const db = getFirestore(app);
 
 export default function Queries() {
   const [queries, setQueries] = useState([]);
   const [loading, setLoading] = useState(true);
 
+ //  const useSample = true;   //this will show sample data
+   const useSample = false;    //this for real data 
 
-//sample data for testing 
-   /* { useEffect(() => {
    const sampleData = [
       {
         id: "1",
@@ -51,16 +50,16 @@ export default function Queries() {
       },
     ];
 
-    // Simulate async fetch
-    setTimeout(() => {
-      setQueries(sampleData);
-      setLoading(false);
-    }, 500);
-  }, []); }*/
 
 
  useEffect(() => {
     const fetchQueries = async () => {
+      if (useSample) {
+        setQueries(sampleData);
+        setLoading(false);
+        return;
+      }
+      
       try {
         const q = query(collection(db, "queries"), orderBy("createdAt", "desc"));
         const snapshot = await getDocs(q);
@@ -69,7 +68,6 @@ export default function Queries() {
           ...doc.data(),
         }));
         setQueries(data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching queries:", error);
         setLoading(false);
@@ -93,13 +91,27 @@ export default function Queries() {
           <table className="min-w-full divide-y divide-gray-500">
             <thead className="bg-blue-100">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Name</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Organization</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Email</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Industry</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Message</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Submitted</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Actions</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Name
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Organization
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Email
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Industry
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Message
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Submitted
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-400 bg-white">
@@ -109,23 +121,30 @@ export default function Queries() {
                   <td className="px-2 py-3">{q.organization || "—"}</td>
                   <td className="px-2 py-3">{q.email}</td>
                   <td className="px-2 py-3">{q.industry || "—"}</td>
-                  <td className="px-2 py-3 max-w-xs truncate" title={q.requirements}>
+                  <td
+                    className="px-2 py-3 max-w-xs truncate"
+                    title={q.requirements}
+                  >
                     {q.requirements || "—"}
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-500">
-                                     {q.createdAt?.toLocaleString()}
-  
+                    {q.createdAt instanceof Date
+                      ? q.createdAt.toLocaleString()
+                      : q.createdAt?.toDate?.().toLocaleString?.() || "—"}
                   </td>
                   <td className="pr-4 py-3">
                     <div className="flex gap-1 justify-start">
-                      <Button className="text-xl" color="primary">    <GrView />  </Button>
-                      <Button className="text-xl" color="success" >  <LuMessageSquareReply />   </Button>
+                      <Button className="text-xl" color="primary">  <GrView />
+                      </Button>
+                      <Button className="text-xl" color="success">   <LuMessageSquareReply />
+                      </Button>
                     </div>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+
         </div>
       )}
     </div>

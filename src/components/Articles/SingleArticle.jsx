@@ -13,9 +13,11 @@ const SingleArticle = () => {
   const [blogs, setBlogs] = useState([]); 
   const [blog, setBlog] = useState(null); 
 
+
   useEffect(() => {
     const db = getDatabase(app);
     const blogRef = ref(db, "blog");
+
 
     onValue(blogRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -43,15 +45,18 @@ const SingleArticle = () => {
 
  // if (!blog) return <div>Loading...</div>;
 
+ 
+
   return (
-    <div className="w-full min-h-screen bg-white">
+    <section className="w-full min-h-screen bg-white">
       
       <div className="relative w-full h-[500px]">
           <Image
             alt="Blog Header"
             src={blog?.image}
-            fill
-            className="object-cover"
+            width={300}
+            height={100}
+            className="object-cover w-full h-full"
             priority
           />
       
@@ -74,7 +79,9 @@ const SingleArticle = () => {
           </p>
         </div>
       </div>
-    </div>
+
+  
+    </section>
   );
 };
 

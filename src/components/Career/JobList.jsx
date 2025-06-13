@@ -140,11 +140,7 @@ const JobList = () => {
                 <RiEditBoxLine className="text-xl " />
               </button>
             </div>
-            <img
-              src={blog.image}
-              alt="Blog"
-              className="w-full h-48 object-cover rounded-lg"
-            />
+           
             <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
             <p className="text-gray-600">{blog.description}</p>
             <span className="text-sm text-gray-400">{blog.createDate}</span>

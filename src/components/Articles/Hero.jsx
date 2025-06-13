@@ -34,7 +34,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="max-w-screen-xl mx-auto flex justify-between items-center" >
+    <section className="max-w-screen-xl mx-auto " >
       <div className="pt-32 pb-20 relative bg-white py-20 text-center">
         <div className=" mt-[-20px] flex flex-col justify-center">
           <p className="text-[80px] font-regular text-center">

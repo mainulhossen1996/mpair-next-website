@@ -54,14 +54,14 @@ const ApplyForm = ({ title }) => {
   };
 
   return (
-    <div className="max-w-3xl items-center mx-auto bg-gray-100 p-10 rounded-sm my-10 ">
+    <div className="max-w-2xl items-center mx-auto border-2 p-8 rounded-xl my-10 ">
       <h2 className="text-4xl font-semibold mb-3 text-center">
         Job Application Form
       </h2>
-      <p className="text-base text-gray-500 font-base mb-4">
+      <p className=" text-center text-base text-gray-500 font-base mb-4">
         Enter your details into the Form below:
       </p>
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5 ">
         {[
           { label: "Full Name", name: "name", placeholder: "Enter your name" },
           { label: "Email", name: "email", placeholder: "Enter your email" },
@@ -88,7 +88,7 @@ const ApplyForm = ({ title }) => {
               onChange={handleChange}
               placeholder={placeholder}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-200"
+              className="w-3/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-200"
             />
           </div>
         ))}
@@ -110,7 +110,7 @@ const ApplyForm = ({ title }) => {
             className="w-full"
             required
           />
-          <p className="text-xs font-normal text-red-500 mt-2 mb-10">
+          <p className="text-xs font-normal text-red-500 mt-2 mb-6">
             ⚠️ Please upload your resume in PDF or DOC format. Max size: 5MB.
           </p>
         </div>

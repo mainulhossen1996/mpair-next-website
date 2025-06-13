@@ -5,7 +5,7 @@ import p2 from '../../../public/image/career/Careerbanner.png'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col justify-start items-start mx-[110px]  ">
+    <div className=" flex flex-col justify-start items-start max-w-screen-xl mx-auto  ">
       <div className="py-28 mt-12">
         <p className="text-base font-normal">We are Hiring! &#128640; </p>
         <h1 className="text-4xl font-medium my-4">

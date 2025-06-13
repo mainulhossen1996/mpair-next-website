@@ -48,39 +48,36 @@ const SingleArticle = () => {
  
 
   return (
-    <section className="w-full min-h-screen bg-white">
-      
-      <div className="relative w-full h-[500px]">
+    <section>
+      <div className="flex flex-col justify-center items-center w-full h-[500px] bg-gray-300">
+        <h1 className=" text-4xl font-semibold ">  {blog?.blog_name}
+        </h1>
+        <div>
+          <span className="text-sm text-gray-600 font-normal">
+          {blog?.createDate}
+        </span>
+        <span>|</span>
+        <span className="text-sm text-gray-600 font-normal">
+          {blog?.label}{" "}
+        </span>
+        </div>
+      </div>
+
+      <div className="relative z-10 -mt-[200px] mb-[80px] px-4 md:px-10">
+        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-5xl mx-auto flex flex-col justify-center items-center gap-2">
           <Image
             alt="Blog Header"
             src={blog?.image}
             width={300}
             height={100}
-            className="object-cover w-full h-full"
+            className="object-cover w-3/5 h-[250px] "
             priority
           />
-      
-      </div>
-
-   
-      <div className="relative z-10 -mt-[200px] mb-[80px] px-4 md:px-10">
-        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-12 max-w-5xl mx-auto flex flex-col gap-2">
- <h1 className="text-3xl md:text-4xl font-bold text-gray-900 my-3">
-            {blog?.blog_name}</h1>
-            <div className="flex flex-row gap-3 items-center">
-          <p className="text-sm text-gray-600 font-normal"> {blog?.createDate}   </p>  
-          <span>|</span>                 
-          <p className="text-sm text-gray-600 font-normal"> {blog?.label} </p>
-</div>
-          <hr className="border-t border-gray-300"/>
-
           <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
             {blog?.description}
           </p>
         </div>
       </div>
-
-  
     </section>
   );
 };

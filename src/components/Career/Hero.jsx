@@ -5,10 +5,11 @@ import p2 from '../../../public/image/career/Careerbanner.png'
 
 const Hero = () => {
   return (
-    <div className="flex flex-col justify-start items-start mx-[110px]  ">
+  <section className="w-full bg-gray-300">
+    <div className=" flex flex-col justify-start items-start max-w-screen-xl mx-auto  ">
       <div className="py-28 mt-12">
-        <p className="text-base font-normal">We are Hiring! &#128640; </p>
-        <h1 className="text-4xl font-medium my-4">
+        <p className="text-base font-normal ">We are Hiring! &#128640; </p>
+        <h1 className="text-4xl font-medium my-4 ">
           Find the Best <span className="text-blue-600">Job Offer</span> For
           You.
         </h1>
@@ -18,7 +19,7 @@ const Hero = () => {
           width={150}
           height={80}
           alt="stroke"
-          className="absolute -my-8 left-[80px] lg:left-[380px] lg:h-[50px] object-contain filter"
+          className="absolute -my-8 left-[450px] md:h-[50px] object-contain filter"
         />
 
         <p className="text-sm font-light py-4">
@@ -35,6 +36,7 @@ const Hero = () => {
         className="absolute my-20 w-[280px] h-[400px] right-[80px] lg:right-[150px] object-contain filter"
       />
     </div>
+    </section>
   );
 };
 

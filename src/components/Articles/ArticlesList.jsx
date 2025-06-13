@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
-import Image from "next/image";
+import Image  from "next/image";
 import TextBox from "./Textbox";
 
 const categories = ["All", "Software", "Robotics", "AI"];
@@ -44,6 +44,9 @@ export default function ArticlesList() {
           <h2 className="pl-4 text-4xl font-semibold">
             Discover More Articles
           </h2>
+          <h2 className="pl-4 text-4xl font-semibold">
+            Discover More Articles
+          </h2>
           <div className="flex space-x-3 flex-wrap ">
             {categories.map((category) => (
               <button
@@ -68,7 +71,7 @@ export default function ArticlesList() {
             {filteredCards[activeCategory]?.map((blog) => (
               <div
                 key={blog.id}
-                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[300px] h-auto p-4 relative hover:shadow-lg transition-shadow"
+                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[350px] h-auto p-4 relative hover:shadow-lg transition-shadow"
               >
                 <div className="relative w-full h-40">
                   <Image

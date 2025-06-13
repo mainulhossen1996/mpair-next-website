@@ -32,10 +32,12 @@ export default function FeaturedArticles() {
       <div className="flex flex-row gap-10">
 
         {/* first one in array */}
-        <div className="w-2/3 ">
-          {blogs.length > 0 && (
-            <div className="flex flex-row  text-black h-64 rounded-lg overflow-hidden border-2">
-              <div className="relative w-3/5 ">
+        {blogs.length > 0 && ( 
+          <Link href={`/articles/${blogs[0].id}`}>            
+              
+              <div className=" h-full flex flex-row  text-black  rounded-lg overflow-hidden border-2">
+
+            <div className="relative w-3/5 ">      
                 <Image
                   src={blogs[0].image}
                   alt={blogs[0].blog_name}
@@ -45,11 +47,11 @@ export default function FeaturedArticles() {
               </div>
 
               <div className="p-6 flex flex-col justify-start gap-2 w-3/5">
-                <Link href={`/articles/${blogs[0].id}`}>
+               
                   <h2 className="text-2xl font-bold hover:text-blue-500 cursor-pointer">
                     {blogs[0].blog_name}
                   </h2>
-                </Link>
+                
                 <p className="text-sm text-gray-500 ">
                   {blogs[0].description?.split(" ").slice(0, 30).join(" ")}...
                 </p>
@@ -58,12 +60,17 @@ export default function FeaturedArticles() {
                   <span className="text-gray-400">{blogs[0].createDate}</span>
                 </div>
               </div>
+           
             </div>
-          )}
-        </div>
+           
+           
+          </Link>
+           )} 
+         
+       
 
         {/* Most Read Blogs */}
-        <div className="w-1/3 space-y-6 p-4">
+        <div className=" space-y-6 p-4">
           <h3 className="text-lg font-medium">Most Read</h3>
 
             {[blogs[0], blogs[3]].map(

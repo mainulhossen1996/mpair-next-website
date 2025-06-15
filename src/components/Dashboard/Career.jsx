@@ -13,11 +13,11 @@ const Career = () => {
     jobHeading: "",
     jobSubheading: "",
     deadline: "",
-    jobDescription: "",
-    experience: "",
-    salary: "",
+    positionOverview: "",
+    qualifications: "",
+    salaryRange: "",
     Location: "",
-    skills: "",
+    jobResponsibilities: "",
     status: "",
   };
 
@@ -38,11 +38,11 @@ const Career = () => {
       heading: formData.jobHeading,
       subheading: formData.jobSubheading,
       deadline: formData.deadline,
-      description: formData.jobDescription,
-      experience: formData.experience,
-      salary: formData.salary,
+      positionOverview: formData.positionOverview,
+      qualifications: formData.qualifications,
+      salaryRange: formData.salaryRange,
       location: formData.Location,
-      skills: formData.skills,
+      jobResponsibilities: formData.jobResponsibilities,
       status: formData.status,
     }).then(() => {
       alert("Data Added successfully");
@@ -146,28 +146,32 @@ const Career = () => {
               </div>
 
               <div>
-                <label className="block font-medium mb-1">Job Description</label>
+                <label className="block font-medium mb-1">
+                  Position Overview
+                </label>
                 <textarea
-                  name="jobDescription"
+                  name="positionOverview"
                   placeholder="Describe the job (max 250 words)"
                   onChange={(e) => {
                     const words = e.target.value.trim().split(/\s+/);
                     if (words.length <= 250) {
                       setFormData((prev) => ({
                         ...prev,
-                        jobDescription: e.target.value,
+                        positionOverview: e.target.value,
                       }));
                     }
                   }}
-                  value={formData.jobDescription}
+                  value={formData.positionOverview}
                   className="w-full p-2 border rounded outline-none"
                   rows={4}
                   required
                 ></textarea>
                 <p className="text-sm text-gray-500 mt-1">
                   {
-                    formData.jobDescription.trim().split(/\s+/).filter(Boolean)
-                      .length
+                    formData.positionOverview
+                      .trim()
+                      .split(/\s+/)
+                      .filter(Boolean).length
                   }{" "}
                   / 250 words
                 </p>
@@ -175,26 +179,43 @@ const Career = () => {
 
               <div>
                 <label className="block font-medium mb-1">
-                  Experience Required
+                  Qualifications Required
                 </label>
-                <input
-                  type="text"
-                  name="experience"
-                  value={formData.experience}
-                  placeholder="e.g., 2 years"
+                <textarea
+                  name="qualifications"
+                  value={formData.qualifications}
+                  placeholder="e.g., React, Tailwind, Firebase"
                   onChange={handleChange}
-                  className="w-full p-2 border rounded outline-none"
+                  className="w-full p-2 border rounded outline-none resize-y"
+                  rows={3}
                   required
-                />
+                ></textarea>
               </div>
 
               <div>
-                <label className="block font-medium mb-1">Salary</label>
+                <label className="block font-medium mb-1">
+                   Job Responsibilities
+                </label>
+                <textarea
+                  type="text"
+                  name="jobResponsibilities"
+                  value={formData.jobResponsibilities}
+                  placeholder="e.g., Bachelor’s degree in Computer Science, Engineering, or a related field.
+"
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded outline-none"
+                  rows={3}
+                  required
+                > </textarea>
+              </div>
+
+              <div>
+                <label className="block font-medium mb-1">Salary Range</label>
                 <input
                   type="text"
-                  name="salary"
-                  value={formData.salary}
-                  placeholder="e.g., 60000"
+                  name="salaryRange"
+                  value={formData.salaryRange}
+                  placeholder="e.g., 50000-60000"
                   onChange={handleChange}
                   className="w-full p-2 border rounded outline-none"
                   required
@@ -208,19 +229,6 @@ const Career = () => {
                   name="Location"
                   value={formData.Location}
                   placeholder="e.g., Dhaka"
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded outline-none"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Required Skills</label>
-                <input
-                  type="text"
-                  name="skills"
-                  value={formData.skills}
-                  placeholder="e.g., React, Tailwind, Firebase"
                   onChange={handleChange}
                   className="w-full p-2 border rounded outline-none"
                   required

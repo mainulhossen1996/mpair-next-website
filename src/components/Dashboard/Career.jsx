@@ -53,7 +53,7 @@ const Career = () => {
 
   return (
     <div className="ml-8 mt-32  max-w-screen-xl mx-auto">
-      <h1 className="text-3xl font-semibold text-center">Job Listings</h1>
+      <h1 className="text-2xl font-semibold">Job Listings</h1>
 
       <div className="flex justify-end items-center mb-6 mr-14 ">
         <button
@@ -70,7 +70,7 @@ const Career = () => {
 
       {/* Job List */}
       <div className="space-y-10 max-h-[50vh] ">
-        <div className=" overflow-y-auto m-4 ">
+        <div className=" overflow-y-auto max-w-6xl ">
           <JobList />
          
         </div>

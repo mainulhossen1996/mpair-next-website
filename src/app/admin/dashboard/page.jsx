@@ -7,7 +7,7 @@ import Sidebar from "@/components/Dashboard/Sidebar";
 export default function Page() {
   return (
     <PrivateRoute>   
-   <div className="flex min-h-screen ">
+   <div className="flex min-h-screen bg-gray-100">
         <Sidebar />
         <main className="flex-1 ">
           <Dashboard />

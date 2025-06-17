@@ -97,29 +97,34 @@ export default function Queries() {
                     </Button>
                   </td>
                   <td className="px-2 py-3">
-                    <select
-                      value={q.status || ""}
-                      onChange={(e) => handleStatusChange(q.id, e.target.value)}
-                      className={`border border-gray-300 rounded-md px-2 py-1 text-sm text-white
-                        ${
-                          q.status === "Responded"
-                            ? "bg-green-400"
-                            : q.status === "Pending"
-                            ? "bg-red-400"
-                            : "bg-gray-300"
-                        }
-                      `}
-                    >
-                      <option value="" disabled>
-                        Select status
-                      </option>
-                      <option className="bg-red-400 text-white" value="Pending">
-                        Pending
-                      </option>
-                      <option className="bg-green-400 text-white" value="Responded">
-                        Responded
-                      </option>
-                    </select>
+                   <select
+  value={q.status || ""}
+  onChange={(e) => handleStatusChange(q.id, e.target.value)}
+  className={`border border-gray-300 rounded-md px-2 py-1 text-sm text-white
+    ${
+      q.status === "Responded"
+        ? "bg-green-400"
+        : q.status === "Pending"
+        ? "bg-red-400"
+        : q.status === "Closed"
+        ? "bg-gray-500"
+        : "bg-gray-300"
+    }
+  `}
+>
+  <option value="" disabled>
+    Select status
+  </option>
+  <option className="bg-red-400 text-white" value="Pending">
+    Pending
+  </option>
+  <option className="bg-green-400 text-white" value="Responded">
+    Responded
+  </option>
+  <option className="bg-gray-500 text-white" value="Closed">
+    Closed
+  </option>
+</select>
                   </td>
                 </tr>
               ))}
@@ -164,17 +169,20 @@ export default function Queries() {
               </p>
               <p>
                 <strong>Status:  </strong>
-                <span
-                  className={
-                    selectedQuery.status === "Responded"
-                      ? "text-green-600"
-                      : selectedQuery.status === "Pending"
-                      ? "text-red-500"
-                      : "text-gray-500"
-                  }
-                >
-                  {selectedQuery.status || "—"}
-                </span>
+               <span
+  className={
+    selectedQuery.status === "Responded"
+      ? "text-green-600"
+      : selectedQuery.status === "Pending"
+      ? "text-red-500"
+      : selectedQuery.status === "Closed"
+      ? "text-gray-500"
+      : "text-gray-400"
+  }
+>
+  {selectedQuery.status || "—"}
+</span>
+
               </p>
             </div>
           </div>

@@ -22,9 +22,9 @@ const Sidebar = () => {
 
 
   return (
-    <section className="h-screen w-52 bg-gray-200 text-white fixed top-24 left-0  py-6 space-y-2 rounded-tr-md">
-      {navItems.map((item, index) => {
-        const isActive = path === item?.href;
+    <section className="h-screen w-52 bg-gray-200 text-white sticky  mt-24 left-0  p-6 space-y-2 rounded-tr-md">
+         {navItems.map((item, index) => {
+        const isActive = path === item.href;
 
         return (
           <div

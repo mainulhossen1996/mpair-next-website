@@ -6,9 +6,13 @@ import Sidebar from "@/components/Dashboard/Sidebar";
 
 export default function Page() {
   return (
-    <PrivateRoute>
-      <Sidebar/>
-      <Dashboard />
+    <PrivateRoute>   
+   <div className="flex min-h-screen ">
+        <Sidebar />
+        <main className="flex-1 ">
+          <Dashboard />
+        </main>
+      </div>
     </PrivateRoute>
   );
 }

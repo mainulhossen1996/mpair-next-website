@@ -52,10 +52,10 @@ const Career = () => {
   };
 
   return (
-    <div className="ml-8 mt-32  max-w-screen-2xl mx-auto">
+    <div className="ml-8 mt-32  max-w-screen-xl mx-auto">
       <h1 className="text-3xl font-semibold text-center">Job Listings</h1>
 
-      <div className="flex justify-end items-center mb-6 ">
+      <div className="flex justify-end items-center mb-6 mr-14 ">
         <button
           className="h-11 w-44 bg-blue-500 text-white text-lg px-6 py-2 rounded-full hover:bg-blue-600 transition"
           onClick={() => {

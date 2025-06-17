@@ -79,7 +79,7 @@ const ArticlesDetails = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-6 max-w-screen-2xl">
+      <div className="grid grid-cols-3 gap-2 max-w-screen-xl">
         {blogs.map((blog) =>
           editId === blog.id ? (
             <div
@@ -168,7 +168,7 @@ const ArticlesDetails = () => {
               </button>
             </div>
           ) : (
-            <div key={blog.id} className="p-4 border rounded-lg shadow ">
+            <div key={blog.id} className="m-3 p-4 border rounded-lg shadow ">
               <p className="text-lg font-semibold text-blue-500 ">
                 {" "}
                 {blog.label}{" "}

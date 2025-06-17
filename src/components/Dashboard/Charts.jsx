@@ -128,7 +128,7 @@ const Charts = () => {
   };
 
   return (
-    <div className="flex flex-row gap-6 pr-8">
+    <div className="flex flex-row gap-4 pr-8">
       {/* Bar chart left side */}
       <div className="w-2/3 h-2/3 bg-white  p-4 rounded-xl border-2">
         <h3 className="text-lg font-medium mb-1">Weekly Article Views</h3>

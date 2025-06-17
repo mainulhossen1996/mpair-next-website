@@ -127,7 +127,7 @@ const Showcase = () => {
           Recent Queries
         </h2>  
            <Link
-            href="/admin/dashboard/articles"
+            href="/admin/dashboard/queries"
             className="text-blue-800 text-sm hover:underline text-right"
           >
             View All
@@ -156,7 +156,7 @@ const Showcase = () => {
           <MdOutlineWorkOutline className="text-xl" /> Latest Jobs
         </h2>  
            <Link
-            href="/admin/dashboard/articles"
+            href="/admin/dashboard/career"
             className="text-blue-800 text-sm hover:underline text-right"
           >
             View All
@@ -184,7 +184,7 @@ const Showcase = () => {
           <FaRegUser className="text-xl" /> Latest Applicants
         </h2> 
            <Link
-            href="/admin/dashboard/articles"
+            href="/admin/dashboard/applicants"
             className="text-blue-800 text-sm hover:underline text-right"
           >
             View All

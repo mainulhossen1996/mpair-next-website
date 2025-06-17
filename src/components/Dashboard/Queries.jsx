@@ -65,7 +65,6 @@ export default function Queries() {
                 <th className="px-4 py-3 text-left text-sm font-semibold">Organization</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Industry</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Message</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Submitted</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Actions</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Status</th>
               </tr>
@@ -79,14 +78,14 @@ export default function Queries() {
                   <td className="px-2 py-3 max-w-xs truncate" title={q.message}>
                     {q.message || "—"}
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-500">
+                  {/* <td className="px-4 py-3 text-sm text-gray-500">
                     {q.createdAt instanceof Date
                       ? q.createdAt.toLocaleString()
                       : q.createdAt?.toDate?.().toLocaleString?.() ||
                       (typeof q.createdAt === "string"
                         ? new Date(q.createdAt).toLocaleString()
                         : "—")}
-                  </td>
+                  </td> */}
                   <td className="px-2 py-3">
                     <Button
                       className="text-2xl"

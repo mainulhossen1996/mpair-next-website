@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
+// import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const ApplyForm = ({ title }) => {
   const [formData, setFormData] = useState({
@@ -24,34 +25,96 @@ const ApplyForm = ({ title }) => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const db = getDatabase(app);
-    const applicantId = `applicant-${Date.now()}`;
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const db = getDatabase(app);
+  //   const applicantId = `applicant-${Date.now()}`;
 
+  //   const newDocRef = ref(db, `applicant/${applicantId}`);
+  //   set(newDocRef, {
+  //     title: title,
+  //     name: formData?.name,
+  //     email: formData?.email,
+  //     phone: formData?.phone,
+  //     portfolio: formData?.portfolio,
+  //     linkedin: formData?.linkedin,
+  //     resume: formData?.resume,
+  //   }).then(() => {
+  //     alert("added successfully");
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       phone: "",
+  //       portfolio: "",
+  //       linkedin: "",
+  //       resume: "",
+  //     });
+  //   });
+
+  //   console.log(formData);
+  // };
+
+
+
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const db = getDatabase(app);
+  const storage = getStorage(app);
+  const applicantId = `applicant-${Date.now()}`;
+
+  // 1. Upload resume file to Firebase Storage
+  const file = formData.resume;
+  const fileRef = storageRef(storage, `resumes/${applicantId}-${file.name}`);
+
+  try {
+    await uploadBytes(fileRef, file); // upload the file
+    const downloadURL = await getDownloadURL(fileRef); // get file URL
+
+    // 2. Save form data with resume URL in Firebase Realtime Database
     const newDocRef = ref(db, `applicant/${applicantId}`);
-    set(newDocRef, {
+    await set(newDocRef, {
       title: title,
-      name: formData?.name,
-      email: formData?.email,
-      phone: formData?.phone,
-      portfolio: formData?.portfolio,
-      linkedin: formData?.linkedin,
-      resume: formData?.resume,
-    }).then(() => {
-      alert("added successfully");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        portfolio: "",
-        linkedin: "",
-        resume: "",
-      });
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      portfolio: formData.portfolio,
+      linkedin: formData.linkedin,
+      resume: downloadURL, // store only the URL
     });
 
-    console.log(formData);
-  };
+    alert("Application submitted successfully!");
+
+    // Clear form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      portfolio: "",
+      linkedin: "",
+      resume: "",
+    });
+
+  } catch (error) {
+    console.error("Error uploading resume or saving data:", error);
+    alert("Failed to submit application. Please try again.");
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="max-w-2xl items-center mx-auto border-2 p-8 rounded-xl my-10 ">

@@ -52,7 +52,7 @@ const Career = () => {
   };
 
   return (
-    <div className="ml-56 mt-32 max-w-screen-2xl mx-auto">
+    <div className="ml-8 mt-32  max-w-screen-2xl mx-auto">
       <h1 className="text-3xl font-semibold text-center">Job Listings</h1>
 
       <div className="flex justify-end items-center mb-6 ">
@@ -69,7 +69,7 @@ const Career = () => {
       </div>
 
       {/* Job List */}
-      <div className="space-y-10 ">
+      <div className="space-y-10 max-h-[50vh] ">
         <div className=" overflow-y-auto m-4 ">
           <JobList />
          

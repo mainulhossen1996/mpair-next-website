@@ -51,13 +51,13 @@ export default function Queries() {
   };
 
   return (
-    <section className="ml-56 h-screen mt-32 max-w-screen-xl">
+    <section className="ml-8 h-screen mt-32 max-w-screen-xl">
       <h2 className="text-3xl font-semibold mb-10 text-center">All Queries</h2>
 
       {queries.length === 0 ? (
         <p>No queries received yet.</p>
       ) : (
-        <div className="overflow-x-auto border rounded-lg">
+        <div className="overflow-x-auto border rounded-lg max-h-[50vh] ">
           <table className="min-w-full divide-y divide-gray-500">
             <thead className="bg-blue-100">
               <tr>
@@ -86,10 +86,10 @@ export default function Queries() {
                   </td>
                   <td className="pr-4 py-3">
                     <div className="flex gap-1 justify-start">
-                      <Button className="text-xl" color="primary" onClick={() => handleViewClick(q)}>
+                      <Button className="text-2xl" color="primary" onClick={() => handleViewClick(q)}>
                         <GrView />
                       </Button>
-                      <Button className="text-xl" color="success">
+                      <Button className="text-2xl" color="success">
                         <LuMessageSquareReply />
                       </Button>
                     </div>

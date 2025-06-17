@@ -4,10 +4,12 @@ import React from "react";
 
 export default function Page() {
     return (
-        <div>
-            <Sidebar />
-            <Blog />
+        <div className="flex min-h-screen ">
+        <Sidebar />
+        <main className="flex-1 ">
+        <Blog />
+        </main>
+      </div>
 
-        </div>
     )
 }

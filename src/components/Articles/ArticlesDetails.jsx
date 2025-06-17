@@ -79,7 +79,6 @@ const ArticlesDetails = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Blog List</h2>
       <div className="grid grid-cols-3 gap-6 max-w-screen-2xl">
         {blogs.map((blog) =>
           editId === blog.id ? (

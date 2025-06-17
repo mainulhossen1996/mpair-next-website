@@ -54,7 +54,7 @@ const Blog = () => {
   };
 
   return (
-    <section className="ml-56 mt-32">
+    <section className="ml-8 mt-32">
      
       <div className="flex justify-end mr-24">
         <button
@@ -65,7 +65,9 @@ const Blog = () => {
         </button>{" "}
       </div>
       <div className="flex flex-col ">
-        <div className="l overflow-y-auto m-4 ">
+  <h2 className="text-2xl font-bold mb-4">Blog List</h2>
+
+        <div className="max-h-[50vh] overflow-y-auto m-4 ">
           <ArticlesDetails />
         </div>
 

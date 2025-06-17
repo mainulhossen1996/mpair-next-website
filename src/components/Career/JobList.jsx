@@ -133,23 +133,25 @@ const JobList = () => {
             </button>
           </div>
         ) : (
-          <div key={blog.id} className="p-4 border rounded-lg shadow max-w-screen-2xl">
-          
-        {/* Toggle button */}
-            <button
-              onClick={() =>
-                update(ref(getDatabase(app), `job/${blog.id}`), {
-                  isVisible: !blog.isVisible,
-                })
-              }
-              title={blog.isVisible ? "Hide Job" : "Show Job"}
-            className="pb-6" >
-              {blog.isVisible ? (
-                <BsToggle2On className="text-4xl text-blue-500" />
-              ) : (
-                <BsToggle2Off className="text-4xl text-gray-400" />
-              )}
-            </button>
+          <div
+            key={blog.id}
+            className="p-4 border rounded-lg shadow max-w-screen-2xl"
+          >
+            {/*dropdown */}
+            <div className="mb-8">
+              <select
+                value={blog.isVisible ? "Ongoing" : "Closed"}
+                onChange={(e) =>
+                  update(ref(getDatabase(app), `job/${blog.id}`), {
+                    isVisible: e.target.value === "Ongoing",
+                  })
+                }
+                className="mt-1 block w-40 px-2 py-1 border rounded-md shadow-sm border-gray-300"
+              >
+                <option value="Ongoing">Ongoing</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </div>
 
             <div className="flex justify-end -mt-12">
               <button onClick={() => handleDelete(blog.id)} className="rounded">

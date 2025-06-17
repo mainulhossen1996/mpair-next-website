@@ -44,9 +44,7 @@ export default function ArticlesList() {
           <h2 className="pl-4 text-4xl font-semibold">
             Discover More Articles
           </h2>
-          <h2 className="pl-4 text-4xl font-semibold">
-            Discover More Articles
-          </h2>
+          
           <div className="flex space-x-3 flex-wrap ">
             {categories.map((category) => (
               <button
@@ -84,17 +82,17 @@ export default function ArticlesList() {
                 </div>
 
                 <div className="flex flex-col gap-4 mt-4">
-                  <h3 className="text-lg font-semibold ">{blog.blog_name}</h3>
+                  <h3 className="text-lg font-semibold ">{blog?.blog_name}</h3>
                   <p className="text-sm text-gray-300 ">
-                    {blog.description?.split(" ").slice(0, 10).join(" ")}...
+                    {blog?.description?.split(" ").slice(0, 10).join(" ")}...
                   </p>
                   <div className="flex justify-between text-xs text-gray-400">
-                    <TextBox text={blog.label}> </TextBox>
-                    <span className="text-white">{blog.date}</span>
+                    <TextBox text={blog?.label}> </TextBox>
+                    <span className="text-white">{blog?.date}</span>
                   </div>
                 </div>
                 <a
-                  href={`/articles/${blog.id}`}
+                  href={`/articles/${encodeURIComponent(blog?.blog_name)}`}
                   className="absolute top-3 right-3 text-white bg-gray-500 rounded-full px-3 py-2 hover:bg-blue-500 transition"
                   title="Read More"
                 >

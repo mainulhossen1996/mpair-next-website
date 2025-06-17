@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
+import { formatDate } from "@/utils/date";
 
 export default function FeaturedArticles() {
   const [blogs, setBlogs] = useState([]);
@@ -32,12 +33,12 @@ export default function FeaturedArticles() {
       <div className="flex flex-row gap-10">
 
         {/* first one in array */}
-        {blogs.length > 0 && ( 
-          <Link href={`/articles/${blogs[0].id}`}>            
-              
-              <div className=" h-full flex flex-row  text-black  rounded-lg overflow-hidden border-2">
+        {blogs.length > 0 && (
+          <Link href={`/articles/${blogs[0].id}`}>
 
-            <div className="relative w-3/5 ">      
+            <div className=" h-full flex flex-row  text-black  rounded-lg overflow-hidden border-2">
+
+              <div className="relative w-3/5 ">
                 <Image
                   src={blogs[0].image}
                   alt={blogs[0].blog_name}
@@ -47,33 +48,33 @@ export default function FeaturedArticles() {
               </div>
 
               <div className="p-6 flex flex-col justify-start gap-2 w-3/5">
-               
-                  <h2 className="text-2xl font-bold hover:text-blue-500 cursor-pointer">
-                    {blogs[0].blog_name}
-                  </h2>
-                
+
+                <h2 className="text-2xl font-bold hover:text-blue-500 cursor-pointer">
+                  {blogs[0].blog_name}
+                </h2>
+
                 <p className="text-sm text-gray-500 ">
                   {blogs[0].description?.split(" ").slice(0, 30).join(" ")}...
                 </p>
                 <div className="flex justify-between text-sm mt-6">
                   <span className="text-gray-600">{blogs[0].label}</span>
-                  <span className="text-gray-400">{blogs[0].createDate}</span>
+                  <span className="text-gray-400">{formatDate(blogs[0].createDate)}</span>
                 </div>
               </div>
-           
+
             </div>
-           
-           
+
+
           </Link>
-           )} 
-         
-       
+        )}
+
+
 
         {/* Most Read Blogs */}
         <div className=" space-y-6 p-4">
           <h3 className="text-lg font-medium">Most Read</h3>
 
-            {[blogs[0], blogs[3]].map(
+          {[blogs[0], blogs[3]].map(
             (blog, index) =>
               blog && (
                 <div key={index} className="flex gap-4 items-start">

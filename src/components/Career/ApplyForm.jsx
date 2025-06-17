@@ -11,7 +11,7 @@ const ApplyForm = ({ title }) => {
     phone: "",
     portfolio: "",
     linkedin: "",
-    resume: null,
+    resume: "",
   });
 
   const handleChange = (e) => {
@@ -46,11 +46,11 @@ const ApplyForm = ({ title }) => {
         phone: "",
         portfolio: "",
         linkedin: "",
-        resume: null,
+        resume: "",
       });
     });
 
-    // console.log(formData);
+    console.log(formData);
   };
 
   return (

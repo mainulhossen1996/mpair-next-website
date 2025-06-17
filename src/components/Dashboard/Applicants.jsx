@@ -95,7 +95,7 @@ const Applicants = () => {
                     <strong>Phone:</strong> {app?.phone}
                   </p>
                   <p>
-                    <strong>Resume:</strong>{" "}
+                    <strong>Resume:</strong>
                     <a
                       href={app?.linkedin}
                       target="_blank"

@@ -21,7 +21,7 @@ export default function Queries() {
         const query = Object.keys(data).map((key) => ({
           id: key,
           ...data[key],
-          status: data[key].status || "", // Expecting "Pending" or "Responded"
+          status: data[key].status || ""
         }));
         setQueries(query);
       } else {
@@ -83,9 +83,9 @@ export default function Queries() {
                     {q.createdAt instanceof Date
                       ? q.createdAt.toLocaleString()
                       : q.createdAt?.toDate?.().toLocaleString?.() ||
-                        (typeof q.createdAt === "string"
-                          ? new Date(q.createdAt).toLocaleString()
-                          : "—")}
+                      (typeof q.createdAt === "string"
+                        ? new Date(q.createdAt).toLocaleString()
+                        : "—")}
                   </td>
                   <td className="px-2 py-3">
                     <Button
@@ -99,18 +99,17 @@ export default function Queries() {
                   <td className="px-2 py-3">
                     <select
                       value={q.status || ""}
-                      onChange={(e) => handleStatusChange(q.id, e.target.value)}
-                      className={`border border-gray-300 rounded-md px-2 py-1 text-sm text-white
-                        ${
-                          q.status === "Responded"
-                            ? "bg-green-400"
-                            : q.status === "Pending"
+                      onChange={(e) => handleStatusChange(q?.id, e.target.value)}
+                      className={`border border-gray-300 outline-none rounded-md px-2 py-1 text-sm text-white
+                        ${q.status === "Responded"
+                          ? "bg-green-400"
+                          : q.status === "Pending"
                             ? "bg-red-400"
                             : "bg-gray-300"
                         }
                       `}
                     >
-                      <option value="" disabled>
+                      <option value="" className="text-white" disabled>
                         Select status
                       </option>
                       <option className="bg-red-400 text-white" value="Pending">
@@ -169,8 +168,8 @@ export default function Queries() {
                     selectedQuery.status === "Responded"
                       ? "text-green-600"
                       : selectedQuery.status === "Pending"
-                      ? "text-red-500"
-                      : "text-gray-500"
+                        ? "text-red-500"
+                        : "text-gray-500"
                   }
                 >
                   {selectedQuery.status || "—"}

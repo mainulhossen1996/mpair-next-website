@@ -67,7 +67,7 @@ const Blog = () => {
       <div className="flex flex-col ">
   <h2 className="text-2xl font-bold mb-4">Blog List</h2>
 
-        <div className="max-h-[50vh] overflow-y-auto m-4 ">
+        <div className="max-h-[75vh] overflow-y-auto m-4 ">
           <ArticlesDetails />
         </div>
 

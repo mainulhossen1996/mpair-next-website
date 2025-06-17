@@ -84,15 +84,10 @@ export default function Queries() {
                       ? q.createdAt.toLocaleString()
                       : q.createdAt?.toDate?.().toLocaleString?.() || "—"}
                   </td>
-                  <td className="pr-4 py-3">
-                    <div className="flex gap-1 justify-start">
-                      <Button className="text-2xl" color="primary" onClick={() => handleViewClick(q)}>
+                  <td className="">
+                      <Button className="text-2xl " color="primary" onClick={() => handleViewClick(q)}>
                         <GrView />
                       </Button>
-                      <Button className="text-2xl" color="success">
-                        <LuMessageSquareReply />
-                      </Button>
-                    </div>
                   </td>
                   <td
                     className="p-3 cursor-pointer select-none"

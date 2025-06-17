@@ -54,11 +54,9 @@ const Blog = () => {
   };
 
   return (
-    <section>
-      <h2 className="text-3xl text-black text-center font-semibold">
-        Add Blog
-      </h2>
-      <div className="flex justify-end">
+    <section className="ml-56 mt-32">
+     
+      <div className="flex justify-end mr-24">
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-blue-500 text-white p-2 rounded-full w-44 h-12"
@@ -67,14 +65,8 @@ const Blog = () => {
         </button>{" "}
       </div>
       <div className="flex flex-col ">
-        <div className="max-w-screen-xl overflow-y-auto ml-4 max-h-lvh ">
+        <div className="l overflow-y-auto m-4 ">
           <ArticlesDetails />
-
-          <div className="flex justify-center">
-            <button  onClick={handleLogOut}  className="text-base w-52 mt-10 bg-violet-300 font-medium py-[2px] h-[44px]" >
-              LogOut
-            </button>
-          </div>
         </div>
 
         {/* Modal */}

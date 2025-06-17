@@ -50,7 +50,7 @@ export default function ArticlesList() {
           <h2 className="pl-4 text-4xl font-semibold">
             Discover More Articles
           </h2>
-          
+
           <div className="flex space-x-3 flex-wrap ">
             {categories.map((category) => (
               <button
@@ -71,40 +71,35 @@ export default function ArticlesList() {
         {/* Scrollable Blog Cards */}
 
         <div className="overflow-x-auto scrollbar-hide mt-10 scroll-smooth w-full">
-          <div className="grid grid-cols-4 gap-6 w-max px-2">
+          <div className="grid grid-cols-3 gap-6 w-max px-2">
             {filteredCards[activeCategory]?.map((blog) => (
-              <div
-                key={blog.id}
-                className="bg-gray-900 rounded-xl min-w-[300px] max-w-[350px] h-auto p-4 relative hover:shadow-lg transition-shadow"
-              >
-                <div className="relative w-full h-40">
+              <a href={`/articles/${generateSlug(blog?.blog_name)}`}>
+                <div
+                  key={blog.id}
+                  className="bg-gray-900 rounded-xl min-w-[300px] max-w-[350px] h-auto p-4 relative "
+                >
                   <Image
                     src={blog.image}
                     alt={blog.title}
-                    width={200}
-                    height={100}
-                    className="w-full h-40 object-cover rounded-lg mb-8"
+                    width={400}
+                    height={400}
+                    className="w-full h-60 object-cover rounded-lg mb-4"
                   />
-                </div>
-
-                <div className="flex flex-col gap-4 mt-4">
-                  <h3 className="text-lg font-semibold ">{blog?.blog_name}</h3>
-                  <p className="text-sm text-gray-300 ">
-                    {blog?.description?.split(" ").slice(0, 10).join(" ")}...
-                  </p>
-                  <div className="flex justify-between text-xs text-gray-400">
-                    <TextBox text={blog?.label}> </TextBox>
-                    <span className="text-white">{blog?.date}</span>
+                   <div className="w-1/3">
+                     <TextBox text={blog?.label} > </TextBox> </div>
+                  <div className="flex flex-col gap-2 mt-2">
+                    <h3 className="text-lg font-semibold w-full">
+                      {blog?.blog_name}
+                    </h3>
+                    <p className="text-sm text-gray-300 ">
+                      {blog?.description?.split(" ").slice(0, 10).join(" ")}...
+                    </p>
+                    <div className="flex justify-between text-xs text-gray-400">
+                      <span className="text-white">{blog?.createDate}</span>
+                    </div>
                   </div>
                 </div>
-                <a
-                  href={`/articles/${generateSlug(blog?.blog_name)}`}
-                  className="absolute top-3 right-3 text-white bg-gray-500 rounded-full px-3 py-2 hover:bg-blue-500 transition"
-                  title="Read More"
-                >
-                  →
-                </a>
-              </div>
+              </a>
             ))}
           </div>
         </div>

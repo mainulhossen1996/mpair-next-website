@@ -4,6 +4,8 @@ import app from "@/firebase/firebase.config";
 import { getDatabase, onValue, ref, remove, update } from "firebase/database";
 import { useEffect, useState } from "react";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
+import { BsToggle2On, BsToggle2Off } from "react-icons/bs";
+
 
 const JobList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -131,16 +133,33 @@ const JobList = () => {
             </button>
           </div>
         ) : (
-          <div key={blog.id} className="p-4 border rounded-lg shadow">
-            <div className="flex justify-end my-2">
+          <div key={blog.id} className="p-4 border rounded-lg shadow max-w-screen-2xl">
+          
+        {/* Toggle button */}
+            <button
+              onClick={() =>
+                update(ref(getDatabase(app), `job/${blog.id}`), {
+                  isVisible: !blog.isVisible,
+                })
+              }
+              title={blog.isVisible ? "Hide Job" : "Show Job"}
+            className="pb-6" >
+              {blog.isVisible ? (
+                <BsToggle2On className="text-4xl text-blue-500" />
+              ) : (
+                <BsToggle2Off className="text-4xl text-gray-400" />
+              )}
+            </button>
+
+            <div className="flex justify-end -mt-12">
               <button onClick={() => handleDelete(blog.id)} className="rounded">
-                <RiDeleteBin6Line className="text-xl text-red-400" />
+                <RiDeleteBin6Line className="text-2xl text-red-400" />
               </button>
               <button onClick={() => handleEdit(blog)} className="rounded ml-2">
-                <RiEditBoxLine className="text-xl " />
+                <RiEditBoxLine className="text-2xl " />
               </button>
             </div>
-           
+
             <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
             <p className="text-gray-600">{blog.description}</p>
             <span className="text-sm text-gray-400">{blog.createDate}</span>

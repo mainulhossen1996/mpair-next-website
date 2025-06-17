@@ -80,7 +80,7 @@ const ArticlesDetails = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Blog List</h2>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-3 gap-6 max-w-screen-2xl">
         {blogs.map((blog) =>
           editId === blog.id ? (
             <div
@@ -169,19 +169,23 @@ const ArticlesDetails = () => {
               </button>
             </div>
           ) : (
-            <div key={blog.id} className="p-4 border rounded-lg shadow">
-              <div className="flex justify-end my-2">
+            <div key={blog.id} className="p-4 border rounded-lg shadow ">
+              <p className="text-lg font-semibold text-blue-500 ">
+                {" "}
+                {blog.label}{" "}
+              </p>
+              <div className="flex justify-end mb-2">
                 <button
                   onClick={() => handleDelete(blog.id)}
                   className="rounded"
                 >
-                  <RiDeleteBin6Line className="text-xl text-red-400" />
+                  <RiDeleteBin6Line className="text-2xl text-red-400" />
                 </button>
                 <button
                   onClick={() => handleEdit(blog)}
                   className="rounded ml-2"
                 >
-                  <RiEditBoxLine className="text-xl " />
+                  <RiEditBoxLine className="text-2xl " />
                 </button>
               </div>
               <img
@@ -190,9 +194,10 @@ const ArticlesDetails = () => {
                 className="w-full h-48 object-cover rounded-lg"
               />
               <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
-              <p className="text-gray-600">{blog.description}</p>
+              <p className="text-gray-600">
+                {blog.description.split(" ").slice(0, 30).join(" ")}...
+              </p>
               <span className="text-sm text-gray-400">{blog.createDate}</span>
-              <p className="text-md text-blue-500 ">  {blog.label}  </p>
             </div>
           )
         )}

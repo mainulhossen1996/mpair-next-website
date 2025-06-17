@@ -52,12 +52,12 @@ const Career = () => {
   };
 
   return (
-    <div className="p-6 max-w-screen mx-auto">
+    <div className="ml-56 mt-32 max-w-screen-2xl mx-auto">
       <h1 className="text-3xl font-semibold text-center">Job Listings</h1>
 
-      <div className="flex justify-end items-center mb-6">
+      <div className="flex justify-end items-center mb-6 ">
         <button
-          className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition"
+          className="h-11 w-44 bg-blue-500 text-white text-lg px-6 py-2 rounded-full hover:bg-blue-600 transition"
           onClick={() => {
             setShowModal(true);
             setIsEditing(false);
@@ -69,17 +69,10 @@ const Career = () => {
       </div>
 
       {/* Job List */}
-      <div className="space-y-10">
-        <div className="max-w-screen-xl overflow-y-auto ml-4 max-h-lvh ">
+      <div className="space-y-10 ">
+        <div className=" overflow-y-auto m-4 ">
           <JobList />
-          <div className="flex justify-center">
-            <button
-              // onClick={handleLogOut}
-              className="text-base w-52 mt-10 bg-violet-300 font-medium py-[2px] h-[44px]"
-            >
-              LogOut
-            </button>
-          </div>
+         
         </div>
       </div>
 

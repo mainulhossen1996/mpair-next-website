@@ -48,7 +48,7 @@ export default function Cards({ stats }) {
             key={index}
             className={`rounded-xl p-6 shadow-md ${card.bg} flex items-center gap-4`}
           >
-            <div>{card.icon}</div>
+            <div className="p-4 rounded-full bg-white/40 backdrop-blur-md ">{card.icon}</div>
             <div>
               <h4 className="text-xl font-bold">{card.count}</h4>
               <p className="text-sm text-gray-600">{card.title}</p>

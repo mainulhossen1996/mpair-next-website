@@ -73,8 +73,8 @@ export default function Activity() {
         )}
       </div>
 
-      <div className="bg-white border-2 p-4 rounded-xl">
-      <p className="font-medium text-lg m-4">Quick Actions:</p>
+      <div className="bg-white border-2 p-6 rounded-xl ">
+      <p className="font-medium text-lg mb-2">Quick Actions:</p>
 
         <div className="flex flex-row gap-2 items-center justify-center ">
         <button

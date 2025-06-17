@@ -7,6 +7,8 @@ import { GoArrowUpRight } from "react-icons/go";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import Link from "next/link";
+import { formatDate } from "@/utils/date";
+import { generateSlug } from "@/utils/genrateSlug";
 
 const Article = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -69,15 +71,14 @@ const Article = () => {
           {blogs?.map((blog, index) => (
             <Card
               key={blog.id}
-              className={`relative ${
-                index === 0
-                  ? hoveredIndex === null || hoveredIndex === 0
-                    ? "w-10/12 md:w-7/12"
-                    : "w-10/12 md:w-7/12 lg:w-4/12"
-                  : hoveredIndex === index
+              className={`relative ${index === 0
+                ? hoveredIndex === null || hoveredIndex === 0
                   ? "w-10/12 md:w-7/12"
                   : "w-10/12 md:w-7/12 lg:w-4/12"
-              } lg:h-[350px] h-[220px] rounded-2xl lg:p-6 p-3 bg-cover bg-center  transition-none duration-0 lg:transition-all lg:duration-500 lg:group  `}
+                : hoveredIndex === index
+                  ? "w-10/12 md:w-7/12"
+                  : "w-10/12 md:w-7/12 lg:w-4/12"
+                } lg:h-[350px] h-[220px] rounded-2xl lg:p-6 p-3 bg-cover bg-center  transition-none duration-0 lg:transition-all lg:duration-500 lg:group  `}
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url('${blog.image}')`,
               }}
@@ -85,37 +86,34 @@ const Article = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div
-                className={`relative text-gray-300 lg:mt-36 mt-20 ${
-                  index === 0 && hoveredIndex === null ? "line-clamp-none" : ""
-                }`}
+                className={`relative text-gray-300 lg:mt-36 mt-20 ${index === 0 && hoveredIndex === null ? "line-clamp-none" : ""
+                  }`}
               >
                 <span className="rounded-full bg-gray-700 text-white lg:text-[12px] text-[10px] lg:px-3 px-2 py-1">
                   {blog.label}
                 </span>
                 <p className="text-sm text-gray-300 lg:mt-4 mt-2">
-                  {blog.createDate}
+                  {formatDate(blog.createDate)}
                 </p>
                 <p
-                  className={`font-medium lg:text-xl ${
-                    index === 0 && hoveredIndex === null
-                      ? ""
-                      : "line-clamp-3 hover:line-clamp-none"
-                  }`}
+                  className={`font-medium lg:text-xl ${index === 0 && hoveredIndex === null
+                    ? ""
+                    : "line-clamp-3 hover:line-clamp-none"
+                    }`}
                 >
                   {blog.blog_name}
                 </p>
               </div>
-
-              <Button
-                className={`absolute bottom-4 right-4 bg-white text-black p-3 rounded-full lg:transition-all lg:duration-500 ${
-                  hoveredIndex === index ||
-                  (index === 0 && hoveredIndex === null)
+              <Link href={`/articles/${generateSlug(blog?.blog_name)}`}>
+                <Button
+                  className={`absolute bottom-4 right-4 bg-white text-black p-3 rounded-full lg:transition-all lg:duration-500 ${hoveredIndex === index ||
+                    (index === 0 && hoveredIndex === null)
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
-                }`}
-              >
-                <GoArrowUpRight className="text-[28px]" />
-              </Button>
+                    }`}
+                >
+                  <GoArrowUpRight className="text-[28px]" />
+                </Button></Link>
             </Card>
           ))}
         </div>
@@ -123,12 +121,12 @@ const Article = () => {
 
       <div className="flex justify-center lg:pt-10 pt-4">
         <Link href="/articles">
-        <Button className="relative border border-[#008CFF] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 mt-5 group">
-          <span className="absolute inset-0 bg-[#008CFF] transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
-          <span className="relative flex items-center lg:text-xl text-sm">
-            See More Article <ArrowUpRight className="ml-3" />
-          </span>
-        </Button></Link>
+          <Button className="relative border border-[#008CFF] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 mt-5 group">
+            <span className="absolute inset-0 bg-[#008CFF] transform -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></span>
+            <span className="relative flex items-center lg:text-xl text-sm">
+              See More Article <ArrowUpRight className="ml-3" />
+            </span>
+          </Button></Link>
       </div>
     </div>
   );

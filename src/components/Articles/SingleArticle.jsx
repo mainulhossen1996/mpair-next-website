@@ -33,22 +33,22 @@ const SingleArticle = () => {
 
   useEffect(() => {
     if (blog_name && blogs.length > 0) {
-      const matchedBlog = blogs.find((b) => generateSlug(b.blog_name) === generateSlug(blog_name));
+      const matchedBlog = blogs.find((b) => generateSlug(b?.blog_name) === generateSlug(blog_name));
       console.log(matchedBlog)
-      setBlog(matchedBlog || null);
+      setBlog(matchedBlog);
     }
   }, [blog_name, blogs]);
 
-
+  if (!blog) return <div>Loading...</div>;
 
   return (
     <section>
       <div className="flex flex-col justify-center items-center w-full h-[500px] bg-gray-300">
-        <h1 className=" text-4xl font-semibold ">{blog.blog_name}</h1>
+        <h1 className=" text-4xl font-semibold ">{blog?.blog_name}</h1>
         <div>
-          <span className="text-sm text-gray-600 font-normal">{formatDate(blog.createDate)}</span>
+          <span className="text-sm text-gray-600 font-normal">{formatDate(blog?.createDate)}</span>
           <span> | </span>
-          <span className="text-sm text-gray-600 font-normal">{blog.label}</span>
+          <span className="text-sm text-gray-600 font-normal">{blog?.label}</span>
         </div>
       </div>
 
@@ -56,14 +56,14 @@ const SingleArticle = () => {
         <div className="bg-white rounded-2xl shadow-xl p-8 max-w-5xl mx-auto flex flex-col justify-center items-center gap-2">
           <Image
             alt="Blog Header"
-            src={blog.image}
+            src={blog?.image}
             width={300}
             height={100}
             className="object-cover w-3/5 h-[250px]"
             priority
           />
           <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-            {blog.description}
+            {blog?.description}
           </p>
         </div>
       </div>

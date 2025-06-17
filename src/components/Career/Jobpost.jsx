@@ -4,6 +4,7 @@ import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
+import { formatDate } from "@/utils/date";
 
 const categories = [
   "All",
@@ -82,7 +83,7 @@ const Jobpost = () => {
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
                     {" "}
-                    Deadline: {jobs.deadline}
+                    Deadline: {formatDate(jobs?.deadline)}
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
                     Status: {jobs.status}

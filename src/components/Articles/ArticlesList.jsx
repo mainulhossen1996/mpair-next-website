@@ -5,8 +5,10 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import Image  from "next/image";
 import TextBox from "./Textbox";
+import { generateSlug } from "@/utils/genrateSlug";
 
 const categories = ["All", "Software", "Robotics", "AI"];
+
 
 export default function ArticlesList() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -36,6 +38,10 @@ export default function ArticlesList() {
     Robotics: blogs?.filter((card) => card?.label.includes("Robotics")),
     AI: blogs?.filter((card) => card?.label.includes("AI")),
   };
+
+
+
+  // console.log(generateSlug(blog))
 
   return (
     <section className="bg-black text-white py-12 relative ">
@@ -92,7 +98,7 @@ export default function ArticlesList() {
                   </div>
                 </div>
                 <a
-                  href={`/articles/${encodeURIComponent(blog?.blog_name)}`}
+                  href={`/articles/${generateSlug(blog?.blog_name)}`}
                   className="absolute top-3 right-3 text-white bg-gray-500 rounded-full px-3 py-2 hover:bg-blue-500 transition"
                   title="Read More"
                 >

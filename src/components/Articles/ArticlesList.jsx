@@ -76,7 +76,7 @@ export default function ArticlesList() {
               <a href={`/articles/${generateSlug(blog?.blog_name)}`}>
                 <div
                   key={blog.id}
-                  className="bg-gray-900 rounded-xl min-w-[300px] max-w-[350px] h-auto p-4 relative "
+                  className="bg-gray-900 rounded-xl w-[350px] h-full  p-3 relative "
                 >
                   <Image
                     src={blog.image}
@@ -85,15 +85,19 @@ export default function ArticlesList() {
                     height={400}
                     className="w-full h-60 object-cover rounded-lg mb-4"
                   />
-                   <div className="w-1/3">
-                     <TextBox text={blog?.label} > </TextBox> </div>
+                  <div className="w-1/3">
+                    <TextBox text={blog?.label}> </TextBox>{" "}
+                  </div>
                   <div className="flex flex-col gap-2 mt-2">
                     <h3 className="text-lg font-semibold w-full">
                       {blog?.blog_name}
                     </h3>
-                    <p className="text-sm text-gray-300 ">
-                      {blog?.description?.split(" ").slice(0, 10).join(" ")}...
+                    <p className="text-sm text-gray-300">
+                      {blog?.description?.length > 120
+                        ? `${blog.description.slice(0, 70)}...`
+                        : blog.description}
                     </p>
+
                     <div className="flex justify-between text-xs text-gray-400">
                       <span className="text-white">{blog?.createDate}</span>
                     </div>

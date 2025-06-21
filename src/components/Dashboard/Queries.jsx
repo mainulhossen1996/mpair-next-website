@@ -61,12 +61,27 @@ export default function Queries() {
           <table className="min-w-full divide-y divide-gray-500">
             <thead className="bg-blue-100">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Name</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Organization</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Industry</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Message</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Actions</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold">Status</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Name
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Organization
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Industry
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Message
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Submitted
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Actions
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">
+                  Status
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-400 bg-white">
@@ -98,24 +113,33 @@ export default function Queries() {
                   <td className="px-2 py-3">
                     <select
                       value={q.status || ""}
-                      onChange={(e) => handleStatusChange(q?.id, e.target.value)}
-                      className={`border border-gray-300 outline-none rounded-md px-2 py-1 text-sm text-white
-                        ${q.status === "Responded"
-                          ? "bg-green-400"
-                          : q.status === "Pending"
-                            ? "bg-red-400"
-                            : "bg-gray-300"
-                        }
-                      `}
+                      onChange={(e) => handleStatusChange(q.id, e.target.value)}
+                      className={`border border-gray-300 rounded-md px-2 py-1 text-sm font-medium
+    ${
+      q.status === "Responded"
+        ? "text-green-600"
+        : q.status === "Pending"
+        ? "text-red-600"
+        : q.status === "Closed"
+        ? "text-blue-600"
+        : ""
+    }
+  `}
                     >
                       <option value="" className="text-white" disabled>
                         Select status
                       </option>
-                      <option className="bg-red-400 text-white" value="Pending">
+                      <option className=" text-red-600" value="Pending">
                         Pending
                       </option>
-                      <option className="bg-green-400 text-white" value="Responded">
+                      <option
+                        className=" text-green-600"
+                        value="Responded"
+                      >
                         Responded
+                      </option>
+                      <option className="text-blue-600 " value="Closed">
+                        Closed
                       </option>
                     </select>
                   </td>
@@ -136,13 +160,16 @@ export default function Queries() {
             >
               <IoClose className="text-3xl" />
             </button>
-            <h3 className="text-2xl font-semibold mb-4 text-center">Query Details</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-center">
+              Query Details
+            </h3>
             <div className="text-lg space-y-1">
               <p>
                 <strong>Name:</strong> {selectedQuery.name}
               </p>
               <p>
-                <strong>Organization:</strong> {selectedQuery.organization || "—"}
+                <strong>Organization:</strong>{" "}
+                {selectedQuery.organization || "—"}
               </p>
               <p>
                 <strong>Industry:</strong> {selectedQuery.industry || "—"}
@@ -161,14 +188,16 @@ export default function Queries() {
                     : "—")}
               </p>
               <p>
-                <strong>Status:  </strong>
+                <strong>Status: </strong>
                 <span
                   className={
                     selectedQuery.status === "Responded"
                       ? "text-green-600"
                       : selectedQuery.status === "Pending"
-                        ? "text-red-500"
-                        : "text-gray-500"
+                      ? "text-red-500"
+                      : selectedQuery.status === "Closed"
+                      ? "text-gray-500"
+                      : "text-gray-400"
                   }
                 >
                   {selectedQuery.status || "—"}

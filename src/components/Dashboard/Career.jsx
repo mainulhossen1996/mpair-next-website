@@ -52,10 +52,10 @@ const Career = () => {
   };
 
   return (
-    <div className="ml-8 mt-32  max-w-screen-xl mx-auto">
-      <h1 className="text-2xl font-semibold">Job Listings</h1>
+    <div className=" mt-32  max-w-screen-xl mx-auto ">
+      <h1 className="text-2xl font-semibold ml-8">Job Listings</h1>
 
-      <div className="flex justify-end items-center mb-6 mr-14 ">
+      <div className="flex justify-end items-center mb-4 mr-14 ">
         <button
           className="h-11 w-44 bg-blue-500 text-white text-lg px-6 py-2 rounded-full hover:bg-blue-600 transition"
           onClick={() => {
@@ -69,11 +69,8 @@ const Career = () => {
       </div>
 
       {/* Job List */}
-      <div className="space-y-10 max-h-[50vh] ">
-        <div className=" overflow-y-auto max-w-6xl ">
-          <JobList />
-         
-        </div>
+      <div className="space-y-10 max-h-[70vh] overflow-y-auto  p-6">
+        <JobList />
       </div>
 
       {/* Modal */}
@@ -187,7 +184,7 @@ const Career = () => {
 
               <div>
                 <label className="block font-medium mb-1">
-                   Job Responsibilities
+                  Job Responsibilities
                 </label>
                 <textarea
                   type="text"
@@ -199,7 +196,9 @@ const Career = () => {
                   className="w-full p-2 border rounded outline-none"
                   rows={3}
                   required
-                > </textarea>
+                >
+                  {" "}
+                </textarea>
               </div>
 
               <div>

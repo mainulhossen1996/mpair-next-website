@@ -25,7 +25,6 @@ const Career = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    // Log to catch any unexpected inputs
     console.log("Field changed:", { name, value, type, checked });
 
     setFormData((prev) => ({

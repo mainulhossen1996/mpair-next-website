@@ -25,6 +25,8 @@ const JobList = () => {
           id: key,
           ...data[key],
         }));
+
+        console.log("blof", blogArray)
         setBlogs(blogArray);
       } else {
         setBlogs([]);
@@ -133,7 +135,7 @@ const JobList = () => {
           </div>
         ) : (
           <div
-            key={blog.id}
+            key={blog?.id}
             className="p-4 border rounded-lg shadow max-w-screen-2xl"
           >
             {/*dropdown */}
@@ -142,7 +144,7 @@ const JobList = () => {
                 value={blog.status}
                 onChange={(e) =>
                   update(ref(getDatabase(app), `job/${blog?.id}`), {
-                    status: e.target.value, 
+                    status: e.target.value,
                   })
                 }
                 className="mt-1 outline-none block w-40 px-2 py-1 border rounded-md shadow-sm border-gray-300"
@@ -162,7 +164,15 @@ const JobList = () => {
               </button>
             </div>
 
-            <h3 className="text-xl font-semibold mt-2">{blog?.heading}</h3>
+
+            <a
+              href={`/career/${blog?.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold mt-2"
+            >
+              {blog?.heading}
+            </a>
             <p className="text-gray-600">{blog?.jobResponsibilities}</p>
             <span className="text-sm text-gray-400">{blog?.status}</span>
           </div>

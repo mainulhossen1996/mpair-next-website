@@ -10,6 +10,7 @@ const navItems = [
   { label: "Career", href: "/admin/dashboard/career" },
   { label: "Applicants", href: "/admin/dashboard/applicants" },
   { label: "Queries", href: "/admin/dashboard/queries" },
+  { label: "visitor", href: "/admin/dashboard/visitor" },
 ];
 
 const Sidebar = () => {

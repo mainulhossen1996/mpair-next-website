@@ -2,8 +2,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, remove, update } from "firebase/database";
-import app from "@/firebase/firebase.config";
+// import app from "@/firebase/firebase.config";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
+import { app } from "@/firebase/firebase.config";
 
 const ArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);

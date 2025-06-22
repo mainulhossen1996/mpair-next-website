@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import app from "@/firebase/firebase.config";
+import {app} from "@/firebase/firebase.config";
 import { MdOutlineTextSnippet, MdOutlineWorkOutline } from "react-icons/md";
 import { GrCircleQuestion } from "react-icons/gr";
 import { FaRegUser } from "react-icons/fa6";

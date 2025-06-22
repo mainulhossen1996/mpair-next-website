@@ -3,8 +3,9 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import jobInfo from "./JobInfo";
 import { getDatabase, onValue, ref } from "firebase/database";
-import app from "@/firebase/firebase.config";
+// import app from "@/firebase/firebase.config";
 import ApplyForm from "./ApplyForm";
+import { app } from "@/firebase/firebase.config";
 
 
 const JobDetails = () => {

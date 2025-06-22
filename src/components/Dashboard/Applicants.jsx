@@ -1,5 +1,5 @@
 "use client";
-import app from "@/firebase/firebase.config";
+import {app} from "@/firebase/firebase.config";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 

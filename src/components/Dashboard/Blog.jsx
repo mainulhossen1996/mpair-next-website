@@ -1,8 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
-import app from "@/firebase/firebase.config";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import {app} from "@/firebase/firebase.config";
 import ArticlesDetails from "../Articles/ArticlesDetails";
 
 const Blog = () => {
@@ -14,7 +13,6 @@ const Blog = () => {
   const [description, setDescription] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { logout } = useContext(AuthContext);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -47,10 +45,6 @@ const Blog = () => {
       setDescription("");
       setIsModalOpen(false); 
     });
-  };
-
-  const handleLogOut = () => {
-    logout().then().catch();
   };
 
   return (

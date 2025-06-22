@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 import { getDatabase, onValue, ref } from "firebase/database";
-import app from "@/firebase/firebase.config";
+import {app} from "@/firebase/firebase.config";
 import { formatDate } from "@/utils/date";
 
 const categories = [

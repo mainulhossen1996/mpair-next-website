@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import { GrView } from "react-icons/gr";
 import { getDatabase, onValue, ref, set } from "firebase/database";
-import app from "@/firebase/firebase.config";
-import { IoClose } from "react-icons/io5"; // Close icon
+import {app} from "@/firebase/firebase.config";
+import { IoClose } from "react-icons/io5";
+
 
 export default function Queries() {
   const [queries, setQueries] = useState([]);
@@ -93,14 +94,9 @@ export default function Queries() {
                   <td className="px-2 py-3 max-w-xs truncate" title={q.message}>
                     {q.message || "—"}
                   </td>
-                  {/* <td className="px-4 py-3 text-sm text-gray-500">
-                    {q.createdAt instanceof Date
-                      ? q.createdAt.toLocaleString()
-                      : q.createdAt?.toDate?.().toLocaleString?.() ||
-                      (typeof q.createdAt === "string"
-                        ? new Date(q.createdAt).toLocaleString()
-                        : "—")}
-                  </td> */}
+                  <td className="px-2 py-3 max-w-xs truncate" title={q.message}>
+                    {q.message || "—"}
+                  </td>
                   <td className="px-2 py-3">
                     <Button
                       className="text-2xl"
@@ -115,16 +111,14 @@ export default function Queries() {
                       value={q.status || ""}
                       onChange={(e) => handleStatusChange(q.id, e.target.value)}
                       className={`border border-gray-300 rounded-md px-2 py-1 text-sm font-medium
-    ${
-      q.status === "Responded"
-        ? "text-green-600"
-        : q.status === "Pending"
-        ? "text-red-600"
-        : q.status === "Closed"
-        ? "text-blue-600"
-        : ""
-    }
-  `}
+                        ${q.status === "Responded"
+                          ? "text-green-600"
+                          : q.status === "Pending"
+                            ? "text-red-600"
+                            : q.status === "Closed"
+                              ? "text-blue-600"
+                              : ""
+                        }`}
                     >
                       <option value="" className="text-white" disabled>
                         Select status
@@ -194,10 +188,10 @@ export default function Queries() {
                     selectedQuery.status === "Responded"
                       ? "text-green-600"
                       : selectedQuery.status === "Pending"
-                      ? "text-red-500"
-                      : selectedQuery.status === "Closed"
-                      ? "text-gray-500"
-                      : "text-gray-400"
+                        ? "text-red-500"
+                        : selectedQuery.status === "Closed"
+                          ? "text-gray-500"
+                          : "text-gray-400"
                   }
                 >
                   {selectedQuery.status || "—"}

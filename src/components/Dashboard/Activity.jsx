@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, onValue, ref } from "firebase/database";
 // import app from "@/firebase/firebase.config";
 import { MdOutlineNotificationsActive } from "react-icons/md";
-import { app } from "@/firebase/firebase.config";
+import app from "@/firebase/firebase.config";
 
 export default function Activity() {
   const [activities, setActivities] = useState([]);

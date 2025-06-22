@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Bar, Doughnut } from "react-chartjs-2";
 import {  Chart as ChartJS,  CategoryScale,  LinearScale,  BarElement,  Tooltip,  Legend,  ArcElement,} from "chart.js";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { app } from "@/firebase/firebase.config";
-// import app from "@/firebase/firebase.config";
+import app from "@/firebase/firebase.config";
 
 ChartJS.register(
   CategoryScale,

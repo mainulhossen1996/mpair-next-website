@@ -1,9 +1,7 @@
 "use client";
-import { app } from "@/firebase/firebase.config";
-// import app from "@/firebase/firebase.config";
-import { getAuth,  onAuthStateChanged,  signOut } from "firebase/auth";
+import app from "@/firebase/firebase.config";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -24,7 +22,6 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     await signOut(auth);
     setUser(null);
-    // router.push("/");
   };
 
   return (
@@ -33,5 +30,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import JobList from "../Career/JobList";
-import {app} from "@/firebase/firebase.config";
+import app from "@/firebase/firebase.config";
 import { getDatabase, ref, set } from "firebase/database";
 
 const Career = () => {

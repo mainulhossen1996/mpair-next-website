@@ -9,7 +9,7 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import Link from "next/link";
 import { formatDate } from "@/utils/date";
 import { generateSlug } from "@/utils/genrateSlug";
-import { app } from "@/firebase/firebase.config";
+import app from "@/firebase/firebase.config";
 
 const Article = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);

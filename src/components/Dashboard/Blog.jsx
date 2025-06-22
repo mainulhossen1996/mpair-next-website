@@ -1,7 +1,7 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
-import {app} from "@/firebase/firebase.config";
+import app from "@/firebase/firebase.config";
 import ArticlesDetails from "../Articles/ArticlesDetails";
 
 const Blog = () => {
@@ -37,19 +37,19 @@ const Blog = () => {
       label,
       description,
     }).then(() => {
-      alert("Data Added successfully"); 
+      alert("Data Added successfully");
       setImage("");
       setBlogName("");
       setCreateDate("");
       setLabel("");
       setDescription("");
-      setIsModalOpen(false); 
+      setIsModalOpen(false);
     });
   };
 
   return (
     <section className="ml-8 mt-28">
-       <h2 className="text-xl font-semibold ">Blog List</h2>
+      <h2 className="text-xl font-semibold ">Blog List</h2>
 
       <div className="flex justify-end mr-24 mb-2">
         <button
@@ -60,20 +60,20 @@ const Blog = () => {
         </button>{" "}
       </div>
 
-        <div className="max-h-[75vh] overflow-y-auto pr-2 ">
-          <ArticlesDetails />
+      <div className="max-h-[75vh] overflow-y-auto pr-2 ">
+        <ArticlesDetails />
 
         {/* Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white w-2/3 max-h-[90vh] overflow-y-auto rounded-xl p-8 relative">
-             
+
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-2 right-4 text-2xl text-gray-600 hover:text-black" >  &times;
               </button>
 
-            
+
               <div className="mb-8 flex">
                 <div className="w-1/2">
                   <label className="label">

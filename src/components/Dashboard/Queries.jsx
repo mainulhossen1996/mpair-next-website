@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import { GrView } from "react-icons/gr";
 import { getDatabase, onValue, ref, set } from "firebase/database";
-import {app} from "@/firebase/firebase.config";
+import app from "@/firebase/firebase.config";
 import { IoClose } from "react-icons/io5";
+import { formatDate } from "@/utils/date";
 
 
 export default function Queries() {
@@ -24,6 +25,7 @@ export default function Queries() {
           ...data[key],
           status: data[key].status || ""
         }));
+        console.log("rrrrr",queries)
         setQueries(query);
       } else {
         setQueries([]);
@@ -94,8 +96,8 @@ export default function Queries() {
                   <td className="px-2 py-3 max-w-xs truncate" title={q.message}>
                     {q.message || "—"}
                   </td>
-                  <td className="px-2 py-3 max-w-xs truncate" title={q.message}>
-                    {q.message || "—"}
+                  <td className="px-2 py-3 max-w-xs truncate">
+                    {formatDate(q?.submittedAt) || "—"}
                   </td>
                   <td className="px-2 py-3">
                     <Button

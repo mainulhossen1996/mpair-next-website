@@ -101,7 +101,7 @@ const ArticlesDetails = () => {
                 <input
                   type="file"
                   onChange={handleImageUpload}
-                  className="border bg-white rounded-lg p-1 w-full"
+                  className="border bg-white rounded-lg p-1 w-full outline-none"
                   accept="image/*"
                 />
                 {image && (
@@ -119,7 +119,7 @@ const ArticlesDetails = () => {
                   type="text"
                   value={blogName}
                   onChange={(e) => setBlogName(e.target.value)}
-                  className="border rounded-lg p-1 w-full"
+                  className="border rounded-lg p-1 w-full outline-none"
                 />
               </div>
 
@@ -130,18 +130,28 @@ const ArticlesDetails = () => {
                     type="date"
                     value={createDate}
                     onChange={(e) => setCreateDate(e.target.value)}
-                    className="border rounded-lg p-1 w-full"
+                    className="border rounded-lg p-1 w-full outline-none"
                   />
                 </div>
 
                 <div className="w-1/2">
-                  <label className="block font-medium">Label</label>
-                  <input
-                    type="text"
-                    value={label}
+                  <label className="label">
+                    <span className="block font-medium">Label</span>
+                  </label>
+
+                  <select
                     onChange={(e) => setLabel(e.target.value)}
-                    className="border rounded-lg p-1 w-full"
-                  />
+                    value={label}
+                    name=""
+                    id=""
+                    className="border rounded-lg p-[6px] outline-none border-slate-300 w-full bg-white"
+                  >
+                    <option defaultValue>Select label</option>
+                    <option value="Software">Software</option>
+                    <option value="Robotics">Robotics</option>
+                    <option value="Web">Web</option>
+                    <option value="All">All</option>
+                  </select>
                 </div>
               </div>
 
@@ -150,7 +160,7 @@ const ArticlesDetails = () => {
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="border rounded-lg p-1 w-full"
+                  className="border rounded-lg p-1 w-full outline-none"
                   rows={3}
                 />
               </div>
@@ -188,9 +198,15 @@ const ArticlesDetails = () => {
               className="w-full h-48 object-cover rounded-lg"
             />
             <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
-            <p className="text-gray-600">
-              {blog.description.split(" ").slice(0, 30).join(" ")}...
-            </p>
+            <p
+              className="text-gray-600"
+              dangerouslySetInnerHTML={{
+                __html: blog.description.length > 300
+                  ? blog.description.slice(0, 300) + "..."
+                  : blog.description,
+              }}
+            ></p>
+
             <span className="text-sm text-gray-400">{blog.createDate}</span>
           </div>
         ))}

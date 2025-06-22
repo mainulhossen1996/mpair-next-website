@@ -21,7 +21,7 @@ const Charts = () => {
   useEffect(() => {
     const db = getDatabase(app);
 
-    // Fetch blogs for bar chart
+  
     const blogRef = ref(db, "blog");
     onValue(blogRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -34,7 +34,7 @@ const Charts = () => {
       }
     });
 
-    // Fetch queries for doughnut chart
+
     const queriesRef = ref(db, "queries");
     onValue(queriesRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -51,18 +51,18 @@ const Charts = () => {
     });
   }, []);
 
-  // Color palette for bar chart
+
   const colorPalette = [
-    "#4169E1", // Indigo
-    "#10B981", // Emerald
-    "#FFFF00", // yellow
-    "#3B82F6", // Blue
-    "#8B5CF6", // Violet
-    "#EC4899", // Pink
-    "#22D3EE", // Cyan
+    "#4169E1", 
+    "#10B981", 
+    "#FFFF00", 
+    "#3B82F6", 
+    "#8B5CF6", 
+    "#EC4899", 
+    "#22D3EE", 
   ];
 
-  // Mock 7 days for bar chart labels
+
   const last7Days = Array.from({ length: 7 }, (_, i) => {
     const date = new Date();
     date.setDate(date.getDate() - (6 - i));
@@ -76,18 +76,17 @@ const Charts = () => {
     backgroundColor: colorPalette[index % colorPalette.length],
   }));
 
-  // Doughnut chart data - count queries by status
   const statusCounts = {
-    Pending: 5,
-    Responded: 8,
-    Closed: 3,
+    Pending: 0,
+    Responded: 0,
+    Closed: 0,
   };
 
   queries.forEach((q) => {
     if (q.status === "Pending") statusCounts.Pending += 1;
     else if (q.status === "Responded") statusCounts.Responded += 1;
     else if (q.status === "Closed") statusCounts.Closed += 1;
-    else statusCounts.Pending += 1; // treat unknown as Pending
+    else statusCounts.Pending += 1; 
   });
 
   const doughnutData = {
@@ -100,7 +99,7 @@ const Charts = () => {
           statusCounts.Responded,
           statusCounts.Closed,
         ],
-        backgroundColor: ["#FFAC1C", "#10B981", "#6B7280"], // yellow, green, gray
+        backgroundColor: ["#FFAC1C", "#10B981", "#6B7280"], 
         hoverOffset: 8,
       },
     ],
@@ -129,13 +128,11 @@ const Charts = () => {
 
   return (
     <div className="flex flex-row gap-4 pr-8">
-      {/* Bar chart left side */}
       <div className="w-2/3 h-2/3 bg-white  p-4 rounded-xl border-2">
         <h3 className="text-lg font-medium mb-1">Weekly Article Views</h3>
         <Bar data={{ labels: last7Days, datasets }} options={barOptions} />
       </div>
 
-      {/* Doughnut chart right side */}
       <div className="w-1/3 bg-white rounded-xl border-2 p-4">
         <h3 className="text-lg font-medium mb-4">Queries Status Overview</h3>
         <div className="h-5/6 w-full">

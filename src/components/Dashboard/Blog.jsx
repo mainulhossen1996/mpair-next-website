@@ -1,10 +1,14 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import ArticlesDetails from "../Articles/ArticlesDetails";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 
 const Blog = () => {
+  const { quill, quillRef } = useQuill();
 
   const [image, setImage] = useState("");
   const [blogName, setBlogName] = useState("");
@@ -13,6 +17,13 @@ const Blog = () => {
   const [description, setDescription] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  useEffect(() => {
+    if (quill) {
+      quill.on("text-change", () => {
+        setDescription(quill.root.innerHTML);
+      });
+    }
+  }, [quill]);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -30,26 +41,29 @@ const Blog = () => {
     const blogId = `blog-${Date.now()}`;
     const newDocRef = ref(db, `blog/${blogId}`);
 
-    set(newDocRef, {
+    await set(newDocRef, {
       image,
       blog_name: blogName,
       createDate,
       label,
       description,
-    }).then(() => {
-      alert("Data Added successfully");
-      setImage("");
-      setBlogName("");
-      setCreateDate("");
-      setLabel("");
-      setDescription("");
-      setIsModalOpen(false);
     });
+
+    alert("Data Added successfully");
+
+
+    setImage("");
+    setBlogName("");
+    setCreateDate("");
+    setLabel("");
+    setDescription("");
+    quill?.setText("");
+    setIsModalOpen(false);
   };
 
   return (
     <section className="ml-8 mt-28">
-      <h2 className="text-xl font-semibold ">Blog List</h2>
+      <h2 className="text-xl font-semibold">Blog List</h2>
 
       <div className="flex justify-end mr-24 mb-2">
         <button
@@ -57,22 +71,22 @@ const Blog = () => {
           className="bg-blue-500 text-white p-2 rounded-full w-44 h-10"
         >
           + Add Article
-        </button>{" "}
+        </button>
       </div>
 
-      <div className="max-h-[75vh] overflow-y-auto pr-2 ">
+      <div className="max-h-[75vh] overflow-y-auto pr-2">
         <ArticlesDetails />
 
         {/* Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white w-2/3 max-h-[90vh] overflow-y-auto rounded-xl p-8 relative">
-
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-2 right-4 text-2xl text-gray-600 hover:text-black" >  &times;
+                className="absolute top-2 right-4 text-2xl text-gray-600 hover:text-black"
+              >
+                &times;
               </button>
-
 
               <div className="mb-8 flex">
                 <div className="w-1/2">
@@ -145,18 +159,14 @@ const Blog = () => {
                 <label className="label">
                   <span className="label-text">Description</span>
                 </label>
-                <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  className="border rounded-lg p-1 outline-none border-slate-300 w-full"
-                  rows="3"
-                  required
-                />
+                <div className="bg-white rounded-md h-[200px] overflow-y-auto">
+                  <div ref={quillRef} />
+                </div>
               </div>
 
               <button
                 onClick={saveData}
-                className="btn bg-violet-500 w-full p-2 rounded-lg text-white"
+                className="btn bg-violet-500 w-full mt-5 p-2 rounded-lg text-white"
               >
                 Submit
               </button>
@@ -166,6 +176,6 @@ const Blog = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Blog;

@@ -11,7 +11,6 @@ import Showcase from "./Showcase";
 
 export default function DashboardHome() {
 
-
   useEffect(() => {
     const db = getDatabase(app);
   })

@@ -112,7 +112,7 @@ export default function Queries() {
                     <select
                       value={q.status || ""}
                       onChange={(e) => handleStatusChange(q.id, e.target.value)}
-                      className={`border border-gray-300 rounded-md px-2 py-1 text-sm font-medium
+                      className={`border border-gray-300 outline-none rounded-md px-2 py-1 text-sm font-medium
                         ${q.status === "Responded"
                           ? "text-green-600"
                           : q.status === "Pending"

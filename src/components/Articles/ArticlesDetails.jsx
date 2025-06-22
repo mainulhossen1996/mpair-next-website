@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, remove, update } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 
 const ArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,6 +16,23 @@ const ArticlesDetails = () => {
   const [label, setLabel] = useState("");
   const [image, setImage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+ const { quill, quillRef } = useQuill();
+
+
+ useEffect(() => {
+    if (quill) {
+      quill.on("text-change", () => {
+        setDescription(quill.root.innerHTML);
+      });
+    }
+  }, [quill]);
+
+
+
+
+
+
 
   useEffect(() => {
     const db = getDatabase(app);
@@ -44,6 +63,7 @@ const ArticlesDetails = () => {
     setCreateDate(blog.createDate);
     setLabel(blog.label);
     setDescription(blog.description);
+      quill?.setText("");
     setImage(blog.image);
     setIsModalOpen(true);
   };
@@ -155,7 +175,7 @@ const ArticlesDetails = () => {
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 <label className="block font-medium">Description</label>
                 <textarea
                   value={description}
@@ -163,6 +183,15 @@ const ArticlesDetails = () => {
                   className="border rounded-lg p-1 w-full outline-none"
                   rows={3}
                 />
+              </div> */}
+
+                 <div className="mb-8">
+                <label className="label">
+                  <span className="label-text">Description</span>
+                </label>
+                <div className="bg-white rounded-md h-[150px] overflow-y-auto">
+                  <div   value={description} ref={quillRef} />
+                </div>
               </div>
 
               <button

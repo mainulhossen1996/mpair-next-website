@@ -1,9 +1,8 @@
 "use client";
 
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import ArticlesDetails from "./ArticlesDetails";
 // import BlogDetails from "./BlogDetails";
 
@@ -13,8 +12,6 @@ const AddArticle = () => {
   const [createDate, setCreateDate] = useState("");
   const [label, setLabel] = useState("");
   const [description, setDescription] = useState("");
-
-  const { logout } = useContext(AuthContext);
   
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -50,9 +47,7 @@ const AddArticle = () => {
     });
   };
 
-  const handleLogOut = () => {
-    logout().then().catch();
-  };
+  
 
   return (
     <div className="p-16">

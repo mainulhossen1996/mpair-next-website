@@ -24,13 +24,19 @@ const Contact = () => {
     }));
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const db = getDatabase(app);
     const applicantId = `queries-${Date.now()}`;
     const newDocRef = ref(db, `queries/${applicantId}`);
 
-    set(newDocRef, formData).then(() => {
+    const dataToSave = {
+      ...formData,
+      submittedAt: new Date().toISOString().split('T')[0],
+    };
+
+    set(newDocRef, dataToSave).then(() => {
       alert("Added successfully");
       setFormData({
         name: "",
@@ -41,6 +47,26 @@ const Contact = () => {
       });
     });
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <>

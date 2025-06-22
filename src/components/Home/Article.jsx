@@ -5,10 +5,11 @@ import { Card } from "@nextui-org/react";
 import { ArrowUpRight } from "lucide-react";
 import { GoArrowUpRight } from "react-icons/go";
 import { getDatabase, onValue, ref } from "firebase/database";
-import app from "@/firebase/firebase.config";
+// import app from "@/firebase/firebase.config";
 import Link from "next/link";
 import { formatDate } from "@/utils/date";
 import { generateSlug } from "@/utils/genrateSlug";
+import app from "@/firebase/firebase.config";
 
 const Article = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);

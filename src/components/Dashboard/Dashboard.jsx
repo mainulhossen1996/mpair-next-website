@@ -24,7 +24,7 @@ export default function DashboardHome() {
         <Cards />
         <Charts />
         <Activity />
-      <Showcase />
+        <Showcase />
       </div>
     </section>
   );

@@ -11,57 +11,82 @@ const ApplyForm = ({ title }) => {
     phone: "",
     portfolio: "",
     linkedin: "",
-    resume: null,
+    resume: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value, files } = e?.target;
-    // console.log(files);
-    if (name === "resume") {
-      setFormData({ ...formData, resume: files[0] });
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "resume_upload");
+    data.append("cloud_name", "dl2ab6ow3");
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dl2ab6ow3/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    // console.log("pppppppppppppppppp", data)
+
+    const result = await res.json();
+    // console.log("ooooooooooooooooo",result.secure_url)
+    if (result.secure_url) {
+      setFormData((prev) => ({ ...prev, resume: result.secure_url }));
+      alert("Resume uploaded successfully");
     } else {
-      setFormData({ ...formData, [name]: value });
+      alert("Upload failed. Try again.");
     }
+
   };
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const db = getDatabase(app);
     const applicantId = `applicant-${Date.now()}`;
+    const applicantRef = ref(db, `applicant/${applicantId}`);
 
-    const newDocRef = ref(db, `applicant/${applicantId}`);
-    set(newDocRef, {
-      title: title,
-      name: formData?.name,
-      email: formData?.email,
-      phone: formData?.phone,
-      portfolio: formData?.portfolio,
-      linkedin: formData?.linkedin,
-      resume: formData?.resume,
-    }).then(() => {
-      alert("added successfully");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        portfolio: "",
-        linkedin: "",
-        resume: null,
-      });
+    await set(applicantRef, {
+      title,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      portfolio: formData.portfolio,
+      linkedin: formData.linkedin,
+      resume: formData.resume,
+      submittedAt: new Date().toISOString().split('T')[0]
     });
 
-    // console.log(formData);
+    alert("Application submitted!");
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      portfolio: "",
+      linkedin: "",
+      resume: "",
+    });
+
   };
 
   return (
-    <div className="max-w-2xl items-center mx-auto border-2 p-8 rounded-xl my-10 ">
+    <div className="max-w-2xl items-center mx-auto border-2 p-8 rounded-xl my-10">
       <h2 className="text-4xl font-semibold mb-3 text-center">
         Job Application Form
       </h2>
-      <p className=" text-center text-base text-gray-500 font-base mb-4">
-        Enter your details into the Form below:
-      </p>
-      <form onSubmit={handleSubmit} className="space-y-5 ">
+
+      <form onSubmit={handleSubmit} className="space-y-5">
         {[
           { label: "Full Name", name: "name", placeholder: "Enter your name" },
           { label: "Email", name: "email", placeholder: "Enter your email" },
@@ -93,37 +118,30 @@ const ApplyForm = ({ title }) => {
           </div>
         ))}
 
-        {/* Resume Upload */}
         <div>
-          <label
-            htmlFor="resume"
-            className="block text-sm text-gray-700 font-medium mb-2"
-          >
-            Upload Resume
-            <span className="text-red-500"> *</span>{" "}
+          <label className="block text-sm text-gray-700 font-medium mb-2">
+            Upload Resume <span className="text-red-500">*</span>
           </label>
           <input
             type="file"
-            name="resume"
-            accept=".pdf,.doc,.docx"
-            onChange={handleChange}
+            accept=".pdf"
+            onChange={handleFileUpload}
             className="w-full"
             required
           />
+
           <p className="text-xs font-normal text-red-500 mt-2 mb-6">
-            ⚠️ Please upload your resume in PDF or DOC format. Max size: 5MB.
+            ⚠️ Only PDF, max 5MB.
           </p>
         </div>
 
-        
         <div className="items-center justify-center flex">
           <button
             type="submit"
-            className=" flex items-center justify-center w-[170px] rounded-full bg-blue-500 text-white py-2 px-3 hover:bg-blue-600 transition duration-200"
+            className="flex items-center justify-center w-[170px] rounded-full bg-blue-500 text-white py-2 px-3 hover:bg-blue-600 transition duration-200"
           >
-            
             Submit Now
-            <ArrowUp className="ml-2 rotate-45" style={{ color: "#ffffff" }} />
+            <ArrowUp className="ml-2 rotate-45" />
           </button>
         </div>
       </form>
@@ -132,3 +150,4 @@ const ApplyForm = ({ title }) => {
 };
 
 export default ApplyForm;
+

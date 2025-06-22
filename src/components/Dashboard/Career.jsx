@@ -4,7 +4,6 @@ import JobList from "../Career/JobList";
 import app from "@/firebase/firebase.config";
 import { getDatabase, ref, set } from "firebase/database";
 
-
 const Career = () => {
   const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -24,8 +23,14 @@ const Career = () => {
   const [formData, setFormData] = useState(initialForm);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+
+    console.log("Field changed:", { name, value, type, checked });
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -33,6 +38,8 @@ const Career = () => {
     const db = getDatabase(app);
     const jobId = `job-${Date.now()}`;
     const newDocRef = ref(db, `job/${jobId}`);
+
+    console.log("Submitted Data:", formData);
 
     set(newDocRef, {
       heading: formData.jobHeading,
@@ -73,7 +80,6 @@ const Career = () => {
         <JobList />
       </div>
 
-      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center p-4">
           <div className="bg-white rounded-lg p-6 w-full max-w-xl relative max-h-[90vh] overflow-y-auto">
@@ -92,7 +98,6 @@ const Career = () => {
               {isEditing ? "Update Job" : "Post a New Job"}
             </h2>
 
-            {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block font-medium mb-1">Job Heading</label>
@@ -187,11 +192,9 @@ const Career = () => {
                   Job Responsibilities
                 </label>
                 <textarea
-                  type="text"
                   name="jobResponsibilities"
                   value={formData.jobResponsibilities}
-                  placeholder="e.g., Bachelor’s degree in Computer Science, Engineering, or a related field.
-"
+                  placeholder="e.g., Bachelor’s degree in Computer Science"
                   onChange={handleChange}
                   className="w-full p-2 border rounded outline-none"
                   rows={3}

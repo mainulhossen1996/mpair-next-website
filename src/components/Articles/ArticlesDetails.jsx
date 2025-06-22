@@ -1,6 +1,6 @@
+
 "use client";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, remove, update } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
@@ -13,6 +13,7 @@ const ArticlesDetails = () => {
   const [createDate, setCreateDate] = useState("");
   const [label, setLabel] = useState("");
   const [image, setImage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const db = getDatabase(app);
@@ -44,6 +45,7 @@ const ArticlesDetails = () => {
     setLabel(blog.label);
     setDescription(blog.description);
     setImage(blog.image);
+    setIsModalOpen(true);
   };
 
   const handleImageUpload = (e) => {
@@ -67,37 +69,41 @@ const ArticlesDetails = () => {
       label,
       image,
     }).then(() => {
-      alert("Data Updated successfully");
+      alert("Data updated successfully");
       setEditId(null);
       setBlogName("");
       setCreateDate("");
       setLabel("");
       setDescription("");
       setImage("");
+      setIsModalOpen(false);
     });
   };
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-2 max-w-screen-xl">
-        {blogs.map((blog) =>
-          editId === blog.id ? (
-            <div
-              key={blog.id}
-              className="p-4 flex flex-col gap-5 border rounded-lg shadow"
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-full max-w-xl shadow-lg relative">
+            <button
+              className="absolute top-2 right-2 text-xl font-bold text-gray-500"
+              onClick={() => setIsModalOpen(false)}
             >
-              <div className="w-full">
-                <label className="label">
-                  <span className="label-text">Image</span>
-                </label>
+              &times;
+            </button>
+
+            <h2 className="text-xl font-semibold mb-4">Edit Blog</h2>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block font-medium">Image</label>
                 <input
                   type="file"
                   onChange={handleImageUpload}
-                  className="border bg-white rounded-lg p-1 outline-none border-slate-300 w-full"
+                  className="border bg-white rounded-lg p-1 w-full"
                   accept="image/*"
-                  required
                 />
-
                 {image && (
                   <img
                     src={image}
@@ -107,99 +113,87 @@ const ArticlesDetails = () => {
                 )}
               </div>
 
-              <div className="w-full">
-                <label className="label">
-                  <span className="label-text">Blog Name</span>
-                </label>
+              <div>
+                <label className="block font-medium">Blog Name</label>
                 <input
                   type="text"
                   value={blogName}
                   onChange={(e) => setBlogName(e.target.value)}
-                  className="border rounded-lg p-1 outline-none border-slate-300 w-full"
-                  required
+                  className="border rounded-lg p-1 w-full"
                 />
               </div>
-              <div className="mb-8 flex">
+
+              <div className="flex gap-4">
                 <div className="w-1/2">
-                  <label className="label">
-                    <span className="label-text">Create Date</span>
-                  </label>
+                  <label className="block font-medium">Create Date</label>
                   <input
                     type="date"
                     value={createDate}
                     onChange={(e) => setCreateDate(e.target.value)}
-                    className="border rounded-lg p-1 outline-none border-slate-300 w-full"
-                    required
+                    className="border rounded-lg p-1 w-full"
                   />
                 </div>
 
-                <div className="md:w-1/2 ml-4">
-                  <label className="label">
-                    <span className="label-text">Label</span>
-                  </label>
+                <div className="w-1/2">
+                  <label className="block font-medium">Label</label>
                   <input
                     type="text"
                     value={label}
                     onChange={(e) => setLabel(e.target.value)}
-                    className="border rounded-lg p-1 outline-none border-slate-300 w-full"
-                    required
+                    className="border rounded-lg p-1 w-full"
                   />
                 </div>
               </div>
 
-              <div className="mb-8">
-                <label className="label">
-                  <span className="label-text">Description</span>
-                </label>
+              <div>
+                <label className="block font-medium">Description</label>
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="border rounded-lg p-1 outline-none border-slate-300 w-full"
-                  rows="3"
-                  required
+                  className="border rounded-lg p-1 w-full"
+                  rows={3}
                 />
               </div>
 
               <button
                 onClick={handleUpdate}
-                className="bg-violet-100 text-black px-4 py-2 rounded"
+                className="bg-violet-500 text-white px-4 py-2 rounded hover:bg-violet-600"
               >
-                Update
+                Update Blog
               </button>
             </div>
-          ) : (
-            <div key={blog.id} className="m-3 p-4 border rounded-lg shadow ">
-              <p className="text-lg font-semibold text-blue-500 ">
-                {" "}
-                {blog.label}{" "}
-              </p>
-              <div className="flex justify-end mb-2">
-                <button
-                  onClick={() => handleDelete(blog.id)}
-                  className="rounded"
-                >
-                  <RiDeleteBin6Line className="text-2xl text-red-400" />
-                </button>
-                <button
-                  onClick={() => handleEdit(blog)}
-                  className="rounded ml-2"
-                >
-                  <RiEditBoxLine className="text-2xl " />
-                </button>
-              </div>
-              <img
-                src={blog.image}
-                alt="Blog"
-                className="w-full h-48 object-cover rounded-lg"
-              />
-              <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
-              <p className="text-gray-600">
-                {blog.description.split(" ").slice(0, 30).join(" ")}...
-              </p>
-              <span className="text-sm text-gray-400">{blog.createDate}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Blog Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-4">
+        {blogs.map((blog) => (
+          <div key={blog.id} className="p-4 border rounded-lg shadow bg-white">
+            <p className="text-lg font-semibold text-blue-500">{blog.label}</p>
+            <div className="flex justify-end mb-2">
+              <button onClick={() => handleDelete(blog.id)} className="rounded">
+                <RiDeleteBin6Line className="text-2xl text-red-400" />
+              </button>
+              <button
+                onClick={() => handleEdit(blog)}
+                className="rounded ml-2"
+              >
+                <RiEditBoxLine className="text-2xl" />
+              </button>
             </div>
-          )
-        )}
+            <img
+              src={blog.image}
+              alt="Blog"
+              className="w-full h-48 object-cover rounded-lg"
+            />
+            <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
+            <p className="text-gray-600">
+              {blog.description.split(" ").slice(0, 30).join(" ")}...
+            </p>
+            <span className="text-sm text-gray-400">{blog.createDate}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

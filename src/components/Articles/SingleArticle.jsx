@@ -3,10 +3,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { getDatabase, onValue, ref } from "firebase/database";
-import app from "@/firebase/firebase.config";
 import { useParams } from "next/navigation";
 import { generateSlug } from "@/utils/genrateSlug";
 import { formatDate } from "@/utils/date";
+import app from "@/firebase/firebase.config";
 
 const SingleArticle = () => {
 

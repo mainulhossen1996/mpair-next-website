@@ -29,9 +29,7 @@ const Jobpost = () => {
       job?.subheading?.includes("Database Engineer")
     ),
   };
-
-  // console.log("hellllllo", filteredCards);
-
+  
   useEffect(() => {
     const db = getDatabase(app);
     const blogRef = ref(db, "job");
@@ -43,8 +41,9 @@ const Jobpost = () => {
           id: key,
           ...data[key],
         }));
-        console.log(jobs);
-        setJobs(jobs);
+
+        const filteredJob = jobs?.filter(i=>i?.status === "Ongoing")       
+        setJobs(filteredJob);
       } else {
         setJobs([]);
       }

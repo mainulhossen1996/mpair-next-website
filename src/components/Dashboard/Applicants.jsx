@@ -47,7 +47,7 @@ const Applicants = () => {
         <select
           value={selectedTitle}
           onChange={(e) => setSelectedTitle(e.target.value)}
-          className="border rounded px-4 py-2"  >
+          className="border outline-none rounded px-4 py-2"  >
           {jobTitles.map((title) => (
             <option key={title} value={title}>
               {title}
@@ -95,9 +95,9 @@ const Applicants = () => {
                     <strong>Phone:</strong> {app?.phone}
                   </p>
                   <p>
-                    <strong>Resume:</strong>{" "}
+                    <strong>Resume:</strong>
                     <a
-                      href={app?.linkedin}
+                      href={app?.resume}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-green-600"

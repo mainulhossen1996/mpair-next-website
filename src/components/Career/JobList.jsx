@@ -4,7 +4,6 @@ import app from "@/firebase/firebase.config";
 import { getDatabase, onValue, ref, remove, update } from "firebase/database";
 import { useEffect, useState } from "react";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
-import { BsToggle2On, BsToggle2Off } from "react-icons/bs";
 
 
 const JobList = () => {
@@ -26,6 +25,8 @@ const JobList = () => {
           id: key,
           ...data[key],
         }));
+
+        console.log("blof", blogArray)
         setBlogs(blogArray);
       } else {
         setBlogs([]);
@@ -39,8 +40,8 @@ const JobList = () => {
   };
 
   const handleEdit = (blog) => {
-    setEditId(blog.id);
-    setBlogName(blog.blog_name);
+    setEditId(blog?.id);
+    setBlogName(blog?.blog_name);
     setCreateDate(blog.createDate);
     setLabel(blog.label);
     setDescription(blog.description);
@@ -134,23 +135,24 @@ const JobList = () => {
           </div>
         ) : (
           <div
-            key={blog.id}
+            key={blog?.id}
             className="p-4 border rounded-lg shadow max-w-screen-2xl"
           >
             {/*dropdown */}
             <div className="mb-8">
               <select
-                value={blog.isVisible ? "Ongoing" : "Closed"}
+                value={blog.status}
                 onChange={(e) =>
-                  update(ref(getDatabase(app), `job/${blog.id}`), {
-                    isVisible: e.target.value === "Ongoing",
+                  update(ref(getDatabase(app), `job/${blog?.id}`), {
+                    status: e.target.value,
                   })
                 }
-                className="mt-1 block w-40 px-2 py-1 border rounded-md shadow-sm border-gray-300"
+                className="mt-1 outline-none block w-40 px-2 py-1 border rounded-md shadow-sm border-gray-300"
               >
                 <option value="Ongoing">Ongoing</option>
                 <option value="Closed">Closed</option>
               </select>
+
             </div>
 
             <div className="flex justify-end -mt-12">
@@ -162,9 +164,17 @@ const JobList = () => {
               </button>
             </div>
 
-            <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
-            <p className="text-gray-600">{blog.description}</p>
-            <span className="text-sm text-gray-400">{blog.createDate}</span>
+
+            <a
+              href={`/career/${blog?.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold mt-2"
+            >
+              {blog?.heading}
+            </a>
+            <p className="text-gray-600">{blog?.jobResponsibilities}</p>
+            <span className="text-sm text-gray-400">{blog?.status}</span>
           </div>
         )
       )}

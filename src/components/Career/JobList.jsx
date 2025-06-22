@@ -65,7 +65,7 @@ const JobList = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-4">
+    <div className="grid grid-cols-1 gap-4 max-w-screen-xl mx-auto">
       {blogs.map((blog) =>
         editId === blog.id ? (
           <div

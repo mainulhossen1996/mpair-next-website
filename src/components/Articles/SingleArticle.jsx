@@ -62,8 +62,14 @@ const SingleArticle = () => {
             className="object-cover w-3/5 h-[250px]"
             priority
           />
-          <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-            {blog?.description}
+          <p
+            dangerouslySetInnerHTML={{
+              __html:
+                blog?.description
+            }}
+
+            className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+
           </p>
         </div>
       </div>

@@ -8,7 +8,18 @@ import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 
 const Blog = () => {
-  const { quill, quillRef } = useQuill();
+  const { quill, quillRef } = useQuill({
+    modules: {
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ align: [] }],
+        [{ color: [] }, { background: [] }],
+        [{ size: ['small', false, 'large', 'huge'] }],
+        ['clean'],
+      ],
+    },
+  });
 
   const [image, setImage] = useState("");
   const [blogName, setBlogName] = useState("");
@@ -50,7 +61,6 @@ const Blog = () => {
     });
 
     alert("Data Added successfully");
-
 
     setImage("");
     setBlogName("");
@@ -159,7 +169,7 @@ const Blog = () => {
                 <label className="label">
                   <span className="label-text">Description</span>
                 </label>
-                <div className="bg-white rounded-md h-[200px] overflow-y-auto">
+                <div className="bg-white rounded-md h-[100px]">
                   <div ref={quillRef} />
                 </div>
               </div>

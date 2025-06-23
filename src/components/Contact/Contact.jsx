@@ -34,6 +34,7 @@ const Contact = () => {
     const dataToSave = {
       ...formData,
       submittedAt: new Date().toISOString().split('T')[0],
+      status: "Pending"
     };
 
     set(newDocRef, dataToSave).then(() => {
@@ -47,25 +48,6 @@ const Contact = () => {
       });
     });
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (

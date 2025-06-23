@@ -1,9 +1,13 @@
 
+
 "use client";
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue, remove, update } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
+import { generateSlug } from "@/utils/genrateSlug";
 
 const ArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,6 +18,35 @@ const ArticlesDetails = () => {
   const [label, setLabel] = useState("");
   const [image, setImage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingContent, setEditingContent] = useState("");
+
+  const { quill, quillRef } = useQuill({
+    modules: {
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ align: [] }],
+        [{ color: [] }, { background: [] }],
+        [{ size: ['small', false, 'large', 'huge'] }],
+        ['clean'],
+      ],
+    },
+  });
+
+
+  useEffect(() => {
+    if (quill && isModalOpen && editingContent) {
+      quill.clipboard.dangerouslyPasteHTML(editingContent);
+    }
+  }, [quill, isModalOpen, editingContent]);
+
+  useEffect(() => {
+    if (quill) {
+      quill.on("text-change", () => {
+        setDescription(quill.root.innerHTML);
+      });
+    }
+  }, [quill]);
 
   useEffect(() => {
     const db = getDatabase(app);
@@ -43,8 +76,8 @@ const ArticlesDetails = () => {
     setBlogName(blog.blog_name);
     setCreateDate(blog.createDate);
     setLabel(blog.label);
-    setDescription(blog.description);
     setImage(blog.image);
+    setEditingContent(blog.description || "");
     setIsModalOpen(true);
   };
 
@@ -76,6 +109,7 @@ const ArticlesDetails = () => {
       setLabel("");
       setDescription("");
       setImage("");
+      setEditingContent("");
       setIsModalOpen(false);
     });
   };
@@ -84,24 +118,27 @@ const ArticlesDetails = () => {
     <div>
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg w-full max-w-xl shadow-lg relative">
+        <div className="fixed  inset-0  bg-black bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white  p-6 rounded-lg w-full max-w-xl shadow-lg relative">
             <button
               className="absolute top-2 right-2 text-xl font-bold text-gray-500"
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => {
+                setIsModalOpen(false);
+                setEditingContent("");
+              }}
             >
               &times;
             </button>
 
             <h2 className="text-xl font-semibold mb-4">Edit Blog</h2>
 
-            <div className="space-y-4">
+            <div className=" flex flex-col gap-5">
               <div>
                 <label className="block font-medium">Image</label>
                 <input
                   type="file"
                   onChange={handleImageUpload}
-                  className="border bg-white rounded-lg p-1 w-full"
+                  className="border bg-white rounded-lg p-1 w-full outline-none"
                   accept="image/*"
                 />
                 {image && (
@@ -119,7 +156,7 @@ const ArticlesDetails = () => {
                   type="text"
                   value={blogName}
                   onChange={(e) => setBlogName(e.target.value)}
-                  className="border rounded-lg p-1 w-full"
+                  className="border rounded-lg p-1 w-full outline-none"
                 />
               </div>
 
@@ -130,43 +167,49 @@ const ArticlesDetails = () => {
                     type="date"
                     value={createDate}
                     onChange={(e) => setCreateDate(e.target.value)}
-                    className="border rounded-lg p-1 w-full"
+                    className="border rounded-lg p-1 w-full outline-none"
                   />
                 </div>
 
                 <div className="w-1/2">
                   <label className="block font-medium">Label</label>
-                  <input
-                    type="text"
-                    value={label}
+                  <select
                     onChange={(e) => setLabel(e.target.value)}
-                    className="border rounded-lg p-1 w-full"
-                  />
+                    value={label}
+                    className="border rounded-lg p-[6px] outline-none border-slate-300 w-full bg-white"
+                  >
+                    <option defaultValue>Select label</option>
+                    <option value="Software">Software</option>
+                    <option value="Robotics">Robotics</option>
+                    <option value="Web">Web</option>
+                    <option value="All">All</option>
+                  </select>
                 </div>
               </div>
 
-              <div>
-                <label className="block font-medium">Description</label>
-                <textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  className="border rounded-lg p-1 w-full"
-                  rows={3}
-                />
+              <div className="mb-14">
+                <label className="label">
+                  <span className="label-text">Description</span>
+                </label>
+                <div className="bg-white rounded-md h-[100px]">
+                  <div ref={quillRef} />
+                </div>
               </div>
 
-              <button
+              <div className=""> <button
                 onClick={handleUpdate}
                 className="bg-violet-500 text-white px-4 py-2 rounded hover:bg-violet-600"
               >
                 Update Blog
-              </button>
+              </button></div>
+
             </div>
           </div>
         </div>
       )}
 
       {/* Blog Cards */}
+        {/* <a href={`/articles/${generateSlug(blog?.blog_name)}`}></a> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-4">
         {blogs.map((blog) => (
           <div key={blog.id} className="p-4 border rounded-lg shadow bg-white">
@@ -187,10 +230,20 @@ const ArticlesDetails = () => {
               alt="Blog"
               className="w-full h-48 object-cover rounded-lg"
             />
-            <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
-            <p className="text-gray-600">
-              {blog.description.split(" ").slice(0, 30).join(" ")}...
-            </p>
+           <a
+           className="text-xl font-semibold mt-2"
+           target="_blank"
+              rel="noopener noreferrer"
+            href={`/articles/${generateSlug(blog?.blog_name)}`}>{blog.blog_name}</a>
+            <p
+              className="text-gray-600"
+              dangerouslySetInnerHTML={{
+                __html:
+                  blog.description.length > 300
+                    ? blog.description.slice(0, 300) + "..."
+                    : blog.description,
+              }}
+            ></p>
             <span className="text-sm text-gray-400">{blog.createDate}</span>
           </div>
         ))}

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import app from "@/firebase/firebase.config"; // Make sure your firebase config is correct
+import app from "@/firebase/firebase.config";
 
 const getToday = () => new Date().toISOString().split("T")[0];
 
@@ -38,7 +38,7 @@ const subscribeToTodayVisitorCount = (callback) => {
     });
 };
 
-// Component
+
 const Visitor = () => {
     const [count, setCount] = useState(0);
 
@@ -48,8 +48,8 @@ const Visitor = () => {
     }, []);
 
     return (
-        <div className="bg-violet-50 p-4 rounded-lg shadow text-center mt-20">
-            <p className="text-lg font-semibold text-violet-800">
+        <div className="p-4 rounded-lg text-center  ">
+            <p className="text-lg font-semibold text-black  min-h-screen flex items-center justify-center">
                 👥 Today's Visitors: {count}
             </p>
         </div>

@@ -6,6 +6,7 @@ import { MdOutlineTextSnippet, MdOutlineWorkOutline } from "react-icons/md";
 import { GrCircleQuestion } from "react-icons/gr";
 import { FaRegUser } from "react-icons/fa6";
 import Link from "next/link";
+import { formatDate } from "@/utils/date";
 
 
 const Showcase = () => {
@@ -37,7 +38,7 @@ const Showcase = () => {
     });
 
     //for queries
-     const queryRef = ref(db, "queries");
+    const queryRef = ref(db, "queries");
     onValue(queryRef, (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
@@ -50,7 +51,7 @@ const Showcase = () => {
     });
 
     //for jobs
-     const jobRef = ref(db, "job");
+    const jobRef = ref(db, "job");
     onValue(jobRef, (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
@@ -59,13 +60,15 @@ const Showcase = () => {
             id: key,
             ...data[key],
           }))
-          .sort((a, b) => new Date(b.createDate) - new Date(a.createDate));
+          .sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+
+          console.log("yyy",jobArray)
         setBlogs(jobArray);
       }
-        });
+    });
 
-      //for applicants
-       const applicantRef = ref(db, "applicant");
+    //for applicants
+    const applicantRef = ref(db, "applicant");
     onValue(applicantRef, (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
@@ -78,26 +81,26 @@ const Showcase = () => {
           .slice(0, 5);
         setLatestApplicants(applicantArray);
       }
-    }); 
+    });
   }, []);
 
   return (
     <section className="grid grid-cols-3 gap-4 pr-8 pb-6 ">
       {/*for articles */}
       <div className="bg-white p-5 rounded-xl border-2  ">
-    
-         <div className="flex justify-between border-b-2 border-blue-400">
-           <h3 className="text-lg font-medium  flex items-center gap-2 ">
+
+        <div className="flex justify-between border-b-2 border-blue-400">
+          <h3 className="text-lg font-medium  flex items-center gap-2 ">
             <MdOutlineTextSnippet className="text-xl" /> Latest Articles
-          </h3> 
-           <Link
+          </h3>
+          <Link
             href="/admin/dashboard/articles"
             className="text-blue-800 text-sm hover:underline text-right"
           >
             View All
           </Link>
-          </div>
-    
+        </div>
+
         <ul className="space-y-2 mt-4">
           {latestBlogs.map((blog) => (
             <li
@@ -121,19 +124,19 @@ const Showcase = () => {
       {/* for queries */}
       <div className="bg-white p-5 rounded-xl border-2">
         <div className="flex justify-between border-b-2 border-blue-400">
-           <h2 className="text-lg font-medium flex items-center gap-2 ">
-          {" "}
-          <GrCircleQuestion className="text-xl" />
-          Recent Queries
-        </h2>  
-           <Link
+          <h2 className="text-lg font-medium flex items-center gap-2 ">
+            {" "}
+            <GrCircleQuestion className="text-xl" />
+            Recent Queries
+          </h2>
+          <Link
             href="/admin/dashboard/queries"
             className="text-blue-800 text-sm hover:underline text-right"
           >
             View All
           </Link>
-          </div>
-       
+        </div>
+
         <ul className="space-y-3 mt-4">
           {latestQueries.map((query) => (
             <li key={query.id}>
@@ -148,60 +151,60 @@ const Showcase = () => {
         </ul>
       </div>
 
-<div className="flex flex-col gap-4">
-      {/* Jobs */}
-      <div className="bg-white p-5 rounded-xl border-2 h-1/3">
-        <div className="flex justify-between border-b-2 border-blue-400">
-          <h2 className="text-lg font-medium flex items-center gap-2 ">
-          <MdOutlineWorkOutline className="text-xl" /> Latest Jobs
-        </h2>  
-           <Link
-            href="/admin/dashboard/career"
-            className="text-blue-800 text-sm hover:underline text-right"
-          >
-            View All
-          </Link>
-          </div>
-       
-       
-        <ul className="space-y-3 mt-4">
-          {blogs.slice(0, 2).map((job) => (
-            <li key={job.id}>
-              <p className="font-semibold text-gray-800">{job.blog_name}</p>
-              <p className="text-sm text-gray-600 line-clamp-2">
-                {job.description}
-              </p>
-              <span className="text-xs text-gray-400">{job.createDate}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
- {/* Applicants */}
-      <div className="bg-white p-5 rounded-xl border-2 h-2/3">
+      <div className="flex flex-col gap-4">
+        {/* Jobs */}
+        <div className="bg-white p-5 rounded-xl border-2 h-1/3">
           <div className="flex justify-between border-b-2 border-blue-400">
-          <h2 className="text-lg font-medium flex items-center gap-2 ">
-          <FaRegUser className="text-xl" /> Latest Applicants
-        </h2> 
-           <Link
-            href="/admin/dashboard/applicants"
-            className="text-blue-800 text-sm hover:underline text-right"
-          >
-            View All
-          </Link>
+            <h2 className="text-lg font-medium flex items-center gap-2 ">
+              <MdOutlineWorkOutline className="text-xl" /> Latest Jobs
+            </h2>
+            <Link
+              href="/admin/dashboard/career"
+              className="text-blue-800 text-sm hover:underline text-right"
+            >
+              View All
+            </Link>
           </div>
-        
-        <ul className="space-y-3 mt-3">
-          {latestApplicants.map((app) => (
-            <li key={app.id}>
-              <p className="font-semibold text-gray-800 capitalize">{app.name}</p>
-              <p className="text-sm text-gray-500">{app.email}</p>
-              <span className="text-xs text-gray-400">{app.createDate}</span>
-            </li>
-          ))}
-        </ul>
-       
-      </div>
+
+
+          <ul className="flex flex-col h-[10vh] overflow-y-auto mt-4">
+            {blogs.slice(0, 2).map((job) => (
+              <li key={job.id}>
+                <p className="font-semibold text-gray-800">{job.heading}</p>
+                <p className="text-sm text-gray-600 line-clamp-2">
+                  {job.status}
+                </p>
+                <span className="text-xs text-gray-400">{formatDate(job.submittedAt)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Applicants */}
+        <div className="bg-white p-5 rounded-xl border-2 h-2/3">
+          <div className="flex justify-between border-b-2 border-blue-400">
+            <h2 className="text-lg font-medium flex items-center gap-2 ">
+              <FaRegUser className="text-xl" /> Latest Applicants
+            </h2>
+            <Link
+              href="/admin/dashboard/applicants"
+              className="text-blue-800 text-sm hover:underline text-right"
+            >
+              View All
+            </Link>
+          </div>
+
+          <ul className="space-y-3 mt-3">
+            {latestApplicants.map((app) => (
+              <li key={app.id}>
+                <p className="font-semibold text-gray-800 capitalize">{app.name}</p>
+                <p className="text-sm text-gray-500">{app.email}</p>
+                <span className="text-xs text-gray-400">{app.createDate}</span>
+              </li>
+            ))}
+          </ul>
+
+        </div>
       </div>
     </section>
   );

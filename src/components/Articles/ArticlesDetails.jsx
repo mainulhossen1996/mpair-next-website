@@ -7,6 +7,7 @@ import app from "@/firebase/firebase.config";
 import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
+import { generateSlug } from "@/utils/genrateSlug";
 
 const ArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);
@@ -208,6 +209,7 @@ const ArticlesDetails = () => {
       )}
 
       {/* Blog Cards */}
+        {/* <a href={`/articles/${generateSlug(blog?.blog_name)}`}></a> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-4">
         {blogs.map((blog) => (
           <div key={blog.id} className="p-4 border rounded-lg shadow bg-white">
@@ -228,7 +230,11 @@ const ArticlesDetails = () => {
               alt="Blog"
               className="w-full h-48 object-cover rounded-lg"
             />
-            <h3 className="text-xl font-semibold mt-2">{blog.blog_name}</h3>
+           <a
+           className="text-xl font-semibold mt-2"
+           target="_blank"
+              rel="noopener noreferrer"
+            href={`/articles/${generateSlug(blog?.blog_name)}`}>{blog.blog_name}</a>
             <p
               className="text-gray-600"
               dangerouslySetInnerHTML={{

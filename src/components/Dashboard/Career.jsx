@@ -51,6 +51,7 @@ const Career = () => {
       location: formData.Location,
       jobResponsibilities: formData.jobResponsibilities,
       status: formData.status,
+      submittedAt: new Date().toISOString().split('T')[0],
     }).then(() => {
       alert("Data Added successfully");
       setFormData(initialForm);

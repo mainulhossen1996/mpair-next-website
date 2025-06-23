@@ -167,7 +167,7 @@ const Showcase = () => {
           </div>
 
 
-          <ul className="flex flex-col h-[10vh] overflow-y-auto mt-4">
+          <ul className="flex flex-col h-[8vh] overflow-y-auto mt-4">
             {blogs.slice(0, 2).map((job) => (
               <li key={job.id}>
                 <p className="font-semibold text-gray-800">{job.heading}</p>

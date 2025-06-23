@@ -25,7 +25,7 @@ const Career = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    console.log("Field changed:", { name, value, type, checked });
+    // console.log("Field changed:", { name, value, type, checked });
 
     setFormData((prev) => ({
       ...prev,

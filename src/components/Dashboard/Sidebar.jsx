@@ -47,7 +47,7 @@ const Sidebar = () => {
 
       <div className="flex justify-center items-end ">
         <button onClick={handleLogOut} className="mt-44 rounded-md w-4/5 text-base bg-violet-500  font-medium py-[2px] h-[44px]" >
-          LogOut
+          Log out
         </button>
       </div>
     </section>

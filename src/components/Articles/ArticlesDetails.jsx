@@ -68,8 +68,13 @@ const ArticlesDetails = () => {
 
   const handleDelete = (id) => {
     const db = getDatabase(app);
-    remove(ref(db, `blog/${id}`));
+
+    const confirmed = window.confirm("Are you sure you want to delete this item?");
+    if (confirmed) {
+      remove(ref(db, `blog/${id}`));
+    }
   };
+
 
   const handleEdit = (blog) => {
     setEditId(blog.id);
@@ -209,7 +214,7 @@ const ArticlesDetails = () => {
       )}
 
       {/* Blog Cards */}
-        {/* <a href={`/articles/${generateSlug(blog?.blog_name)}`}></a> */}
+      {/* <a href={`/articles/${generateSlug(blog?.blog_name)}`}></a> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-4">
         {blogs.map((blog) => (
           <div key={blog.id} className="p-4 border rounded-lg shadow bg-white">
@@ -230,11 +235,11 @@ const ArticlesDetails = () => {
               alt="Blog"
               className="w-full h-48 object-cover rounded-lg"
             />
-           <a
-           className="text-xl font-semibold mt-2"
-           target="_blank"
+            <a
+              className="text-xl font-semibold mt-2"
+              target="_blank"
               rel="noopener noreferrer"
-            href={`/articles/${generateSlug(blog?.blog_name)}`}>{blog.blog_name}</a>
+              href={`/articles/${generateSlug(blog?.blog_name)}`}>{blog.blog_name}</a>
             <p
               className="text-gray-600"
               dangerouslySetInnerHTML={{

@@ -65,11 +65,11 @@ export default function Cards({ stats }) {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-6 max-w-screen-xl pb-2 pr-4">
+    <div className="grid grid-cols-4 gap-6 pb-2 pr-4">
       {cards.map((card, index) => (
         <div
           key={index}
-          className={`rounded-xl p-6 shadow-md ${card.bg} flex items-center gap-4`}
+          className={`rounded-xl p-4 shadow-md ${card.bg} flex items-center gap-4`}
         >
           <div className="p-4 rounded-full bg-white/40 backdrop-blur-md ">{card.icon}</div>
           <div>

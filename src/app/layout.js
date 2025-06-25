@@ -9,6 +9,8 @@ import Provider from "./Provider";
 import Navbar2 from "@/components/Navbar/Navbar2";
 import { usePathname } from "next/navigation";
 import { AuthProvider } from "@/components/AuthProvider/AuthProvider";
+import { Toaster } from 'react-hot-toast';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +44,8 @@ export default function RootLayout({ children }) {
         <Provider>
           {useNavbar2 ? <Navbar2 /> : <Navbar />}
           <AuthProvider>{children}</AuthProvider>
+                  <Toaster position="top-center" reverseOrder={false} />
+
 
           <Footer />
         </Provider>

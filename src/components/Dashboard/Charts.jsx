@@ -11,7 +11,7 @@ ChartJS.register(
   BarElement,
   Tooltip,
   Legend,
-  ArcElement 
+  ArcElement
 );
 
 const Charts = () => {
@@ -127,15 +127,15 @@ const Charts = () => {
   };
 
   return (
-    <div className="flex flex-row gap-4 pr-4">
-      <div className="w-2/3 h-2/3 bg-white  p-4 rounded-xl border-2">
+    <div className="flex flex-row gap-4 pr-4  ">
+      <div className="w-2/3 mb-3 bg-white p-4 rounded-xl border-2">
         <h3 className="text-lg font-medium mb-1">Weekly Article Views</h3>
-        <Bar data={{ labels: last7Days, datasets }} options={barOptions} />
+         <Bar data={{ labels: last7Days, datasets }} options={barOptions} />
       </div>
 
-      <div className="w-1/3 bg-white rounded-xl border-2 p-4">
+      <div className="w-1/3 mb-3 bg-white rounded-xl border-2 p-4">
         <h3 className="text-lg font-medium mb-4">Queries Status Overview</h3>
-        <div className="h-5/6 w-full">
+        <div className="h-5/6 w-full ">
           <Doughnut data={doughnutData} options={doughnutOptions} />
         </div>
       </div>

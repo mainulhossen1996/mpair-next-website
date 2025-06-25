@@ -4,6 +4,7 @@ import {  useState } from "react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
 import ArticlesDetails from "./ArticlesDetails";
+import toast from "react-hot-toast";
 
 const AddArticle = () => {
   const [image, setImage] = useState("");
@@ -37,7 +38,7 @@ const AddArticle = () => {
       label,
       description,
     }).then(() => {
-      alert("Data Added successfully");
+      toast.success("Data Added successfully");
       setImage("");
       setBlogName("");
       setCreateDate("");

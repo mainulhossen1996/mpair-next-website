@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+
 
 const JobPostingForm = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +25,7 @@ const JobPostingForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    alert("Job listed successfully!");
+    toast.success("Job listed successfully!");
 
     return (
       <div className=" flex justify-center max-w-2xl mx-auto mb-20 p-6 mt-[180px]">

@@ -8,6 +8,9 @@ import { RiDeleteBin6Line, RiEditBoxLine } from "react-icons/ri";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import { generateSlug } from "@/utils/genrateSlug";
+import toast from "react-hot-toast";
+
+
 
 const ArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);
@@ -69,11 +72,35 @@ const ArticlesDetails = () => {
   const handleDelete = (id) => {
     const db = getDatabase(app);
 
-    const confirmed = window.confirm("Are you sure you want to delete this item?");
-    if (confirmed) {
-      remove(ref(db, `blog/${id}`));
-    }
-  };
+     toast((t) => (
+    <span className="text-base">
+      Are you sure you want to delete this blog?
+      <div className="mt-2 flex justify-center gap-4">
+        <button
+          onClick={() => {
+            remove(ref(db, `blog/${id}`))
+              .then(() => toast.success("Blog deleted successfully"))
+              .catch(() => toast.error("Failed to delete blog"));
+            toast.dismiss(t.id);
+          }}
+          className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 text-sm"
+        >
+          Yes
+        </button>
+        <button
+          onClick={() => toast.dismiss(t.id)}
+          className="px-4 py-2 bg-gray-300 text-gray-800 rounded text-sm"
+        >
+          Cancel
+        </button>
+      </div>
+    </span>
+  ), {
+    duration: 6000,
+   
+  });
+};
+
 
 
   const handleEdit = (blog) => {
@@ -107,7 +134,7 @@ const ArticlesDetails = () => {
       label,
       image,
     }).then(() => {
-      alert("Data updated successfully");
+      toast.success("Data updated successfully");
       setEditId(null);
       setBlogName("");
       setCreateDate("");
@@ -215,7 +242,7 @@ const ArticlesDetails = () => {
 
       {/* Blog Cards */}
       {/* <a href={`/articles/${generateSlug(blog?.blog_name)}`}></a> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {blogs.map((blog) => (
           <div key={blog.id} className="p-4 border rounded-lg shadow bg-white">
             <p className="text-lg font-semibold text-blue-500">{blog.label}</p>

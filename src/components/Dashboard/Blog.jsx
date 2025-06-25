@@ -6,6 +6,8 @@ import app from "@/firebase/firebase.config";
 import ArticlesDetails from "../Articles/ArticlesDetails";
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
+import toast from "react-hot-toast";
+
 
 const Blog = () => {
   const { quill, quillRef } = useQuill({
@@ -60,7 +62,7 @@ const Blog = () => {
       description,
     });
 
-    alert("Data Added successfully");
+    toast.success("Article added successfully!");
 
     setImage("");
     setBlogName("");
@@ -72,19 +74,16 @@ const Blog = () => {
   };
 
   return (
-    <section className="pl-8 mt-28">
-    
-      <h2 className="text-3xl font-semibold text-center">Blog List</h2>
-<div className="flex justify-end">
-
-
+    <section className="pl-8 mt-24">
+      <h2 className="text-2xl font-medium ">Blog List</h2>
+      <div className="flex justify-end">
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-blue-500 text-white p-2 rounded-full w-44 h-10 mr-16"
         >
           + Add Article
         </button>
-   </div>
+      </div>
 
       <div className="max-h-[75vh] overflow-y-auto pr-4">
         <ArticlesDetails />

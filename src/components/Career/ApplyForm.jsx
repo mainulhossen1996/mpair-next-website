@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { getDatabase, ref, set } from "firebase/database";
 import app from "@/firebase/firebase.config";
+import toast from "react-hot-toast";
+
+
 
 const ApplyForm = ({ title }) => {
   const [formData, setFormData] = useState({
@@ -37,9 +40,9 @@ const ApplyForm = ({ title }) => {
     // console.log("ooooooooooooooooo",result.secure_url)
     if (result.secure_url) {
       setFormData((prev) => ({ ...prev, resume: result.secure_url }));
-      alert("Resume uploaded successfully");
+      toast.success("Resume uploaded successfully!");
     } else {
-      alert("Upload failed. Try again.");
+      toast.error("Upload failed. Try again.");
     }
 
   };
@@ -67,7 +70,7 @@ const ApplyForm = ({ title }) => {
       submittedAt: new Date().toISOString().split('T')[0]
     });
 
-    alert("Application submitted!");
+    toast.success("Application submitted!");
 
     setFormData({
       name: "",

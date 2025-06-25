@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import JobList from "../Career/JobList";
 import app from "@/firebase/firebase.config";
 import { getDatabase, ref, set } from "firebase/database";
+import toast from 'react-hot-toast';
+
 
 const Career = () => {
   const [showModal, setShowModal] = useState(false);
@@ -53,19 +55,21 @@ const Career = () => {
       status: formData.status,
       submittedAt: new Date().toISOString().split('T')[0],
     }).then(() => {
-      alert("Data Added successfully");
+      toast.success("Job posted successfully!");
       setFormData(initialForm);
       setShowModal(false);
-    });
+  }).catch(() => {
+    toast.error("Failed to post!");
+  });
   };
 
   return (
-    <div className="pl-4 mt-32 max-w-screen-xl mx-auto">
-      <h1 className="text-3xl font-semibold mb-2 text-center">Job Listings</h1>
+    <div className="pl-8 mt-24">
+      <h1 className="text-2xl font-medium ">Job Listings</h1>
       
       <div className="flex justify-end items-center mb-2 mr-14 ">
         <button
-          className="h-11 w-44 bg-blue-500 text-white text-lg px-6 py-2 rounded-full hover:bg-blue-600 transition"
+          className="h-10 w-44 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition"
           onClick={() => {
             setShowModal(true);
             setIsEditing(false);

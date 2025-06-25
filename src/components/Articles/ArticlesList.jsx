@@ -71,12 +71,12 @@ export default function ArticlesList() {
         {/* Scrollable Blog Cards */}
 
         <div className="overflow-x-auto scrollbar-hide mt-10 scroll-smooth w-full">
-          <div className="grid grid-cols-3 gap-6 w-max px-2">
+          <div className="grid grid-cols-3 gap-6 ">
             {filteredCards[activeCategory]?.map((blog) => (
               <a href={`/articles/${generateSlug(blog?.blog_name)}`}>
                 <div
                   key={blog.id}
-                  className="bg-gray-900 rounded-xl w-[350px] h-full  p-3 relative "
+                  className="bg-gray-900 rounded-xl min-w-[350px] max-w-[400px] h-full  p-3 relative "
                 >
                   <Image
                     src={blog.image}

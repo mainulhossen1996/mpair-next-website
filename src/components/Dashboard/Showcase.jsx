@@ -87,7 +87,7 @@ const Showcase = () => {
   return (
     <section className="grid grid-cols-3 gap-4 pr-4 pb-4">
       {/*for articles */}
-      <div className="bg-white p-5 rounded-xl border-2  ">
+      <div className="bg-white p-4 rounded-xl border-2 ">
 
         <div className="flex justify-between border-b-2 border-blue-400">
           <h3 className="text-lg font-medium  flex items-center gap-2 ">
@@ -110,10 +110,10 @@ const Showcase = () => {
               <img
                 src={blog.image}
                 alt={blog.blog_name}
-                className="w-16 h-16 object-cover rounded-md"
+                className="w-14 h-14 object-cover rounded-md"
               />
               <div className="flex-1">
-                <p className="text-md line-clamp-1">{blog.blog_name}</p>
+                <p className="text-sm line-clamp-1">{blog.blog_name}</p>
                 <span className="text-xs text-gray-400">{blog.createDate}</span>
               </div>
             </li>
@@ -122,7 +122,7 @@ const Showcase = () => {
       </div>
 
       {/* for queries */}
-      <div className="bg-white p-5 rounded-xl border-2">
+      <div className="bg-white p-4 rounded-xl border-2">
         <div className="flex justify-between border-b-2 border-blue-400">
           <h2 className="text-lg font-medium flex items-center gap-2 ">
             {" "}
@@ -151,9 +151,9 @@ const Showcase = () => {
         </ul>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         {/* Jobs */}
-        <div className="bg-white p-5 rounded-xl border-2 h-1/2">
+        <div className="bg-white p-4 rounded-xl border-2 h-1/2">
           <div className="flex justify-between border-b-2 border-blue-400">
             <h2 className="text-lg font-medium flex items-center gap-2 ">
               <MdOutlineWorkOutline className="text-xl" /> Latest Jobs
@@ -167,21 +167,23 @@ const Showcase = () => {
           </div>
 
 
-          <ul className="flex flex-col h-[20vh] overflow-y-auto mt-4">
+          <ul className="flex flex-col h-[20vh] overflow-y-auto">
             {blogs.slice(0, 2).map((job) => (
-              <li key={job.id}>
-                <p className="font-semibold text-gray-800">{job.heading}</p>
-                <p className="text-sm text-gray-600 line-clamp-2">
+              <li key={job.id} className="border-b-2 last:border-none py-2">
+               <div className="flex justify-between items-center">
+                <p className="font-medium text-gray-800">{job.heading}</p>
+                <p className="text-xs text-gray-600 line-clamp-2">
                   {job.status}
                 </p>
-                <span className="text-xs text-gray-400">{formatDate(job.submittedAt)}</span>
+                </div> 
+                <p className="text-xs text-gray-400">{formatDate(job.submittedAt)}</p>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Applicants */}
-        <div className="bg-white p-5 rounded-xl border-2 h-1/2">
+        <div className="bg-white p-4 rounded-xl border-2 h-1/2">
           <div className="flex justify-between border-b-2 border-blue-400">
             <h2 className="text-lg font-medium flex items-center gap-2 ">
               <FaRegUser className="text-xl" /> Latest Applicants
@@ -197,8 +199,8 @@ const Showcase = () => {
           <ul className="space-y-3 mt-3">
             {latestApplicants.map((app) => (
               <li key={app.id}>
-                <p className="font-semibold text-gray-800 capitalize">{app.name}</p>
-                <p className="text-sm text-gray-500">{app.email}</p>
+                <p className="font-medium text-gray-800 capitalize">{app.name}</p>
+                <p className="text-xs text-gray-500">{app.email}</p>
                 <span className="text-xs text-gray-400">{app.createDate}</span>
               </li>
             ))}

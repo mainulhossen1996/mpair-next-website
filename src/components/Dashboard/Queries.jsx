@@ -54,8 +54,8 @@ export default function Queries() {
   };
 
   return (
-    <section className="pl-4 mt-32 max-w-screen-xl mx-auto">
-      <h2 className="text-3xl font-semibold mb-10 text-center">All Queries</h2>
+    <section className="px-8 mt-24">
+      <h2 className="text-2xl font-medium mb-6">All Queries</h2>
 
       {queries.length === 0 ? (
         <p>No queries received yet.</p>

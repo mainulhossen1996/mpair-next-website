@@ -58,7 +58,7 @@ export default function Activity() {
 
 
   return (
-    <section className="my-4 flex flex-row justify-between gap-4 pr-8">
+    <section className="my-4 flex flex-row justify-between gap-4 pr-4">
       <div className=" rounded-xl p-6 border-2  w-2/3 bg-white">
         <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
           <MdOutlineNotificationsActive className=" text-xl" /> Recent Activity{" "}

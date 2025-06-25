@@ -25,7 +25,7 @@ export default function Queries() {
           ...data[key],
           status: data[key].status || ""
         }));
-        console.log("rrrrr",queries)
+      //  console.log("rrrrr",queries)
         setQueries(query);
       } else {
         setQueries([]);
@@ -54,7 +54,7 @@ export default function Queries() {
   };
 
   return (
-    <section className="ml-8 h-screen mt-32 max-w-screen-xl">
+    <section className="pl-4 mt-32 max-w-screen-xl mx-auto">
       <h2 className="text-3xl font-semibold mb-10 text-center">All Queries</h2>
 
       {queries.length === 0 ? (

@@ -41,8 +41,8 @@ const Applicants = () => {
       : applicants.filter((app) => app.title === selectedTitle);
 
   return (
-    <section className="ml-8 mt-32 max-w-screen-xl mx-auto">
-      <h2 className="text-4xl font-semibold mb-6 text-center">Applicants</h2>
+    <section className="pl-4 mt-32 max-w-screen-xl mx-auto">
+      <h2 className="text-3xl font-semibold mb-6 text-center">Applicants</h2>
       <div className="mb-6 max-h-[50vh] ">
         <select
           value={selectedTitle}

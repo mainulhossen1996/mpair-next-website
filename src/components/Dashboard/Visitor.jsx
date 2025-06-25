@@ -48,7 +48,7 @@ const Visitor = () => {
     }, []);
 
     return (
-        <div className="p-4 rounded-lg text-center  ">
+        <div className=" rounded-lg text-center  ">
             <p className="text-lg font-semibold text-black  min-h-screen flex items-center justify-center">
                 👥 Today's Visitors: {count}
             </p>

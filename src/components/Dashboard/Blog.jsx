@@ -72,19 +72,21 @@ const Blog = () => {
   };
 
   return (
-    <section className="ml-8 mt-28">
-      <h2 className="text-xl font-semibold">Blog List</h2>
+    <section className="pl-8 mt-28">
+    
+      <h2 className="text-3xl font-semibold text-center">Blog List</h2>
+<div className="flex justify-end">
 
-      <div className="flex justify-end mr-24 mb-2">
+
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-blue-500 text-white p-2 rounded-full w-44 h-10"
+          className="bg-blue-500 text-white p-2 rounded-full w-44 h-10 mr-16"
         >
           + Add Article
         </button>
-      </div>
+   </div>
 
-      <div className="max-h-[75vh] overflow-y-auto pr-2">
+      <div className="max-h-[75vh] overflow-y-auto pr-4">
         <ArticlesDetails />
 
         {/* Modal */}

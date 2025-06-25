@@ -233,19 +233,19 @@ const ArticlesDetails = () => {
             <img
               src={blog.image}
               alt="Blog"
-              className="w-full h-48 object-cover rounded-lg"
+              className="w-full h-48 object-cover rounded-lg "
             />
             <a
-              className="text-xl font-semibold mt-2"
+              className="text-lg font-semibold mt-2"
               target="_blank"
               rel="noopener noreferrer"
               href={`/articles/${generateSlug(blog?.blog_name)}`}>{blog.blog_name}</a>
             <p
-              className="text-gray-600"
+              className="text-gray-600 py-2 text-sm"
               dangerouslySetInnerHTML={{
                 __html:
-                  blog.description.length > 300
-                    ? blog.description.slice(0, 300) + "..."
+                  blog.description.length > 250
+                    ? blog.description.slice(0, 250) + "..."
                     : blog.description,
               }}
             ></p>

@@ -62,7 +62,7 @@ const Showcase = () => {
           }))
           .sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
 
-          console.log("yyy",jobArray)
+        //  console.log("yyy",jobArray)
         setBlogs(jobArray);
       }
     });
@@ -85,7 +85,7 @@ const Showcase = () => {
   }, []);
 
   return (
-    <section className="grid grid-cols-3 gap-4 pr-8 pb-6 ">
+    <section className="grid grid-cols-3 gap-4 pr-4 pb-4">
       {/*for articles */}
       <div className="bg-white p-5 rounded-xl border-2  ">
 
@@ -153,7 +153,7 @@ const Showcase = () => {
 
       <div className="flex flex-col gap-4">
         {/* Jobs */}
-        <div className="bg-white p-5 rounded-xl border-2 h-1/3">
+        <div className="bg-white p-5 rounded-xl border-2 h-1/2">
           <div className="flex justify-between border-b-2 border-blue-400">
             <h2 className="text-lg font-medium flex items-center gap-2 ">
               <MdOutlineWorkOutline className="text-xl" /> Latest Jobs
@@ -167,7 +167,7 @@ const Showcase = () => {
           </div>
 
 
-          <ul className="flex flex-col h-[8vh] overflow-y-auto mt-4">
+          <ul className="flex flex-col h-[20vh] overflow-y-auto mt-4">
             {blogs.slice(0, 2).map((job) => (
               <li key={job.id}>
                 <p className="font-semibold text-gray-800">{job.heading}</p>
@@ -181,7 +181,7 @@ const Showcase = () => {
         </div>
 
         {/* Applicants */}
-        <div className="bg-white p-5 rounded-xl border-2 h-2/3">
+        <div className="bg-white p-5 rounded-xl border-2 h-1/2">
           <div className="flex justify-between border-b-2 border-blue-400">
             <h2 className="text-lg font-medium flex items-center gap-2 ">
               <FaRegUser className="text-xl" /> Latest Applicants

@@ -39,7 +39,7 @@ const Career = () => {
     const jobId = `job-${Date.now()}`;
     const newDocRef = ref(db, `job/${jobId}`);
 
-    console.log("Submitted Data:", formData);
+   // console.log("Submitted Data:", formData);
 
     set(newDocRef, {
       heading: formData.jobHeading,
@@ -60,10 +60,10 @@ const Career = () => {
   };
 
   return (
-    <div className=" mt-32  max-w-screen-xl mx-auto ">
-      <h1 className="text-2xl font-semibold ml-8">Job Listings</h1>
-
-      <div className="flex justify-end items-center mb-4 mr-14 ">
+    <div className="pl-4 mt-32 max-w-screen-xl mx-auto">
+      <h1 className="text-3xl font-semibold mb-2 text-center">Job Listings</h1>
+      
+      <div className="flex justify-end items-center mb-2 mr-14 ">
         <button
           className="h-11 w-44 bg-blue-500 text-white text-lg px-6 py-2 rounded-full hover:bg-blue-600 transition"
           onClick={() => {
@@ -77,7 +77,7 @@ const Career = () => {
       </div>
 
       {/* Job List */}
-      <div className="space-y-10 max-h-[70vh] overflow-y-auto  p-6">
+      <div className=" max-h-[70vh] overflow-y-auto ">
         <JobList />
       </div>
 

@@ -65,7 +65,7 @@ export default function Cards({ stats }) {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-6 max-w-screen-xl pb-2">
+    <div className="grid grid-cols-4 gap-6 max-w-screen-xl pb-2 pr-4">
       {cards.map((card, index) => (
         <div
           key={index}

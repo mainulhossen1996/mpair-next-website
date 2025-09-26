@@ -16,10 +16,10 @@ const Recent = () => {
         muted
         playsInline
       />
-<p className='text-center lg:text-[60px] text-[40px] text-white font-thin mb-6'>
+<p className='text-center lg:text-[50px] text-[40px] text-white font-normal mb-6'>
 Work You Can Experience – <br/>Where Ideas Meet Impact
 </p>
-<p className='text-center lg:text-2xl text-md text-gray-400 font-thin'>From empowering startups to scaling enterprises,<br/>we craft innovative software solutions that shape the digital future.</p>
+<p className='text-center lg:text-xl text-md text-gray-400 font-normal'>From empowering startups to scaling enterprises,<br/>we craft innovative software solutions that shape the digital future.</p>
 <div className='lg:flex gap-20 mt-12 '>
   <div>
         <div className='lg:my-20 my-10'>

@@ -10,10 +10,10 @@ const Pair = () => {
 return(
     <>
     <div className='bg-white lg:px-0 px-4 '>
-        <div className='text-center max-w-screen-xl lg:py-12 py-6 mx-auto'>
-            <div className='flex mx-auto py-10'>
-            <p className='lg:text-[50px] text-[30px] lg:leading-[80px] leading-[45xpx] font-[200] text-black'>
-            We are delighted to have partnered <br/> <span className="font-[500]">with over 35 notable companies,</span> delivering dynamic <span className="font-[500] ">
+        <div className='text-center max-w-screen-xl lg:py-16 py-6 mx-auto'>
+            <div className='mx-auto py-10'>
+            <p className='lg:text-[30px] text-[30px] lg:leading-[40px] leading-[45px] font-[200] text-black'>
+            We are delighted to have partnered <span className="font-[500]">with over 35 notable companies,<br/></span> delivering dynamic <span className="font-[500] ">
   SaaS products</span> and <span className="font-[500]">ERP solutions.</span>
             </p>
             </div>
@@ -39,7 +39,15 @@ return(
                 width={100}/>
             </div>
 
-           
+            <div className='flex justify-center mb-8'>
+                <Image 
+                alt=""
+                src="/image/clients/ibbl-logo.png"
+                className='object-contain grayscale grayscale-100 hover:grayscale-0' title='Qrex Diagnostic'
+                height={70}
+                width={140}/>
+            </div>
+            
 
             <div className='flex justify-center mb-8'>
                 <Image 
@@ -59,20 +67,13 @@ return(
                 width={70}/>
             </div>
 
-            <div className='flex justify-center mb-8'>
-                <Image 
-                alt=""
-                src="/image/clients/qurex.png"
-                className='object-contain grayscale grayscale-100 hover:grayscale-0' title='Qrex Diagnostic'
-                height={70}
-                width={140}/>
-            </div>
+            
             
 
             <div className='flex justify-center mb-8 '>
                 <Image 
                 alt=""
-                src="/image/clients/aromo.png"
+                src="/image/clients/pgwlogo.png"
                 className='object-contain grayscale grayscale-100 hover:grayscale-0' title='Aromo Health'
                 height={60}
                 width={60}/>

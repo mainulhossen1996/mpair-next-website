@@ -1083,7 +1083,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   position: absolute;
   top: -100;
   left: 0px;
-  height: 101px;
+  height: 120px;
   background: #ffffff; /* Orange tab */
   clip-path: polygon(0% 100%, 0% 0%, 80% 0%, 100% 100%);
   z-index: 1;

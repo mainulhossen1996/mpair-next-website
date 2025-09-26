@@ -63,9 +63,8 @@ const Hero = () => {
               {/* Through B2B Collaboration */}
               for 2X Results: <span className="text-[#0077ff]">Saas & ERP</span>
             </h1>
-            <p className="lg:text-[20px] text-[16px] lg:px-0 px-4 font-light  text-gray-300 leading-[32px] mb-5">
-            Boost efficiency with strategic B2B partnerships, delivering optimized
-              <br />  automation solutions for 2X business growth.
+            <p className="lg:text-[20px] text-[16px] lg:px-0 px-4 font-extralight  text-white leading-[32px] mb-5">
+            Guided by our mission of building solutions for everyday human needs,<br/>we integrate technology to empower businesses, enhance efficiency,<br/>and create sustainable impact.
             </p>
 
             <Button className="relative bg-[#0077ff] overflow-hidden text-white rounded-full font-semibold text-lg py-2 px-6 mt-5 group">
@@ -75,7 +74,7 @@ const Hero = () => {
               </span>
             </Button>
 
-            <div className="flex lg:justify-start justify-center mt-10 gap-10 items-center lg:mb-0 mb-10">
+            {/* <div className="flex lg:justify-start justify-center mt-10 gap-10 items-center lg:mb-0 mb-10">
               <a
                 href="https://clutch.co/profile/mpair-technologies"
                 target="_blank"
@@ -109,10 +108,10 @@ const Hero = () => {
                 ⭐ 5.0 
                 </p>
               </a>
-            </div>
+            </div> */}
           </div>
 
-          <div className="absolute -top-56 right-0 ">
+          {/* <div className="absolute -top-56 right-0 ">
             <Image
               src="/image/test3d.png"
               width={600}
@@ -120,7 +119,7 @@ const Hero = () => {
               alt=""
               className="lg:h-[500px] h-[20px] object-contain filter"
             />
-          </div>
+          </div> */}
 
           <div className="p-4 performance h-[420px] lg:block hidden">
             <p className="text-2xl pb-2 pe-20 text-gray-200">Enhance your <br/> potential</p>
@@ -161,7 +160,7 @@ const Hero = () => {
             {tabs.concat(tabs).map((tab, index) => (
               <div
                 key={index}
-                className=" text-slate-300 flex items-center italic font-regular lg:text-[30px] text-[24px] text-center whitespace-nowrap lg:p-4 p-2 px-6 "
+                className=" text-white flex items-center italic font-regular lg:text-[24px] text-[16px] text-center whitespace-nowrap lg:p-4 p-2 px-6 "
               >
                 <p className="">{tab.label}</p>
               </div>
@@ -170,10 +169,20 @@ const Hero = () => {
         </div>
       </div>
       </div>
-      <div className="w-full">
-        <div class="folder">
-  <div class="folder-tab w-3/12 flex items-center px-10"><div>
-    <p className="text-sm font-normal">2020-2024</p>
+      <div className="w-full ">
+        <div class="folder bg-gray-900">
+  <div class="folder-tab w-4/12 flex gap-4 items-center px-10">
+  <div className="">
+            <Image
+              src="/image/test3d.png"
+              width={80}
+              height={80}
+              alt=""
+              className="lg:h-[80px] h-[20px] object-contain filter"
+            />
+          </div>
+    <div>
+    <p className="text-sm font-normal">2020-2025</p>
     <p className="font-medium text-2xl text-gray-700">Our Industry Excelence</p>
     </div>
     </div>

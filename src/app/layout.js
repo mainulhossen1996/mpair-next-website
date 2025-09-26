@@ -45,8 +45,6 @@ export default function RootLayout({ children }) {
           {useNavbar2 ? <Navbar2 /> : <Navbar />}
           <AuthProvider>{children}</AuthProvider>
                   <Toaster position="top-center" reverseOrder={false} />
-
-
           <Footer />
         </Provider>
       </body>

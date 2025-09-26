@@ -1,19 +1,22 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import UIUX from "./ExpertItem/UIUX";
-import CloudSoftware from "./ExpertItem/CloudSoftware";
 import Robotics from "./ExpertItem/Robotics";
 import SEO from "./ExpertItem/SEO";
-import MobileApp from "./ExpertItem/MobileApp";
 import Image from "next/image";
+import Software from "./GrowthItem/software";
+import Operation from "./GrowthItem/operation";
+import Intelligence from "./GrowthItem/intelligence";
+import Platform from "./GrowthItem/platform";
+import Support from "./GrowthItem/support";
 
 
 
 const tabs = [
-  { name: "UI/UX Design", component: <UIUX/> },
-  { name: "Cloud Software", component: <CloudSoftware/> },
-  { name: "Robotics & Iot", component: <Robotics /> },
-  { name: "SEO & Marketing", component: <SEO /> },
+  { name: "Software", component: <Software/> },
+  { name: "Operation", component: <Operation/> },
+  { name: "Intelligence", component: <Intelligence/> },
+  { name: "Platform", component: <Platform/> },
+  { name: "Support", component: <Support/> },
 ];
 
 const Expert = () => {
@@ -60,26 +63,23 @@ const handleTabClick = (name, index) => {
   }
 };
   return (
-    <div className="bg-slate-100 py-10">
+    <div className="bg-slate-100 pb-10">
+      
     <div className="max-w-screen-xl mx-auto lg:flex gap-20">
-      <div className=" lg:sticky lg:top-0 lg:w-1/3 font-semibold lg:pb-36 pb-0">
-
-
-        <div className="sticky top-24 overflow-y-auto">
-        <div className="lg:my-10 my-2 relative">
-
-
-        <h2 className='text-start lg:text-[50px] text-[30px] text-gray-800 font-[400] lg:leading-[80px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-6 mb-2'><span className="font-[200]">Your All-in-one </span>Business Growth Solution</h2>
+      <div className=" lg:sticky lg:top-0 lg:w-1/2 font-semibold lg:pb-36 pb-0">
+        <div className="sticky top-20 overflow-y-auto">
+        <div className="mb-6">
+      <h2 className='text-start lg:text-[40px] text-[30px] text-gray-800 font-[600] lg:leading-[60px] leading:[40px] lg:px-0 px-4 lg:mt-24 mt-10 lg:mb-4 mb-2'><span className="font-[300]">Your All-in-one </span>Business Growth, Scaling, and Success Solution</h2>
         <p className="lg:text-lg text-sm text-start font-normal lg:px-0 px-4">Utilizing expertise to create innovative solutions and drive business goals.</p>
-        
-        {/* <Image
-        src="/image/connect.png"
-        height={400}
-        width={400}
-        className="h-[300px] object-contain" /> */}
-         
-        </div>
-          {/* <ul className="list-none p-0 hidden lg:block ">
+      </div>
+      <Image 
+                alt=""
+                src="/image/growth.png"
+                className='h-[400px] w-auto object-cover' title='Business Growth'
+                height={600}
+                width={600}/>
+{/* 
+          <ul className="list-none p-0 hidden lg:block ">
             {tabs.map((tab, index) => (
               <li
                 key={tab.name}
